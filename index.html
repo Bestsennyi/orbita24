@@ -3,14 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Orbita24 – Einfache Informationen und passende Lösungen</title>
+    <title>Orbita24 – Klar erklärt und einfach weiter</title>
     <meta
       name="description"
-      content="Orbita24 bereitet Informationen zu ausgewählten Angeboten verständlich auf und hilft dabei, passende Lösungen für verschiedene Themen schneller zu finden."
+      content="Orbita24 bereitet Informationen klar und verständlich auf, damit Sie Angebote schneller vergleichen und einfacher den nächsten Schritt finden."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#111827" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Orbita24" />
+    <meta property="og:title" content="Orbita24 – Klar erklärt und einfach weiter" />
+    <meta
+      property="og:description"
+      content="Klar aufgebaute Informationen und einfache Wege zu passenden Lösungen."
+    />
+    <meta property="og:url" content="https://orbita24.de/" />
+    <meta property="og:image" content="https://orbita24.de/images/hero-bg.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Orbita24 – Klar erklärt und einfach weiter" />
+    <meta
+      name="twitter:description"
+      content="Klar aufgebaute Informationen und einfache Wege zu passenden Lösungen."
+    />
+    <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
     <link rel="canonical" href="https://orbita24.de/" />
+    <link rel="preload" as="image" href="images/hero-bg.webp" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -22,26 +44,32 @@
           <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
         </a>
 
-        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav-menu">
-          <a href="index.html" class="active">Startseite</a>
+        <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
+          <a href="index.html" class="active" aria-current="page">Startseite</a>
           <a href="about.html">Über uns</a>
           <a href="kontakt.html">Kontakt</a>
         </nav>
 
-        <a href="kontakt.html" class="btn btn-primary nav-cta">Anfrage senden</a>
+        <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
       </div>
     </header>
 
     <main>
       <section class="hero section">
         <div class="hero-media" aria-hidden="true">
-          <img src="images/hero-bg.webp" alt="" class="hero-img" />
+          <img
+            src="images/hero-bg.webp"
+            alt=""
+            class="hero-img"
+            fetchpriority="high"
+            decoding="async"
+          />
           <div class="hero-media-overlay"></div>
         </div>
 
@@ -62,12 +90,7 @@
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                      <g
-                        stroke="#00ff88"
-                        stroke-width="8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
+                      <g stroke="#00ff88" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M28 66l22 22 50-50" />
                       </g>
                     </svg>
@@ -77,12 +100,7 @@
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                      <g
-                        stroke="#00ff88"
-                        stroke-width="8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
+                      <g stroke="#00ff88" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="24" y="24" width="80" height="80" rx="14" />
                         <path d="M44 54h40" />
                         <path d="M44 74h40" />
@@ -94,12 +112,7 @@
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                      <g
-                        stroke="#00ff88"
-                        stroke-width="8"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
+                      <g stroke="#00ff88" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M24 64h64" />
                         <path d="M72 40l32 24-32 24" />
                       </g>
@@ -128,12 +141,7 @@
             <article class="card feature-card">
               <div class="icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                  <g
-                    stroke="#ff5a1f"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <g stroke="#ff5a1f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="24" y="18" width="80" height="92" rx="10" />
                     <path d="M42 18v-8" />
                     <path d="M64 18v-8" />
@@ -149,20 +157,15 @@
               </div>
               <h3>Klare Informationsseiten</h3>
               <p>
-                Alle wichtigen Inhalte werden übersichtlich dargestellt, damit man schneller
-                versteht, worauf es ankommt.
+                Wichtige Inhalte sind übersichtlich aufgebaut, damit man schneller versteht, worauf
+                es ankommt.
               </p>
             </article>
 
             <article class="card feature-card">
               <div class="icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                  <g
-                    stroke="#ff5a1f"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <g stroke="#ff5a1f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M24 36h80" />
                     <path d="M24 64h80" />
                     <path d="M24 92h80" />
@@ -174,23 +177,16 @@
               </div>
               <h3>Ausgewählte Angebote</h3>
               <p>
-                Wir zeigen Möglichkeiten aus verschiedenen Bereichen in einer Form, die einfacher
-                vergleichbar und nachvollziehbar ist.
+                Möglichkeiten aus verschiedenen Bereichen werden so dargestellt, dass sie leichter
+                vergleichbar sind.
               </p>
             </article>
 
             <article class="card feature-card">
               <div class="icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                  <g
-                    stroke="#ff5a1f"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M26 28h76c7 0 12 5 12 12v42c0 7-5 12-12 12H58l-18 14v-14H26c-7 0-12-5-12-12V40c0-7 5-12 12-12z"
-                    />
+                  <g stroke="#ff5a1f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M26 28h76c7 0 12 5 12 12v42c0 7-5 12-12 12H58l-18 14v-14H26c-7 0-12-5-12-12V40c0-7 5-12 12-12z" />
                     <path d="M40 52h48" />
                     <path d="M40 68h34" />
                   </g>
@@ -198,8 +194,8 @@
               </div>
               <h3>Einfacher Kontakt</h3>
               <p>
-                Wenn Fragen offen bleiben, ist der nächste Schritt klar und direkt erreichbar – ohne
-                unnötige Umwege.
+                Wenn noch Fragen offen sind, ist der nächste Schritt klar und ohne unnötige Umwege
+                erreichbar.
               </p>
             </article>
           </div>
@@ -222,12 +218,7 @@
             <article class="card trust-card">
               <div class="icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                  <g
-                    stroke="#ff5a1f"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <g stroke="#ff5a1f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="20" y="20" width="88" height="88" rx="14" />
                     <path d="M42 64l14 14 30-30" />
                   </g>
@@ -243,12 +234,7 @@
             <article class="card trust-card">
               <div class="icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                  <g
-                    stroke="#ff5a1f"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <g stroke="#ff5a1f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M24 64h80" />
                     <path d="M80 42l24 22-24 22" />
                     <path d="M24 38h44" />
@@ -258,20 +244,15 @@
               </div>
               <h3>Einfacher Überblick</h3>
               <p>
-                Wichtige Punkte stehen im Vordergrund, damit Entscheidungen nicht unnötig
-                kompliziert werden.
+                Wichtige Punkte stehen im Vordergrund, damit Entscheidungen nicht unnötig kompliziert
+                werden.
               </p>
             </article>
 
             <article class="card trust-card">
               <div class="icon" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-                  <g
-                    stroke="#ff5a1f"
-                    stroke-width="6"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <g stroke="#ff5a1f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
                     <circle cx="64" cy="64" r="36" />
                     <path d="M64 46v18" />
                     <path d="M64 64l14 14" />
@@ -292,15 +273,15 @@
         <div class="container cta-box">
           <div class="cta-copy">
             <p class="eyebrow">Starten Sie jetzt</p>
-            <h2>Finden Sie schnell die passende Lösung</h2>
+            <h2>Sie möchten einfach und schnell weiterkommen?</h2>
             <p>
-              Nehmen Sie Kontakt auf und erhalten Sie schnell eine einfache Orientierung zu Ihrem
-              Anliegen.
+              Schreiben Sie uns. Wir helfen Ihnen dabei, Ihr Anliegen klarer einzuordnen und den
+              nächsten Schritt leichter zu finden.
             </p>
           </div>
 
           <div class="cta-side">
-            <a href="kontakt.html" class="btn btn-primary">Jetzt Kontakt aufnehmen</a>
+            <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
           </div>
         </div>
       </section>
@@ -309,7 +290,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="index.html" class="logo footer-logo">
+          <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
             <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
           </a>
           <p class="footer-text">

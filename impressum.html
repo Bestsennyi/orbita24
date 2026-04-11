@@ -6,11 +6,32 @@
     <title>Impressum – Orbita24</title>
     <meta
       name="description"
-      content="Impressum von Orbita24 mit den gesetzlich erforderlichen Angaben gemäß § 5 TMG."
+      content="Impressum von Orbita24 mit den gesetzlich erforderlichen Angaben zum Anbieter und zur Kontaktaufnahme."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#111827" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Orbita24" />
+    <meta property="og:title" content="Impressum – Orbita24" />
+    <meta
+      property="og:description"
+      content="Gesetzliche Anbieterkennzeichnung und Kontaktinformationen von Orbita24."
+    />
+    <meta property="og:url" content="https://orbita24.de/impressum.html" />
+    <meta property="og:image" content="https://orbita24.de/images/hero-bg.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Impressum – Orbita24" />
+    <meta
+      name="twitter:description"
+      content="Gesetzliche Anbieterkennzeichnung und Kontaktinformationen von Orbita24."
+    />
+    <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
     <link rel="canonical" href="https://orbita24.de/impressum.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -22,19 +43,19 @@
           <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
         </a>
 
-        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
           <a href="index.html">Startseite</a>
           <a href="about.html">Über uns</a>
           <a href="kontakt.html">Kontakt</a>
         </nav>
 
-        <a href="kontakt.html" class="btn btn-primary nav-cta">Anfrage senden</a>
+        <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
       </div>
     </header>
 
@@ -46,33 +67,23 @@
           <p>Angaben gemäß § 5 TMG</p>
         </div>
 
-        <div class="content-card card legal-content">
+        <article class="card content-card legal-content">
           <h2>Anbieter</h2>
           <p>
-            Max Mustermann
-            <br />
-            Musterstraße 1
-            <br />
-            12345 Musterstadt
-            <br />
+            Orbita24<br />
+            Anbieterangaben bitte vor Veröffentlichung ergänzen<br />
             Deutschland
           </p>
 
           <h2>Kontakt</h2>
           <p>
             E-Mail: info@orbita24.de
-            <br />
-            Telefon: +49 000 00000000
           </p>
 
           <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
           <p>
-            Max Mustermann
-            <br />
-            Musterstraße 1
-            <br />
-            12345 Musterstadt
-            <br />
+            Orbita24<br />
+            Verantwortliche Person bitte vor Veröffentlichung ergänzen<br />
             Deutschland
           </p>
 
@@ -85,8 +96,7 @@
           <h2>Haftung für Links</h2>
           <p>
             Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen
-            Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr
-            übernehmen.
+            Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
           </p>
 
           <h2>Urheberrecht</h2>
@@ -96,14 +106,14 @@
             der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
             Zustimmung des jeweiligen Autors.
           </p>
-        </div>
+        </article>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
+          <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
             <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
           </a>
           <p class="footer-text">

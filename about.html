@@ -10,7 +10,28 @@
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#111827" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Orbita24" />
+    <meta property="og:title" content="Über uns – Orbita24" />
+    <meta
+      property="og:description"
+      content="Klare Informationen, einfache Wege und verständlich aufgebaute Inhalte."
+    />
+    <meta property="og:url" content="https://orbita24.de/about.html" />
+    <meta property="og:image" content="https://orbita24.de/images/hero-bg.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Über uns – Orbita24" />
+    <meta
+      name="twitter:description"
+      content="Klare Informationen, einfache Wege und verständlich aufgebaute Inhalte."
+    />
+    <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
     <link rel="canonical" href="https://orbita24.de/about.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -22,26 +43,26 @@
           <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
         </a>
 
-        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
           <span></span>
           <span></span>
           <span></span>
         </button>
 
-        <nav class="nav-menu">
+        <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
           <a href="index.html">Startseite</a>
-          <a href="about.html" class="active">Über uns</a>
+          <a href="about.html" class="active" aria-current="page">Über uns</a>
           <a href="kontakt.html">Kontakt</a>
         </nav>
 
-        <a href="kontakt.html" class="btn btn-primary nav-cta">Anfrage senden</a>
+        <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
       </div>
     </header>
 
     <main class="section">
       <div class="container narrow">
         <div class="page-header">
-          <p class="eyebrow">Über uns</p>
+          <p class="eyebrow">Über Orbita24</p>
           <h1>Klare Informationen. Einfache Wege.</h1>
           <p>
             Orbita24 bereitet Informationen zu ausgewählten Angeboten verständlich auf und hilft
@@ -49,14 +70,13 @@
           </p>
         </div>
 
-        <div class="content-card card">
+        <article class="card content-card">
           <h2>Was uns wichtig ist</h2>
           <p>
             Wir setzen auf einfache Seiten, klare Sprache und einen Aufbau, der schnell verständlich
             ist. Unser Ziel ist es, Inhalte so darzustellen, dass Nutzer ohne unnötige Umwege
             schneller zum Wesentlichen kommen.
           </p>
-
           <ul class="styled-list">
             <li>verständliche Inhalte</li>
             <li>übersichtlich aufgebaut</li>
@@ -75,14 +95,14 @@
             Keine komplizierten Prozesse, keine überladene Darstellung und keine unnötige Ablenkung.
             Stattdessen klare Informationen, einfache Wege und ein verständlicher Aufbau.
           </p>
-        </div>
+        </article>
       </div>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
+          <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
             <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
           </a>
           <p class="footer-text">
