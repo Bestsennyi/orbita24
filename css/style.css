@@ -748,7 +748,7 @@ textarea {
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 16px;
-    padding-right: 78px;
+    padding-right: 0;
   }
 
   .scroll-top {
