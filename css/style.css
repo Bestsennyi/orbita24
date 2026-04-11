@@ -167,26 +167,32 @@ textarea {
   display: none;
   position: absolute;
   top: calc(100% + 10px);
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(280px, calc(100vw - 32px));
   padding: 14px;
   border-radius: 18px;
   background: rgba(17, 24, 39, 0.96);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+  z-index: 70;
 }
 
 .nav-menu.is-open {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  align-items: stretch;
 }
 
 .nav-menu a {
-  padding: 12px 12px;
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
   color: var(--muted);
   border-radius: 10px;
   transition: var(--transition);
+  text-align: center;
 }
 
 .nav-menu a:hover,
@@ -605,8 +611,8 @@ textarea {
 /* SCROLL TOP */
 .scroll-top {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
+  right: 16px;
+  bottom: 110px;
   width: 48px;
   height: 48px;
   border: 1px solid rgba(255, 90, 31, 0.18);
@@ -722,9 +728,13 @@ textarea {
     margin: 0 auto;
   }
 
+  .cta-section {
+    padding-bottom: 80px;
+  }
+
   .scroll-top {
     right: 16px;
-    bottom: 16px;
+    bottom: 96px;
   }
 }
 
@@ -767,7 +777,7 @@ textarea {
   }
 
   .cta-section {
-    padding-bottom: 140px;
+    padding-bottom: 112px;
   }
 
   .cta-box {
@@ -796,8 +806,8 @@ textarea {
   }
 
   .scroll-top {
-    right: 24px;
-    bottom: 60px;
+    right: 20px;
+    bottom: 118px;
   }
 }
 
@@ -821,12 +831,18 @@ textarea {
     border: 0;
     box-shadow: none;
     background: transparent;
+    width: auto;
+    transform: none;
+    left: auto;
+    top: auto;
     margin-left: auto;
     margin-right: 0;
   }
 
   .nav-menu a {
+    width: auto;
     padding: 10px 14px;
+    text-align: center;
   }
 
   .nav-cta {
@@ -853,6 +869,15 @@ textarea {
 
   .hero-content h1 {
     max-width: 9ch;
+  }
+
+  .cta-section {
+    padding-bottom: 132px;
+  }
+
+  .scroll-top {
+    right: 24px;
+    bottom: 126px;
   }
 }
 
