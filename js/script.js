@@ -121,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const footerRect = siteFooter.getBoundingClientRect();
     const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const canOverlapFooter = window.matchMedia('(min-width: 768px)').matches;
 
     if (isMobile && footerRect.top < window.innerHeight) {
       if (scrollTopButton.parentElement !== siteFooter) {
@@ -138,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     scrollTopButton.classList.remove('is-footer-docked');
 
-    const safeGap = 16;
+    const safeGap = canOverlapFooter ? -10 : 16;
     const defaultBottom = 24;
     const buttonHeight = scrollTopButton.offsetHeight || 44;
     const maxBottom = Math.max(defaultBottom, window.innerHeight - buttonHeight - safeGap);
