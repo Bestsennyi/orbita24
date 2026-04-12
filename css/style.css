@@ -1,21 +1,21 @@
 :root {
-  --bg: #111827;
-  --card: rgba(31, 41, 55, 0.9);
-  --card-strong: rgba(31, 41, 55, 0.96);
-  --text: #f9fafb;
-  --text-strong: #ffffff;
-  --muted: #9ca3af;
-  --muted-soft: #c4ccd7;
+  --bg: #f7f9fc;
+  --card: rgba(255, 255, 255, 0.94);
+  --card-strong: rgba(255, 255, 255, 0.98);
+  --text: #1f2937;
+  --text-strong: #111827;
+  --muted: #5f6b7a;
+  --muted-soft: #4b5563;
   --accent: #ff5a1f;
   --accent-hover: #e04a17;
-  --trust: #00ff88;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.12);
-  --grid: rgba(255, 255, 255, 0.014);
-  --shadow: 0 22px 64px rgba(0, 0, 0, 0.3);
-  --shadow-soft: 0 14px 34px rgba(0, 0, 0, 0.2);
-  --shadow-card-hover: 0 22px 56px rgba(0, 0, 0, 0.28);
-  --glow-orange: 0 0 0 1px rgba(255, 90, 31, 0.14), 0 0 14px rgba(255, 90, 31, 0.08);
+  --trust: #0f9f6e;
+  --border: rgba(17, 24, 39, 0.08);
+  --border-strong: rgba(17, 24, 39, 0.12);
+  --grid: rgba(17, 24, 39, 0.035);
+  --shadow: 0 22px 64px rgba(17, 24, 39, 0.12);
+  --shadow-soft: 0 14px 34px rgba(17, 24, 39, 0.08);
+  --shadow-card-hover: 0 22px 56px rgba(17, 24, 39, 0.12);
+  --glow-orange: 0 0 0 1px rgba(255, 90, 31, 0.12), 0 0 14px rgba(255, 90, 31, 0.08);
   --radius: 22px;
   --radius-sm: 16px;
   --container: 1100px;
@@ -70,9 +70,9 @@ textarea {
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(circle at top left, rgba(255, 90, 31, 0.14), transparent 26%),
-    radial-gradient(circle at bottom right, rgba(0, 255, 136, 0.1), transparent 28%),
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.025), transparent 34%),
+    radial-gradient(circle at top left, rgba(255, 90, 31, 0.07), transparent 26%),
+    radial-gradient(circle at bottom right, rgba(15, 159, 110, 0.06), transparent 28%),
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.68), transparent 34%),
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px), var(--bg);
   background-size:
@@ -106,10 +106,17 @@ textarea {
 }
 
 .site-header {
+  --text: #f9fafb;
+  --text-strong: #ffffff;
+  --muted: #9ca3af;
+  --muted-soft: #c4ccd7;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(17, 24, 39, 0.62);
+  color: var(--text);
+  background: rgba(17, 24, 39, 0.88);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   transition:
@@ -119,7 +126,7 @@ textarea {
 }
 
 .site-header.is-scrolled {
-  background: rgba(17, 24, 39, 0.82);
+  background: rgba(17, 24, 39, 0.94);
   border-bottom-color: rgba(255, 255, 255, 0.06);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
@@ -283,10 +290,16 @@ textarea {
 }
 
 .hero {
+  --text: #f9fafb;
+  --text-strong: #ffffff;
+  --muted: #c4ccd7;
+  --muted-soft: #d5dbe5;
+  --trust: #00ff88;
   position: relative;
   overflow: hidden;
   padding: 0;
   min-height: 460px;
+  color: var(--text);
   --hero-eyebrow-gap: 14px;
   --hero-title-gap: 22px;
   --hero-copy-gap: 34px;
@@ -454,20 +467,20 @@ textarea {
 
 .btn-secondary {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.72);
   border-color: var(--border);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  background: rgba(255, 255, 255, 0.055);
+  background: rgba(255, 255, 255, 0.96);
   border-color: rgba(255, 90, 31, 0.18);
   box-shadow: var(--glow-orange);
 }
 
 .card {
-  background: linear-gradient(180deg, rgba(34, 44, 63, 0.96), rgba(30, 39, 57, 0.92));
-  border: 1px solid rgba(255, 255, 255, 0.075);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+  border: 1px solid rgba(17, 24, 39, 0.075);
   border-radius: 22px;
   box-shadow: var(--shadow-soft);
   transition:
@@ -481,7 +494,7 @@ textarea {
 .card:focus-within {
   transform: translateY(-4px);
   box-shadow: var(--shadow-card-hover), var(--glow-orange);
-  border-color: rgba(255, 90, 31, 0.14);
+  border-color: rgba(255, 90, 31, 0.18);
 }
 
 .feature-card,
@@ -525,7 +538,7 @@ textarea {
 .content-card p,
 .legal-content p,
 .styled-list li {
-  color: #c0c8d4;
+  color: #5f6b7a;
 }
 
 .icon {
@@ -564,9 +577,9 @@ textarea {
   align-items: center;
   padding: 24px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(17, 24, 39, 0.08);
   box-shadow: var(--shadow-soft);
-  background: linear-gradient(135deg, rgba(34, 44, 63, 0.98), rgba(29, 38, 56, 0.88));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(250, 252, 255, 0.9));
   transition:
     transform var(--transition),
     box-shadow var(--transition),
@@ -576,7 +589,7 @@ textarea {
 .cta-box:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 22px 52px rgba(0, 0, 0, 0.3),
+    0 22px 52px rgba(17, 24, 39, 0.12),
     var(--glow-orange);
   border-color: rgba(255, 90, 31, 0.16);
 }
@@ -640,7 +653,7 @@ textarea {
   width: 100%;
   padding: 14px 16px;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--border);
   border-radius: 14px;
   outline: none;
@@ -660,7 +673,7 @@ textarea {
 .form-group textarea:focus {
   border-color: rgba(255, 90, 31, 0.55);
   box-shadow: 0 0 0 3px rgba(255, 90, 31, 0.15);
-  background: rgba(255, 255, 255, 0.04);
+  background: #ffffff;
 }
 
 .form-group textarea {
@@ -675,7 +688,7 @@ textarea {
 
 .form-note a {
   text-decoration: underline;
-  color: var(--text);
+  color: var(--text-strong);
 }
 
 .form-status {
@@ -692,13 +705,13 @@ textarea {
 }
 
 .form-status.is-success {
-  color: #c7ffe2;
-  background: rgba(0, 255, 136, 0.08);
-  border-color: rgba(0, 255, 136, 0.24);
+  color: #0b6b4a;
+  background: rgba(15, 159, 110, 0.08);
+  border-color: rgba(15, 159, 110, 0.24);
 }
 
 .form-status.is-error {
-  color: #ffd7ca;
+  color: #9a3412;
   background: rgba(255, 90, 31, 0.08);
   border-color: rgba(255, 90, 31, 0.24);
 }
@@ -712,10 +725,15 @@ textarea {
 }
 
 .site-footer {
+  --text: #f9fafb;
+  --text-strong: #ffffff;
+  --muted: #9ca3af;
+  --muted-soft: #c4ccd7;
   position: relative;
+  color: var(--text);
   padding: 40px 0 31px;
   border-top: 1px solid rgba(255, 255, 255, 0.04);
-  background: rgba(17, 24, 39, 0.52);
+  background: rgba(17, 24, 39, 0.96);
 }
 
 .footer-grid {
@@ -761,27 +779,25 @@ textarea {
   height: 44px;
   border: 1px solid rgba(255, 90, 31, 0.16);
   border-radius: 14px;
-  background: rgba(31, 41, 55, 0.92);
-  color: #ff7a45;
+  background: #ff5a1f;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: var(--shadow-soft);
+  box-shadow: 0 10px 25px rgba(255, 90, 31, 0.35);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition:
-    opacity var(--transition),
-    visibility var(--transition),
-    transform var(--transition),
-    border-color var(--transition),
-    box-shadow var(--transition),
-    bottom var(--transition);
+    opacity 0.3s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
   z-index: 60;
 }
 
-.scroll-top.is-visible {
+.scroll-top.visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -796,11 +812,8 @@ textarea {
 
 .scroll-top:hover,
 .scroll-top:focus-visible {
-  border-color: rgba(255, 90, 31, 0.28);
-  box-shadow:
-    0 0 0 1px rgba(255, 90, 31, 0.16),
-    0 0 18px rgba(255, 90, 31, 0.12);
-  transform: translateY(-2px);
+  background: #e04a17;
+  box-shadow: 0 15px 35px rgba(255, 90, 31, 0.45);
 }
 
 .scroll-top svg {

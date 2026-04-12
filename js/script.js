@@ -150,8 +150,25 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollTopButton.style.setProperty('--scroll-top-bottom', `${Math.round(nextBottom)}px`);
   };
 
+  let isScrollTopMagnetActive = false;
+
+  const resetScrollTopTransform = () => {
+    scrollTopButton.style.removeProperty('transform');
+  };
+
   const toggleScrollTopButton = () => {
-    scrollTopButton.classList.toggle('is-visible', window.scrollY > 320);
+    const isVisible = window.scrollY > 200;
+    scrollTopButton.classList.toggle('visible', isVisible);
+    if (!isVisible) {
+      isScrollTopMagnetActive = false;
+      resetScrollTopTransform();
+      updateScrollTopPosition();
+      return;
+    }
+
+    if (!isScrollTopMagnetActive) {
+      resetScrollTopTransform();
+    }
     updateScrollTopPosition();
   };
 
@@ -162,6 +179,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   scrollTopButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  scrollTopButton.addEventListener('mousemove', event => {
+    if (!scrollTopButton.classList.contains('visible')) return;
+
+    isScrollTopMagnetActive = true;
+    const rect = scrollTopButton.getBoundingClientRect();
+    const offsetX = event.clientX - rect.left - rect.width / 2;
+    const offsetY = event.clientY - rect.top - rect.height / 2;
+    const x = (offsetX / (rect.width / 2)) * 5;
+    const y = (offsetY / (rect.height / 2)) * 5;
+
+    scrollTopButton.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
+  });
+
+  scrollTopButton.addEventListener('mouseleave', () => {
+    isScrollTopMagnetActive = false;
+    resetScrollTopTransform();
   });
 
   const contactForm = document.querySelector('.contact-form');
