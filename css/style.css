@@ -846,8 +846,8 @@ textarea {
     min-height: clamp(420px, 58vh, 500px);
     padding: 0;
     --hero-eyebrow-gap: 12px;
-    --hero-title-gap: 20px;
-    --hero-copy-gap: 28px;
+    --hero-title-gap: 14px;
+    --hero-copy-gap: 22px;
   }
 
   .hero-img {
@@ -869,7 +869,7 @@ textarea {
   .hero-shell {
     min-height: clamp(420px, 58vh, 500px);
     align-items: center;
-    padding: 56px 0 46px;
+    padding: 44px 0 38px;
   }
 
   .hero-content {
@@ -878,14 +878,28 @@ textarea {
   }
 
   .hero-content h1 {
-    font-size: clamp(2.18rem, 9.4vw, 2.6rem);
-    max-width: 10.2ch;
-    line-height: 1.02;
+    font-size: clamp(1.82rem, 7.6vw, 2.18rem);
+    max-width: 12.4ch;
+    line-height: 1;
   }
 
   .hero-text {
-    font-size: 1rem;
+    font-size: 0.94rem;
+    line-height: 1.58;
     max-width: 100%;
+  }
+
+  .hero-trust {
+    gap: 7px;
+  }
+
+  .hero-trust li {
+    font-size: 0.92rem;
+  }
+
+  .hero-trust-icon {
+    width: 18px;
+    height: 18px;
   }
 
   .nav-cta {
@@ -949,7 +963,7 @@ textarea {
   }
 
   .hero-text {
-    max-width: 580px;
+    max-width: 380px;
     font-size: 1.08rem;
     line-height: 1.55;
   }
@@ -1072,7 +1086,7 @@ textarea {
   }
 
   .hero-text {
-    max-width: 600px;
+    max-width: 380px;
     font-size: 1.06rem;
     line-height: 1.55;
   }
@@ -1107,11 +1121,10 @@ textarea {
   }
 
   .hero-text {
-    max-width: 720px;
+    max-width: 430px;
     font-size: 1.16rem;
     line-height: 1.55;
   }
-
 }
 
 @media (min-width: 1400px) {
@@ -1151,4 +1164,48 @@ textarea {
     line-height: 1.7;
   }
 
+  .hero-trust {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .hero-trust li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1.04rem;
+    transition:
+      color 0.22s ease,
+      transform 0.22s ease,
+      text-shadow 0.22s ease;
+  }
+
+  .hero-trust-icon {
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition:
+      transform 0.22s ease,
+      filter 0.22s ease;
+  }
+
+  .hero-trust-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .hero-trust li:hover {
+    color: var(--text-strong);
+    transform: translateX(3px);
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.12);
+  }
+
+  .hero-trust li:hover .hero-trust-icon {
+    transform: translateX(2px);
+    filter: drop-shadow(0 0 5px rgba(0, 255, 136, 0.2));
+  }
 }
