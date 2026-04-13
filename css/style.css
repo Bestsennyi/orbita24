@@ -19,6 +19,16 @@
   --radius: 22px;
   --radius-sm: 16px;
   --container: 1100px;
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 80px;
+  --page-intro: 760px;
+  --page-copy: 780px;
   --transition: 0.26s ease;
   --header-height: 80px;
   --section-gap: 64px;
@@ -104,6 +114,28 @@ textarea {
 
 .section {
   padding: calc(var(--section-gap) / 2) 0;
+}
+
+.page-section {
+  padding: var(--space-5) 0;
+}
+
+.page-sticky {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-sticky > main {
+  flex: 1 0 auto;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.page-sticky > main > .section {
+  width: 100%;
+  padding-top: clamp(var(--space-5), 4vh, var(--space-6));
+  padding-bottom: clamp(var(--space-8), 12vh, 160px);
 }
 
 .site-header {
@@ -660,7 +692,34 @@ textarea {
 }
 
 .page-header {
-  margin-bottom: 24px;
+  max-width: var(--page-intro);
+  margin-bottom: var(--space-4);
+}
+
+.page-intro {
+  margin-bottom: var(--space-6);
+}
+
+.page-copy,
+.trust-note,
+.legal-content p {
+  max-width: var(--page-copy);
+}
+
+.page-card {
+  margin-bottom: var(--space-4);
+  padding: var(--space-4);
+}
+
+.page-cta {
+  column-gap: var(--space-6);
+  row-gap: var(--space-4);
+}
+
+.trust-note {
+  margin: var(--space-3) 0 0;
+  color: var(--muted);
+  font-size: 0.96rem;
 }
 
 .content-card h2:not(:first-child),
@@ -677,10 +736,123 @@ textarea {
   margin-top: 8px;
 }
 
+.icon-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3) var(--space-6);
+  max-width: var(--page-copy);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-5);
+  padding-left: 0;
+  list-style: none;
+}
+
+.icon-list li,
+.icon-list li + li {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: center;
+  column-gap: var(--space-2);
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.35;
+}
+
+.icon-list svg {
+  width: 22px;
+  height: 22px;
+  justify-self: start;
+}
+
 .contact-form {
   display: grid;
   gap: 16px;
   margin-top: 18px;
+}
+
+.kontakt-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(390px, 450px);
+  grid-template-rows: auto auto;
+  gap: var(--space-5) var(--space-7);
+  align-items: start;
+  justify-content: center;
+}
+
+.kontakt-main {
+  display: contents;
+}
+
+.kontakt-main .page-header {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 0;
+}
+
+.kontakt-form-card {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.kontakt-form {
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.kontakt-form .form-group input,
+.kontakt-form .form-group textarea {
+  padding: var(--space-1) var(--space-2);
+}
+
+.kontakt-form .form-group textarea {
+  min-height: 96px;
+}
+
+.form-intro {
+  margin-top: 0;
+}
+
+.field-error {
+  display: none;
+  margin: 0;
+  color: #9a3412;
+  font-size: 0.9rem;
+}
+
+.kontakt-side-card {
+  grid-column: 2;
+  grid-row: 2;
+  margin-top: 0;
+  padding: 34px;
+  border-color: rgba(17, 24, 39, 0.095);
+  box-shadow: var(--shadow-soft);
+}
+
+.kontakt-side-card h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.kontakt-side-card a {
+  color: var(--text-strong);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.kontakt-side-note {
+  margin-top: 18px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.kontakt-email {
+  margin: 0 0 var(--space-4);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .form-group {
@@ -926,6 +1098,11 @@ textarea {
     --section-gap: 48px;
   }
 
+  .icon-list {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
   .hero {
     --hero-block-size: clamp(26.25rem, 58svh, 31.25rem);
     padding: 0;
@@ -1104,6 +1281,40 @@ textarea {
 @media (min-width: 768px) and (max-width: 991px) {
   .hero {
     --hero-block-size: clamp(23.75rem, 48svh, 28.75rem);
+  }
+}
+
+@media (max-width: 1100px) {
+  .page-sticky > main {
+    align-items: stretch;
+  }
+
+  .page-sticky > main > .page-section {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+
+  .kontakt-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: var(--space-4);
+    justify-content: stretch;
+  }
+
+  .kontakt-main .page-header,
+  .kontakt-form-card,
+  .kontakt-side-card {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .kontakt-form-card,
+  .kontakt-side-card {
+    max-width: none;
+  }
+
+  .kontakt-side-card {
+    margin-top: 0;
   }
 }
 

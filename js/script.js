@@ -209,11 +209,32 @@ document.addEventListener('DOMContentLoaded', () => {
       formStatus.className = `form-status is-visible is-${type}`;
     };
 
+    const fieldErrors = {
+      name: document.querySelector('#name-error'),
+      email: document.querySelector('#email-error'),
+      message: document.querySelector('#message-error'),
+    };
+
+    const setFieldError = (field, errorElement, text) => {
+      if (!field || !errorElement) return;
+
+      errorElement.textContent = text;
+      errorElement.style.display = text ? 'block' : 'none';
+      field.setAttribute('aria-invalid', text ? 'true' : 'false');
+      field.style.borderColor = text ? 'rgba(255, 90, 31, 0.34)' : '';
+    };
+
+    const clearFieldErrors = () => {
+      setFieldError(contactForm.querySelector('#name'), fieldErrors.name, '');
+      setFieldError(contactForm.querySelector('#email'), fieldErrors.email, '');
+      setFieldError(contactForm.querySelector('#message'), fieldErrors.message, '');
+    };
+
     const params = new URLSearchParams(window.location.search);
     const status = params.get('status');
 
     if (status === 'sent') {
-      setFormStatus('success', 'Vielen Dank. Ihre Nachricht wurde erfolgreich gesendet.');
+      setFormStatus('success', 'Vielen Dank. Ihre Nachricht wurde gesendet.');
       window.history.replaceState({}, document.title, window.location.pathname);
     } else if (status === 'error') {
       setFormStatus(
@@ -223,11 +244,17 @@ document.addEventListener('DOMContentLoaded', () => {
       window.history.replaceState({}, document.title, window.location.pathname);
     }
 
-    contactForm.addEventListener('submit', event => {
+    contactForm.addEventListener('submit', async event => {
       const name = contactForm.querySelector('#name');
       const email = contactForm.querySelector('#email');
       const message = contactForm.querySelector('#message');
       const honeypot = contactForm.querySelector('#website');
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      let hasError = false;
+
+      clearFieldErrors();
+      formStatus.className = 'form-status';
+      formStatus.textContent = '';
 
       if (honeypot && honeypot.value.trim() !== '') {
         event.preventDefault();
@@ -235,9 +262,50 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (!name?.value.trim() || !email?.validity.valid || !message?.value.trim()) {
+      if (!name?.value.trim()) {
+        setFieldError(name, fieldErrors.name, 'Bitte geben Sie Ihren Namen ein.');
+        hasError = true;
+      }
+
+      if (!email?.validity.valid) {
+        setFieldError(email, fieldErrors.email, 'Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+        hasError = true;
+      }
+
+      if (!message?.value.trim()) {
+        setFieldError(message, fieldErrors.message, 'Bitte geben Sie eine Nachricht ein.');
+        hasError = true;
+      }
+
+      if (hasError) {
         event.preventDefault();
-        setFormStatus('error', 'Bitte füllen Sie alle Pflichtfelder korrekt aus.');
+        return;
+      }
+
+      if (!window.fetch) return;
+
+      event.preventDefault();
+
+      try {
+        if (submitButton) submitButton.disabled = true;
+
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { Accept: 'text/html' },
+        });
+
+        const resultUrl = response.url || '';
+        if (resultUrl.includes('status=sent')) {
+          contactForm.reset();
+          setFormStatus('success', 'Vielen Dank. Ihre Nachricht wurde gesendet.');
+        } else {
+          setFormStatus('error', 'Bitte prüfen Sie Ihre Angaben und versuchen Sie es noch einmal.');
+        }
+      } catch (error) {
+        contactForm.submit();
+      } finally {
+        if (submitButton) submitButton.disabled = false;
       }
     });
   }

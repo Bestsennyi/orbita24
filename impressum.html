@@ -40,7 +40,7 @@
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
-          <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
+          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
         </a>
 
         <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
@@ -50,24 +50,25 @@
         </button>
 
         <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
-          <a href="index.html">Startseite</a>
+          <a href="index.html" class="active">Startseite</a>
           <a href="about.html">Über uns</a>
           <a href="kontakt.html">Kontakt</a>
         </nav>
 
-        <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
+        <a href="kontakt.html" class="btn btn-primary nav-cta">Alle Optionen ansehen</a>
       </div>
     </header>
 
-    <main class="section">
-      <div class="container narrow">
-        <div class="page-header">
+    <main>
+      <section class="section page-section">
+        <div class="container">
+          <div class="page-header page-intro">
           <p class="eyebrow">Impressum</p>
           <h1>Impressum</h1>
           <p>Angaben gemäß § 5 TMG</p>
         </div>
 
-        <article class="card content-card legal-content">
+        <article class="card content-card legal-content page-card">
           <h2>Anbieter</h2>
           <p>
             Orbita24<br />
@@ -106,28 +107,37 @@
             der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
             Zustimmung des jeweiligen Autors.
           </p>
-        </article>
-      </div>
+          </article>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
           <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
-            <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
+            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
           </a>
           <p class="footer-text">
             Informationen und einfache Lösungen rund um verschiedene Dienstleistungen und Angebote.
           </p>
+          <p class="footer-note">Unabhängige Informationen. Klar und verständlich aufbereitet.</p>
         </div>
 
         <div class="footer-links">
-          <a href="about.html">Über uns</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+          <div class="footer-link-group">
+            <span>NAVIGATION</span>
+            <a href="about.html">Über uns</a>
+            <a href="kontakt.html">Kontakt</a>
+          </div>
+          <div class="footer-link-group">
+            <span>RECHTLICHES</span>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
         </div>
       </div>
+      <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script src="js/script.js"></script>

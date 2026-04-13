@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-const CONTACT_RECIPIENT = 'info@orbita24.de';
+const CONTACT_RECIPIENT = 'kontakt@orbita24.de';
 
 function redirect_to_contact(string $status): void
 {

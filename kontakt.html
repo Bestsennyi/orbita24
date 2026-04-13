@@ -34,107 +34,153 @@
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body class="page-sticky">
     <div class="site-bg" aria-hidden="true"></div>
 
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
-          <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
+          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
         </a>
 
-        <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="main-navigation">
+        <button
+          class="nav-toggle"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
           <span></span>
           <span></span>
           <span></span>
         </button>
 
         <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
-          <a href="index.html">Startseite</a>
+          <a href="index.html" class="active">Startseite</a>
           <a href="about.html">Über uns</a>
-          <a href="kontakt.html" class="active" aria-current="page">Kontakt</a>
+          <a href="kontakt.html">Kontakt</a>
         </nav>
 
-        <a href="kontakt.html" class="btn btn-primary nav-cta">Jetzt anfragen</a>
+        <a href="kontakt.html" class="btn btn-primary nav-cta">Alle Optionen ansehen</a>
       </div>
     </header>
 
-    <main class="section">
-      <div class="container narrow">
-        <div class="page-header">
-          <p class="eyebrow">Kontakt</p>
-          <h1>Schreiben Sie uns einfach</h1>
-          <p>
-            Wenn Sie Fragen haben oder mehr Informationen möchten, können Sie uns schnell und
-            unkompliziert kontaktieren.
-          </p>
+    <main>
+      <section class="section page-section">
+        <div class="container kontakt-layout">
+          <div class="kontakt-main">
+            <div class="page-header">
+              <p class="eyebrow">KONTAKT</p>
+              <h1>Schreiben Sie uns</h1>
+              <p>Bei Fragen oder Anliegen können Sie uns schnell und unkompliziert kontaktieren.</p>
+            </div>
+
+            <article class="card form-card kontakt-form-card">
+              <p class="form-intro">
+                Schreiben Sie uns einfach eine Nachricht - wir melden uns so schnell wie möglich.
+              </p>
+
+              <form
+                class="contact-form kontakt-form"
+                action="php/contact.php"
+                method="post"
+                novalidate
+              >
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    aria-describedby="name-error"
+                  />
+                  <p class="field-error" id="name-error"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">E-Mail</label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autocomplete="email"
+                    required
+                    aria-describedby="email-error"
+                  />
+                  <p class="field-error" id="email-error"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Nachricht</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="3"
+                    required
+                    aria-describedby="message-error"
+                  ></textarea>
+                  <p class="field-error" id="message-error"></p>
+                </div>
+
+                <div class="form-group honeypot" aria-hidden="true">
+                  <label for="website">Website</label>
+                  <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <p class="form-status" aria-live="polite"></p>
+
+                <button type="submit" class="btn btn-primary">Nachricht senden</button>
+              </form>
+
+              <p class="form-note">
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer
+                <a href="datenschutz.html">Datenschutzerklärung</a>
+                zu.
+              </p>
+            </article>
+          </div>
+
+          <aside class="card content-card kontakt-side-card" aria-labelledby="kontakt-direkt-title">
+            <h2 id="kontakt-direkt-title">Direkter Kontakt</h2>
+            <p class="kontakt-email">
+              <a href="mailto:kontakt@orbita24.de">kontakt@orbita24.de</a>
+            </p>
+            <p>Schreiben Sie uns gerne per E-Mail. Wir melden uns so schnell wie möglich.</p>
+            <p class="kontakt-side-note">
+              Allgemeine Anfragen, Rückmeldungen und Hinweise sind jederzeit willkommen.
+            </p>
+          </aside>
         </div>
-
-        <article class="card form-card">
-          <h2>Ihre Anfrage</h2>
-          <p>
-            Nutzen Sie das Formular, um uns Ihr Anliegen mitzuteilen. Wir melden uns so schnell wie
-            möglich zurück.
-          </p>
-
-          <form class="contact-form" action="php/contact.php" method="post" novalidate>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
-            </div>
-
-            <div class="form-group">
-              <label for="email">E-Mail</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Nachricht</label>
-              <textarea id="message" name="message" rows="6" required></textarea>
-            </div>
-
-            <div class="form-group honeypot" aria-hidden="true">
-              <label for="website">Website</label>
-              <input
-                id="website"
-                name="website"
-                type="text"
-                tabindex="-1"
-                autocomplete="off"
-              />
-            </div>
-
-            <p class="form-status" aria-live="polite"></p>
-
-            <button type="submit" class="btn btn-primary">Nachricht senden</button>
-          </form>
-
-          <p class="form-note">
-            Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer
-            <a href="datenschutz.html">Datenschutzerklärung</a> zu.
-          </p>
-        </article>
-      </div>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
           <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
-            <img src="images/logo-orbita24.png" alt="Orbita24 Logo" class="logo-img" />
+            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
           </a>
           <p class="footer-text">
             Informationen und einfache Lösungen rund um verschiedene Dienstleistungen und Angebote.
           </p>
+          <p class="footer-note">Unabhängige Informationen. Klar und verständlich aufbereitet.</p>
         </div>
 
         <div class="footer-links">
-          <a href="about.html">Über uns</a>
-          <a href="kontakt.html">Kontakt</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+          <div class="footer-link-group">
+            <span>NAVIGATION</span>
+            <a href="about.html">Über uns</a>
+            <a href="kontakt.html">Kontakt</a>
+          </div>
+          <div class="footer-link-group">
+            <span>RECHTLICHES</span>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
         </div>
       </div>
+      <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
     <script src="js/script.js"></script>
