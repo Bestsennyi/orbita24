@@ -644,7 +644,11 @@ textarea {
 
 .cta-section {
   padding-top: calc(var(--section-gap) / 2);
-  padding-bottom: var(--section-gap);
+  padding-bottom: 0;
+}
+
+.cta-section .cta-box {
+  margin-bottom: 40px;
 }
 
 .cta-box {
@@ -972,6 +976,7 @@ textarea {
 }
 
 .footer-note,
+.footer-contact,
 .footer-copy {
   color: var(--muted);
   font-size: 0.9rem;
@@ -980,6 +985,25 @@ textarea {
 .footer-note {
   max-width: 460px;
   margin: 8px 0 4px;
+}
+
+.footer-contact {
+  margin: 12px 0 12px;
+}
+
+.footer-contact a {
+  color: var(--muted);
+  text-underline-offset: 4px;
+  transition:
+    color var(--transition),
+    text-decoration-color var(--transition);
+}
+
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 
 .footer-links {
@@ -1197,7 +1221,8 @@ textarea {
     margin: 0 auto;
   }
 
-  .footer-note {
+  .footer-note,
+  .footer-contact {
     margin-left: auto;
     margin-right: auto;
   }
@@ -1253,6 +1278,10 @@ textarea {
   .cta-box {
     grid-template-columns: 1fr minmax(250px, 320px);
     padding: 26px;
+  }
+
+  .cta-section .cta-box {
+    margin-bottom: 48px;
   }
 
   .cta-side {
@@ -1399,6 +1428,12 @@ textarea {
     line-height: 1.55;
   }
 
+}
+
+@media (min-width: 992px) {
+  .cta-section .cta-box {
+    margin-bottom: 56px;
+  }
 }
 
 @media (min-width: 1200px) {
