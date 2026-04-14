@@ -774,7 +774,7 @@ textarea {
   display: grid;
   grid-template-columns: minmax(0, 600px) minmax(390px, 450px);
   grid-template-rows: auto auto;
-  gap: var(--space-5) var(--space-7);
+  gap: var(--space-3) var(--space-7);
   align-items: start;
   justify-content: center;
 }
@@ -1297,7 +1297,7 @@ textarea {
   .kontakt-layout {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    gap: var(--space-4);
+    gap: var(--space-3);
     justify-content: stretch;
   }
 
