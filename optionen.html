@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optionen - Orbita24</title>
+    <meta
+      name="description"
+      content="Übersicht über Themen und passende Optionen bei Orbita24. Vergleichen Sie verschiedene Bereiche klar und verständlich."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#111827" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Orbita24" />
+    <meta property="og:title" content="Optionen - Orbita24" />
+    <meta
+      property="og:description"
+      content="Übersicht über Themen und passende Optionen bei Orbita24."
+    />
+    <meta property="og:url" content="https://orbita24.de/optionen.html" />
+    <meta property="og:image" content="https://orbita24.de/images/hero-bg.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Optionen - Orbita24" />
+    <meta
+      name="twitter:description"
+      content="Übersicht über Themen und passende Optionen bei Orbita24."
+    />
+    <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
+    <link rel="canonical" href="https://orbita24.de/optionen.html" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .optionen-page .page-section {
+        padding-top: 32px;
+        padding-bottom: 40px;
+      }
+
+      .optionen-page .page-section > .container {
+        width: min(100% - 32px, 1280px);
+      }
+
+      .optionen-page .page-header {
+        max-width: 700px;
+        margin-bottom: 24px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .optionen-page .page-intro {
+        margin-bottom: 24px;
+      }
+
+      .optionen-page .page-header > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .optionen-page .page-header h1 {
+        max-width: 680px;
+        margin-bottom: 8px;
+        font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+        line-height: 1.18;
+      }
+
+      .optionen-page .page-header p:not(.eyebrow) {
+        max-width: 600px;
+        margin-bottom: 0;
+        font-size: 0.9375rem;
+        line-height: 1.5;
+      }
+
+      .optionen-page .optionen-grid {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 48px;
+      }
+
+      .optionen-page .optionen-card {
+        min-height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        border-color: rgba(17, 24, 39, 0.085);
+        box-shadow: 0 8px 22px rgba(17, 24, 39, 0.055);
+        background: #ffffff;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .optionen-page .optionen-card::after {
+        content: none;
+      }
+
+      .optionen-page .optionen-card:hover,
+      .optionen-page .optionen-card:focus-within {
+        transform: translateY(-4px);
+        border-color: rgba(255, 90, 31, 0.18);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .optionen-page .optionen-card:focus-visible {
+        outline: 3px solid rgba(255, 90, 31, 0.22);
+        outline-offset: 3px;
+      }
+
+      .optionen-page .optionen-card .icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 12px;
+        border-radius: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        transition:
+          transform 0.2s ease,
+          filter 0.2s ease;
+      }
+
+      .optionen-page .optionen-card .icon svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      .optionen-page .optionen-card:hover .icon,
+      .optionen-page .optionen-card:focus-within .icon {
+        transform: translateY(-2px);
+        filter: drop-shadow(0 6px 10px rgba(255, 90, 31, 0.12));
+      }
+
+      .optionen-page .optionen-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        max-width: calc(100% - 48px);
+        padding: 3px 7px;
+        border-radius: 999px;
+        color: #1f7a5a;
+        background: rgba(0, 255, 136, 0.06);
+        border: 1px solid rgba(0, 255, 136, 0.12);
+        font-size: 0.65625rem;
+        font-weight: 500;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+
+      .optionen-page .optionen-card h3 {
+        margin-top: 0;
+        margin-bottom: 6px;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--text-strong);
+      }
+
+      .optionen-page .optionen-card p {
+        flex: 1 1 auto;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      .optionen-page .optionen-card .btn {
+        min-height: 38px;
+        margin-top: auto;
+        padding: 0 12px;
+        color: var(--text-strong);
+        background: #ffffff;
+        border-color: rgba(17, 24, 39, 0.14);
+        font-size: 0.875rem;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .optionen-page .optionen-card .btn::after {
+        content: "→";
+        margin-left: 8px;
+        transition: transform 0.2s ease;
+      }
+
+      .optionen-page .optionen-card:hover .btn,
+      .optionen-page .optionen-card .btn:hover,
+      .optionen-page .optionen-card .btn:focus-visible {
+        color: #ffffff;
+        background: #ff5a1f;
+        border-color: #ff5a1f;
+        box-shadow: 0 12px 24px rgba(255, 90, 31, 0.18);
+      }
+
+      .optionen-page .optionen-card .btn:active {
+        background: #c94214;
+        border-color: #c94214;
+      }
+
+      .optionen-page .optionen-card:hover .btn::after,
+      .optionen-page .optionen-card .btn:hover::after,
+      .optionen-page .optionen-card .btn:focus-visible::after {
+        transform: translateX(3px);
+      }
+
+      .optionen-page .page-cta {
+        margin-bottom: 40px;
+        padding: 18px 24px;
+        border-color: rgba(17, 24, 39, 0.085);
+        background: #ffffff;
+        box-shadow: 0 8px 20px rgba(17, 24, 39, 0.065);
+      }
+
+      .optionen-page .page-cta:hover {
+        border-color: rgba(255, 90, 31, 0.13);
+        box-shadow: 0 10px 24px rgba(17, 24, 39, 0.075);
+      }
+
+      .optionen-page .page-cta h2 {
+        margin-bottom: 6px;
+        font-size: clamp(1.45rem, 2.2vw, 1.8rem);
+        font-weight: 600;
+        line-height: 1.1;
+      }
+
+      .optionen-page .page-cta p {
+        margin-top: 0;
+        line-height: 1.42;
+      }
+
+      .optionen-page .page-cta .cta-side {
+        align-self: center;
+      }
+
+      .optionen-page .page-cta .btn {
+        min-height: 42px;
+        padding: 0 18px;
+        color: var(--text-strong);
+        background: #ffffff;
+        border-color: rgba(17, 24, 39, 0.14);
+        font-size: 0.92rem;
+      }
+
+      .optionen-page .page-cta .btn:hover,
+      .optionen-page .page-cta .btn:focus-visible {
+        color: #ffffff;
+        background: #ff5a1f;
+        border-color: #ff5a1f;
+      }
+
+      .optionen-page .page-cta .btn:active {
+        background: #c94214;
+        border-color: #c94214;
+      }
+
+      @media (min-width: 768px) {
+        .optionen-page .optionen-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1180px) {
+        .optionen-page .optionen-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 767px) {
+        .optionen-page .page-section {
+          padding-top: 28px;
+          padding-bottom: 32px;
+        }
+
+        .optionen-page .page-header {
+          margin-bottom: 20px;
+        }
+
+        .optionen-page .page-intro {
+          margin-bottom: 20px;
+        }
+
+        .optionen-page .optionen-grid {
+          gap: 18px;
+          margin-bottom: 40px;
+        }
+
+        .optionen-page .optionen-card {
+          padding: 20px;
+        }
+
+        .optionen-page .optionen-badge {
+          top: 14px;
+          right: 14px;
+        }
+
+        .optionen-page .optionen-card .btn,
+        .optionen-page .page-cta .btn {
+          width: 100%;
+        }
+
+        .optionen-page .page-cta {
+          margin-bottom: 32px;
+          padding: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body class="optionen-page">
+    <div class="site-bg" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
+          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
+          <a href="index.html">Startseite</a>
+          <a href="optionen.html" class="active" aria-current="page">Optionen</a>
+          <a href="about.html">Über uns</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section page-section">
+        <div class="container">
+          <div class="page-header page-intro">
+            <p class="eyebrow">OPTIONEN</p>
+            <h1>Passende Optionen im Überblick</h1>
+            <p>Finden Sie schnell passende Lösungen – klar und übersichtlich.</p>
+          </div>
+
+          <div class="optionen-grid">
+            <a href="/finanzen.html" class="card optionen-card">
+              <span class="optionen-badge">Einfach erklärt</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                  <g
+                    stroke="#ff5a1f"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="64" cy="64" r="42" />
+                    <path d="M82 42c-7-6-16-8-26-5-15 4-25 15-25 27s10 23 25 27c10 3 19 1 26-5" />
+                    <path d="M24 56h48" />
+                    <path d="M24 72h46" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Finanzen</h3>
+              <p>Kredite, Finanzierung und flexible Lösungen einfach vergleichen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/versicherungen.html" class="card optionen-card">
+              <span class="optionen-badge">Klar erklärt</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                  <g
+                    stroke="#ff5a1f"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M64 20l36 13v28c0 25-15 39-36 49-21-10-36-24-36-49V33l36-13z" />
+                    <path d="M50 64l10 10 21-23" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Versicherungen</h3>
+              <p>Versicherungen übersichtlich vergleichen und passende Lösungen finden.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/arbeit.html" class="card optionen-card">
+              <span class="optionen-badge">Beliebt</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                  <g
+                    stroke="#ff5a1f"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="18" y="34" width="92" height="66" rx="10" />
+                    <path d="M48 34v-10h32v10" />
+                    <path d="M18 60h92" />
+                    <path d="M54 80h20" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Arbeit & Einkommen</h3>
+              <p>Jobs, Einkommen und zusätzliche Möglichkeiten im Überblick.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/energie-haushalt.html" class="card optionen-card">
+              <span class="optionen-badge">Alltag sparen</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                  <g
+                    stroke="#ff5a1f"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M24 62l40-34 40 34" />
+                    <path d="M34 58v42h60V58" />
+                    <path d="M54 100V76h20v24" />
+                    <path d="M88 28v18" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Energie & Haushalt</h3>
+              <p>Tarife, Versorgung und alltägliche Kosten im Überblick.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/internet-vertraege.html" class="card optionen-card">
+              <span class="optionen-badge">Schnell online</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                  <g
+                    stroke="#ff5a1f"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="16" y="24" width="96" height="66" rx="10" />
+                    <path d="M46 108h36" />
+                    <path d="M64 90v18" />
+                    <path d="M44 56h40" />
+                    <path d="M50 70h28" />
+                    <circle cx="38" cy="56" r="2.5" />
+                    <circle cx="90" cy="56" r="2.5" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Internet & Verträge</h3>
+              <p>Internet, Mobilfunk und Verträge einfach vergleichen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/vergleiche-angebote.html" class="card optionen-card">
+              <span class="optionen-badge">Top Auswahl</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                  <g
+                    stroke="#ff5a1f"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="24" y="24" width="28" height="28" rx="6" />
+                    <rect x="76" y="24" width="28" height="28" rx="6" />
+                    <rect x="24" y="76" width="28" height="28" rx="6" />
+                    <rect x="76" y="76" width="28" height="28" rx="6" />
+                    <path d="M52 38h24" />
+                    <path d="M38 52v24" />
+                    <path d="M90 52v24" />
+                    <path d="M52 90h24" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Vergleiche & Angebote</h3>
+              <p>Ausgewählte Angebote und praktische Vergleiche auf einen Blick.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+          </div>
+
+          <section class="cta-box page-cta" aria-labelledby="optionen-cta-title">
+            <div class="cta-copy">
+              <h2 id="optionen-cta-title">Nicht sicher, welcher Bereich passt?</h2>
+              <p>
+                Wenn Sie Fragen haben oder eine allgemeine Orientierung benötigen, können Sie uns
+                direkt kontaktieren.
+              </p>
+            </div>
+
+            <div class="cta-side">
+              <a href="/kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
+            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
+          </a>
+          <p class="footer-text">
+            Informationen und einfache Lösungen rund um verschiedene Dienstleistungen und Angebote.
+          </p>
+          <p class="footer-note">Unabhängige Informationen. Klar und verständlich aufbereitet.</p>
+          <p class="footer-contact">
+            <a href="mailto:kontakt@orbita24.de">kontakt@orbita24.de</a>
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-link-group">
+            <span>NAVIGATION</span>
+            <a href="about.html">Über uns</a>
+            <a href="kontakt.html">Kontakt</a>
+          </div>
+          <div class="footer-link-group">
+            <span>RECHTLICHES</span>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

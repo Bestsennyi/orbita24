@@ -135,7 +135,7 @@ textarea {
 .page-sticky > main > .section {
   width: 100%;
   padding-top: clamp(var(--space-5), 4vh, var(--space-6));
-  padding-bottom: clamp(var(--space-8), 12vh, 160px);
+  padding-bottom: var(--space-5);
 }
 
 .site-header {
@@ -644,7 +644,7 @@ textarea {
 
 .cta-section {
   padding-top: calc(var(--section-gap) / 2);
-  padding-bottom: 0;
+  padding-bottom: var(--space-5);
 }
 
 .cta-section .cta-box {
@@ -717,7 +717,13 @@ textarea {
 
 .page-cta {
   column-gap: var(--space-6);
+  margin-bottom: 40px;
   row-gap: var(--space-4);
+}
+
+.page-section > .container > .page-card:last-child,
+.page-sticky .kontakt-layout {
+  margin-bottom: 40px;
 }
 
 .trust-note {
@@ -1284,6 +1290,15 @@ textarea {
     margin-bottom: 48px;
   }
 
+  .page-cta {
+    margin-bottom: 48px;
+  }
+
+  .page-section > .container > .page-card:last-child,
+  .page-sticky .kontakt-layout {
+    margin-bottom: 48px;
+  }
+
   .cta-side {
     justify-content: center;
   }
@@ -1387,6 +1402,10 @@ textarea {
     text-align: center;
   }
 
+  .nav-menu a.nav-mobile-only {
+    display: none;
+  }
+
   .nav-cta {
     display: inline-flex;
     margin-left: 4px;
@@ -1432,6 +1451,15 @@ textarea {
 
 @media (min-width: 992px) {
   .cta-section .cta-box {
+    margin-bottom: 56px;
+  }
+
+  .page-cta {
+    margin-bottom: 56px;
+  }
+
+  .page-section > .container > .page-card:last-child,
+  .page-sticky .kontakt-layout {
     margin-bottom: 56px;
   }
 }
