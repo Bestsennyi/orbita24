@@ -17,12 +17,12 @@ $categories = @(
     faqTitle = "Wie nutze ich die Finanzübersicht?"
     faqText = "Wählen Sie zuerst das Thema, das zu Ihrer aktuellen Situation passt. Auf der nächsten Seite finden Sie Hinweise, Vergleichsaspekte und mögliche nächste Schritte."
     items = @(
-      @{ slug = "kredit"; title = "Kredit"; text = "Kreditarten, Kosten und Rückzahlung einfach verstehen." },
-      @{ slug = "girokonto"; title = "Girokonto"; text = "Kontoführung, Gebühren und Funktionen einfach vergleichen." },
-      @{ slug = "kreditkarte"; title = "Kreditkarte"; text = "Kreditkarten, Kosten und Nutzung schnell überblicken." },
-      @{ slug = "tagesgeld"; title = "Tagesgeld"; text = "Flexible Sparmöglichkeiten und Zinsen einfach vergleichen." },
-      @{ slug = "festgeld"; title = "Festgeld"; text = "Laufzeiten, feste Zinsen und Verfügbarkeit einfach prüfen." },
-      @{ slug = "schufa-freundliche-finanzoptionen"; title = "Schufa-freundliche Finanzoptionen"; text = "Finanzoptionen bei sensibler Bonität besser verstehen." }
+      @{ slug = "kredit"; title = "Kredit"; label = "Überblick"; text = "Kreditarten, Kosten und Rückzahlung einfach verstehen." },
+      @{ slug = "girokonto"; title = "Girokonto"; label = "Alltag"; text = "Kontoführung, Gebühren und Funktionen einfach vergleichen." },
+      @{ slug = "kreditkarte"; title = "Kreditkarte"; label = "Karten"; text = "Kreditkarten, Kosten und Nutzung schnell überblicken." },
+      @{ slug = "tagesgeld"; title = "Tagesgeld"; label = "Sparen"; text = "Flexible Sparmöglichkeiten und Zinsen einfach vergleichen." },
+      @{ slug = "festgeld"; title = "Festgeld"; label = "Stabil"; text = "Laufzeiten, feste Zinsen und Verfügbarkeit einfach prüfen." },
+      @{ slug = "schufa-freundliche-finanzoptionen"; title = "Schufa-freundliche Finanzoptionen"; label = "Bonität"; text = "Finanzoptionen bei sensibler Bonität besser verstehen." }
     )
   },
   @{
@@ -557,13 +557,14 @@ function Get-CategoryPage($category) {
   $cards = foreach ($item in $category.items) {
     $href = "./$($item.slug)/"
     $icon = Get-ItemIcon $item
+    $label = if ($item.ContainsKey("label")) { $item.label } else { "Einfach erklärt" }
 @"
             <a href="$href" class="card structure-card">
               <span class="structure-card-top">
                 <span class="structure-card-icon" aria-hidden="true">
 $icon
                 </span>
-                <span class="structure-card-meta">Einfach erklärt</span>
+                <span class="structure-card-meta">$label</span>
               </span>
               <h3>$($item.title)</h3>
               <p>$($item.text)</p>
@@ -664,7 +665,7 @@ function Get-PrelandingPage($category, $item) {
 $css = @"
 .optionen-structure-page .structure-section {
   padding-top: 32px;
-  padding-bottom: 48px;
+  padding-bottom: 40px;
 }
 
 .optionen-structure-page .structure-container {
@@ -794,7 +795,7 @@ $css = @"
 
 .structure-card:hover,
 .structure-card:focus-visible {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.08),
     var(--glow-orange);
@@ -809,29 +810,35 @@ $css = @"
 
 .structure-card-meta {
   width: max-content;
-  padding: 3px 8px;
+  max-width: calc(100% - 48px);
+  padding: 3px 7px;
   border-radius: 999px;
   color: #1f7a5a;
   background: rgba(0, 255, 136, 0.06);
   border: 1px solid rgba(0, 255, 136, 0.12);
-  font-size: 0.72rem;
-  font-weight: 600;
+  font-size: 0.65625rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .structure-final {
+  margin-bottom: 35px;
   padding: 20px 22px;
 }
 
 .structure-card h3 {
-  margin: 0 0 8px;
+  margin: 0 0 6px;
   color: var(--text-strong);
-  font-size: 1.15rem;
-  line-height: 1.25;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .structure-card p {
   flex: 1 1 auto;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .structure-link {
@@ -901,7 +908,11 @@ $css = @"
 @media (max-width: 767px) {
   .optionen-structure-page .structure-section {
     padding-top: 28px;
-    padding-bottom: 36px;
+    padding-bottom: 32px;
+  }
+
+  .structure-final {
+    margin-bottom: 26px;
   }
 }
 "@
@@ -960,6 +971,12 @@ if ($Mode -eq "categories") {
 } else {
   Write-Output "Generated $($categories.Count) category pages and $($categories.items.Count) prelanding pages."
 }
+
+
+
+
+
+
 
 
 
