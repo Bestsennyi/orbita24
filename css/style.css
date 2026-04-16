@@ -551,7 +551,9 @@ textarea {
 .card:hover,
 .card:focus-within {
   transform: translateY(-2px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.07),
+    var(--glow-orange);
   border-color: rgba(255, 90, 31, 0.18);
 }
 
@@ -671,7 +673,7 @@ textarea {
   box-shadow:
     0 22px 52px rgba(17, 24, 39, 0.12),
     var(--glow-orange);
-  border-color: rgba(255, 90, 31, 0.16);
+  border-color: rgba(255, 90, 31, 0.18);
 }
 
 .cta-box h2 {
@@ -891,7 +893,7 @@ textarea {
 
 .form-group input:hover,
 .form-group textarea:hover {
-  border-color: rgba(255, 90, 31, 0.16);
+  border-color: rgba(255, 90, 31, 0.18);
   box-shadow: var(--glow-orange);
 }
 

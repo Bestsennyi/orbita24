@@ -1,0 +1,242 @@
+.optionen-structure-page .structure-section {
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.optionen-structure-page .structure-container {
+  width: min(100% - 32px, 1180px);
+}
+
+.structure-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.structure-breadcrumb a {
+  color: var(--text-strong);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.structure-breadcrumb span::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--muted);
+}
+
+.structure-header {
+  max-width: 740px;
+  margin-bottom: 28px;
+}
+
+.structure-header h1 {
+  margin: 0 0 10px;
+  color: var(--text-strong);
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  line-height: 1.08;
+}
+
+.structure-header p:not(.eyebrow) {
+  max-width: 680px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.structure-info,
+.structure-note,
+.structure-final,
+.structure-content-card,
+.structure-cta {
+  padding: 22px;
+  background: #ffffff;
+}
+
+.structure-info {
+  margin-bottom: 22px;
+}
+
+.structure-info h2,
+.structure-note h2,
+.structure-final h2,
+.structure-content-card h2,
+.structure-cta h2 {
+  margin: 0 0 8px;
+  color: var(--text-strong);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.structure-info p,
+.structure-note p,
+.structure-final p,
+.structure-content-card p,
+.structure-cta p,
+.structure-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.structure-grid,
+.structure-content-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.structure-grid {
+  margin-bottom: 28px;
+}
+
+.structure-card {
+  min-height: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.structure-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.structure-card-icon {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.structure-card-icon svg {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.structure-card:hover,
+.structure-card:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.08),
+    var(--glow-orange);
+  border-color: rgba(255, 90, 31, 0.18);
+}
+
+.structure-card:hover .structure-card-icon,
+.structure-card:focus-visible .structure-card-icon {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 6px 10px rgba(255, 90, 31, 0.12));
+}
+
+.structure-card-meta {
+  width: max-content;
+  padding: 3px 8px;
+  border-radius: 999px;
+  color: #1f7a5a;
+  background: rgba(0, 255, 136, 0.06);
+  border: 1px solid rgba(0, 255, 136, 0.12);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.structure-final {
+  padding: 20px 22px;
+}
+
+.structure-card h3 {
+  margin: 0 0 8px;
+  color: var(--text-strong);
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.structure-card p {
+  flex: 1 1 auto;
+  font-size: 0.95rem;
+}
+
+.structure-link {
+  width: max-content;
+  margin-top: 18px;
+  color: var(--text-strong);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.structure-card:hover .structure-link,
+.structure-card:focus-visible .structure-link {
+  color: #ff5a1f;
+  transform: translateX(3px);
+}
+
+.structure-split {
+  display: grid;
+  gap: 18px;
+}
+
+.structure-content-grid {
+  margin-bottom: 28px;
+}
+
+.structure-cta {
+  display: grid;
+  gap: 18px;
+  align-items: center;
+}
+
+.structure-cta .btn {
+  width: 100%;
+  background: #ffffff;
+  border-color: rgba(17, 24, 39, 0.14);
+  color: var(--text-strong);
+}
+
+.structure-cta .btn:hover,
+.structure-cta .btn:focus-visible {
+  color: #ffffff;
+  background: #ff5a1f;
+  border-color: #ff5a1f;
+}
+
+@media (min-width: 768px) {
+  .structure-grid,
+  .structure-content-grid,
+  .structure-split {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .structure-cta {
+    grid-template-columns: 1fr minmax(220px, 280px);
+  }
+}
+
+@media (min-width: 1120px) {
+  .structure-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .optionen-structure-page .structure-section {
+    padding-top: 28px;
+    padding-bottom: 36px;
+  }
+}

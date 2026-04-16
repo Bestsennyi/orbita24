@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const currentPathname = window.location.pathname;
+  const currentFile = currentPathname.split('/').pop() || 'index.html';
+  const isOptionenSection =
+    currentPathname.endsWith('/optionen.html') || currentPathname.includes('/optionen/');
   const normalizePath = path => (path === '' ? 'index.html' : path);
 
   document.querySelectorAll('.nav-menu a, .footer-links a').forEach(link => {
@@ -62,7 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!href || href.startsWith('#') || href.startsWith('http')) return;
 
     const linkPath = normalizePath(href.split('/').pop() || 'index.html');
-    if (linkPath === currentPath) {
+    const isActive = isOptionenSection ? linkPath === 'optionen.html' : linkPath === currentFile;
+
+    if (isActive) {
       link.classList.add('active');
       if (link.closest('.nav-menu')) {
         link.setAttribute('aria-current', 'page');
