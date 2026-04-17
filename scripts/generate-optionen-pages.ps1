@@ -580,10 +580,16 @@ $icon
     <main>
       <section class="section structure-section">
         <div class="container structure-container">
-          <nav class="structure-breadcrumb" aria-label="Breadcrumb">
-            <a href="${prefix}optionen.html">Optionen</a>
-            <span style="color: #ff5a1f">$($category.title)</span>
-          </nav>
+          <div class="structure-nav-row">
+            <a href="${prefix}optionen.html" class="structure-back" aria-label="Zurück zu Optionen">
+              <span class="structure-back-arrow" aria-hidden="true">←</span>
+            </a>
+            <nav class="structure-breadcrumb" aria-label="Breadcrumb">
+              <a href="${prefix}optionen.html">Optionen</a>
+              <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
+              <span class="structure-breadcrumb-current">$($category.title)</span>
+            </nav>
+          </div>
 
           <div class="structure-header">
             <h1>$title</h1>
@@ -614,11 +620,18 @@ function Get-PrelandingPage($category, $item) {
     <main>
       <section class="section structure-section">
         <div class="container structure-container">
-          <nav class="structure-breadcrumb" aria-label="Breadcrumb">
-            <a href="${prefix}optionen.html">Optionen</a>
-            <a href="../">$($category.title)</a>
-            <span>$($item.title)</span>
-          </nav>
+          <div class="structure-nav-row">
+            <a href="../" class="structure-back" aria-label="Zurück zur Kategorie">
+              <span class="structure-back-arrow" aria-hidden="true">←</span>
+            </a>
+            <nav class="structure-breadcrumb" aria-label="Breadcrumb">
+              <a href="${prefix}optionen.html">Optionen</a>
+              <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
+              <a href="../">$($category.title)</a>
+              <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
+              <span class="structure-breadcrumb-current">$($item.title)</span>
+            </nav>
+          </div>
 
           <div class="structure-header">
             <p class="eyebrow">$($category.title.ToUpper())</p>
@@ -672,11 +685,65 @@ $css = @"
   width: min(100% - 32px, 1180px);
 }
 
+.structure-nav-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.structure-back {
+  position: relative;
+  width: 36px;
+  min-width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(17, 24, 39, 0.14);
+  border-radius: 8px;
+  color: var(--text-strong);
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.045);
+  font-size: 0;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.structure-back:hover,
+.structure-back:focus-visible {
+  color: #ffffff;
+  background: #ff5a1f;
+  border-color: #ff5a1f;
+  box-shadow:
+    0 10px 24px rgba(255, 90, 31, 0.12),
+    var(--glow-orange);
+  transform: translateX(-2px);
+}
+
+.structure-back-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
 .structure-breadcrumb {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 24px;
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -687,9 +754,11 @@ $css = @"
   text-underline-offset: 4px;
 }
 
-.structure-breadcrumb span::before {
-  content: "/";
-  margin-right: 8px;
+.structure-breadcrumb-current {
+  color: #ff5a1f;
+}
+
+.structure-breadcrumb-separator {
   color: var(--muted);
 }
 
@@ -911,6 +980,10 @@ $css = @"
     padding-bottom: 32px;
   }
 
+  .structure-nav-row {
+    gap: 14px;
+  }
+
   .structure-final {
     margin-bottom: 26px;
   }
@@ -971,6 +1044,25 @@ if ($Mode -eq "categories") {
 } else {
   Write-Output "Generated $($categories.Count) category pages and $($categories.items.Count) prelanding pages."
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

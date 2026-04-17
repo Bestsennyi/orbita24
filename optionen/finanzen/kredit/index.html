@@ -3,20 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kredit vergleichen - Orbita24</title>
-    <meta name="description" content="Kredit: neutrale Orientierung, wichtige Vergleichspunkte und nächste Schritte bei Orbita24." />
+    <title>Kredit einfach erklärt - Orbita24</title>
+    <meta
+      name="description"
+      content="Kredit einfach erklärt: passende Kreditoptionen ruhig ansehen und mögliche Lösungen vergleichen."
+    />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#111827" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="Orbita24" />
-    <meta property="og:title" content="Kredit vergleichen - Orbita24" />
-    <meta property="og:description" content="Kredit: neutrale Orientierung, wichtige Vergleichspunkte und nächste Schritte bei Orbita24." />
+    <meta property="og:title" content="Kredit einfach erklärt - Orbita24" />
+    <meta
+      property="og:description"
+      content="Kredit einfach erklärt: passende Kreditoptionen ruhig ansehen und mögliche Lösungen vergleichen."
+    />
     <meta property="og:url" content="https://orbita24.de/optionen/finanzen/kredit/" />
     <meta property="og:image" content="https://orbita24.de/images/hero-bg.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kredit vergleichen - Orbita24" />
-    <meta name="twitter:description" content="Kredit: neutrale Orientierung, wichtige Vergleichspunkte und nächste Schritte bei Orbita24." />
+    <meta name="twitter:title" content="Kredit einfach erklärt - Orbita24" />
+    <meta
+      name="twitter:description"
+      content="Kredit einfach erklärt: passende Kreditoptionen ruhig ansehen und mögliche Lösungen vergleichen."
+    />
     <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
     <link rel="canonical" href="https://orbita24.de/optionen/finanzen/kredit/" />
     <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png" />
@@ -25,6 +34,143 @@
     <link rel="manifest" href="../../../site.webmanifest" />
     <link rel="stylesheet" href="../../../css/style.css" />
     <link rel="stylesheet" href="../../../css/optionen-structure.css" />
+    <style>
+      .offer-intro {
+        margin-bottom: 22px;
+      }
+
+      .offer-intro h1 {
+        margin-bottom: 8px;
+      }
+
+      .offer-intro p {
+        max-width: 640px;
+        line-height: 1.48;
+      }
+
+      .offer-intro.structure-header {
+        max-width: 680px;
+      }
+
+      .structure-nav-row {
+        margin-bottom: 20px;
+      }
+
+      .offer-grid {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 35px;
+      }
+
+      .offer-card {
+        position: relative;
+        min-height: 100%;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+      }
+
+      .offer-logo {
+        width: 142px;
+        max-width: 52%;
+        min-height: 58px;
+        padding: 10px 18px;
+        margin-top: -6px;
+        margin-bottom: 34px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(17, 24, 39, 0.1);
+        border-radius: 8px;
+        color: rgba(75, 85, 99, 0.72);
+        background: rgba(248, 250, 252, 0.96);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-sizing: border-box;
+      }
+
+      .offer-card .structure-card-meta {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        max-width: calc(100% - 176px);
+        margin: 0;
+      }
+
+      .offer-card h2 {
+        margin: 0 0 10px;
+        color: var(--text-strong);
+        font-size: clamp(1.25rem, 2vw, 1.45rem);
+        line-height: 1.18;
+      }
+
+      .offer-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .offer-card ul {
+        margin: 0 0 22px;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 10px;
+      }
+
+      .offer-card li {
+        color: #4b5563;
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+
+      .offer-card li::before {
+        content: "✓";
+        margin-right: 8px;
+        color: #1f7a5a;
+        font-weight: 700;
+      }
+
+      .offer-card .btn {
+        width: 100%;
+        margin-top: auto;
+        color: #ff5a1f;
+        background: #ffffff;
+        border-color: rgba(17, 24, 39, 0.14);
+        box-shadow: none;
+      }
+
+      .offer-card .btn:hover,
+      .offer-card .btn:focus-visible {
+        color: #ffffff;
+        background: #ff5a1f;
+        border-color: #ff5a1f;
+        box-shadow:
+          0 10px 24px rgba(255, 90, 31, 0.12),
+          var(--glow-orange);
+      }
+
+      .offer-card .btn:active {
+        color: #ffffff;
+        background: #e04a17;
+        border-color: #e04a17;
+      }
+
+      @media (min-width: 768px) {
+        .offer-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 767px) {
+        .offer-card {
+          padding: 22px;
+        }
+      }
+    </style>
   </head>
   <body class="optionen-structure-page">
     <div class="site-bg" aria-hidden="true"></div>
@@ -58,47 +204,83 @@
     <main>
       <section class="section structure-section">
         <div class="container structure-container">
-          <nav class="structure-breadcrumb" aria-label="Breadcrumb">
-            <a href="../../../optionen.html">Optionen</a>
-            <a href="../">Finanzen</a>
-            <span>Kredit</span>
-          </nav>
-
-          <div class="structure-header">
-            <p class="eyebrow">FINANZEN</p>
-            <h1>Kredit vergleichen</h1>
-            <p>Kreditoptionen verstehen und wichtige Vergleichspunkte einordnen. Diese Seite hilft Ihnen, wichtige Punkte einzuordnen und den nächsten Schritt ruhiger zu planen.</p>
+          <div class="structure-nav-row">
+            <a href="../" class="structure-back" aria-label="Zurück zur Kategorie">
+              <span class="structure-back-arrow" aria-hidden="true">←</span>
+            </a>
+            <nav class="structure-breadcrumb" aria-label="Breadcrumb">
+              <a href="../../../optionen.html">Optionen</a>
+              <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
+              <a href="../">Finanzen</a>
+              <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
+              <span class="structure-breadcrumb-current">Kredit</span>
+            </nav>
           </div>
 
-          <div class="structure-content-grid">
-            <article class="card structure-content-card">
-              <h2>Für wen ist diese Option interessant?</h2>
-              <p>Diese Option ist interessant, wenn Sie sich einen klaren Überblick verschaffen möchten, bevor Sie konkrete Angebote oder Anbieter prüfen.</p>
+          <div class="structure-header offer-intro">
+            <h1>Kredit einfach erklärt</h1>
+            <p>
+              Hier finden Sie passende Kreditlösungen für Ihre Situation.
+            </p>
+          </div>
+
+          <div class="offer-grid" aria-label="Empfohlene Optionen">
+            <article class="card offer-card">
+              <div class="offer-logo" aria-hidden="true">Logo</div>
+              <span class="structure-card-meta">Einfacher Einstieg</span>
+              <h2>Kreditlösung für den Alltag</h2>
+              <p>
+                Für Nutzer, die einen verständlichen Einstieg suchen und mögliche
+                Lösungen ohne komplizierte Darstellung vergleichen möchten.
+              </p>
+              <ul>
+                <li>Übersichtlicher Ablauf</li>
+                <li>Klare Struktur</li>
+                <li>Für viele Situationen geeignet</li>
+              </ul>
+              <a href="#" class="btn offer-cta">Zum Angebot</a>
             </article>
 
-            <article class="card structure-content-card">
-              <h2>Worauf sollte man achten?</h2>
-              <p>Achten Sie auf Kosten, Laufzeiten, Bedingungen und darauf, ob die Lösung wirklich zu Ihrer persönlichen Situation passt.</p>
+            <article class="card offer-card">
+              <div class="offer-logo" aria-hidden="true">Logo</div>
+              <span class="structure-card-meta">Mehr Flexibilität</span>
+              <h2>Flexible Kreditoption</h2>
+              <p>
+                Für Nutzer, denen flexible Möglichkeiten wichtig sind und die eine
+                Lösung passend zur eigenen Situation prüfen möchten.
+              </p>
+              <ul>
+                <li>Anpassbare Möglichkeiten</li>
+                <li>Mehr Spielraum</li>
+                <li>Individuelle Ausrichtung</li>
+              </ul>
+              <a href="#" class="btn offer-cta">Zum Angebot</a>
             </article>
 
-            <article class="card structure-content-card">
-              <h2>Typische Vergleichsaspekte</h2>
-              <p>Wichtige Unterschiede zeigen sich häufig bei Preis, Leistung, Flexibilität, Verfügbarkeit und langfristiger Planbarkeit.</p>
-            </article>
-
-            <article class="card structure-content-card">
-              <h2>Nächste Schritte</h2>
-              <p>Notieren Sie Ihren Bedarf, vergleichen Sie mehrere Möglichkeiten und prüfen Sie Details, bevor Sie eine Entscheidung treffen.</p>
+            <article class="card offer-card">
+              <div class="offer-logo" aria-hidden="true">Logo</div>
+              <span class="structure-card-meta">Schnelle Entscheidung</span>
+              <h2>Kredit mit klarem Ablauf</h2>
+              <p>
+                Für Nutzer, die eine einfache Orientierung suchen und den nächsten
+                Schritt direkt online vorbereiten möchten.
+              </p>
+              <ul>
+                <li>Schneller Einstieg</li>
+                <li>Kurzer Ablauf</li>
+                <li>Direkt online möglich</li>
+              </ul>
+              <a href="#" class="btn offer-cta">Zum Angebot</a>
             </article>
           </div>
 
-          <section class="card structure-cta" aria-labelledby="next-step-title">
-            <div>
-              <h2 id="next-step-title">Passende Möglichkeiten vergleichen</h2>
-              <p>Nutzen Sie die Übersicht als Ausgangspunkt, um Optionen ruhig und nachvollziehbar zu prüfen.</p>
-            </div>
-            <a href="../" class="btn btn-secondary">Zur Kategorie</a>
-          </section>
+          <article class="card structure-final">
+            <h2>Weitere Optionen entdecken</h2>
+            <p>
+              Sehen Sie sich weitere Möglichkeiten an und vergleichen Sie in Ruhe, was zu
+              Ihrer Situation passt.
+            </p>
+          </article>
         </div>
       </section>
     </main>
