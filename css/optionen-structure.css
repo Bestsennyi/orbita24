@@ -263,6 +263,10 @@
   line-height: 1.5;
 }
 
+.structure-card-description span {
+  display: block;
+}
+
 .structure-card .btn {
   width: max-content;
   min-height: 38px;
