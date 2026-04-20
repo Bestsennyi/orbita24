@@ -766,13 +766,21 @@ textarea {
   align-items: center;
   column-gap: var(--space-2);
   min-width: 0;
+  padding: 6px 8px;
+  border-radius: 8px;
   margin-top: 0;
   line-height: 1.35;
+  transition: background-color 0.2s ease;
+}
+
+.icon-list li:hover {
+  background: rgba(255, 90, 31, 0.06);
 }
 
 .icon-list svg {
   width: 22px;
   height: 22px;
+  display: block;
   justify-self: start;
 }
 

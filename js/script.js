@@ -209,11 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const formStatus = document.querySelector('.form-status');
 
   if (contactForm && formStatus) {
-    const setFormStatus = (type, text) => {
-      formStatus.textContent = text;
-      formStatus.className = `form-status is-visible is-${type}`;
-    };
-
     const fieldErrors = {
       name: document.querySelector('#name-error'),
       email: document.querySelector('#email-error'),
@@ -235,26 +230,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setFieldError(contactForm.querySelector('#message'), fieldErrors.message, '');
     };
 
-    const params = new URLSearchParams(window.location.search);
-    const status = params.get('status');
-
-    if (status === 'sent') {
-      setFormStatus('success', 'Vielen Dank. Ihre Nachricht wurde gesendet.');
-      window.history.replaceState({}, document.title, window.location.pathname);
-    } else if (status === 'error') {
-      setFormStatus(
-        'error',
-        'Bitte prüfen Sie Ihre Angaben und versuchen Sie es noch einmal.'
-      );
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
-
-    contactForm.addEventListener('submit', async event => {
+    contactForm.addEventListener('submit', event => {
       const name = contactForm.querySelector('#name');
       const email = contactForm.querySelector('#email');
       const message = contactForm.querySelector('#message');
       const honeypot = contactForm.querySelector('#website');
-      const submitButton = contactForm.querySelector('button[type="submit"]');
       let hasError = false;
 
       clearFieldErrors();
@@ -263,7 +243,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (honeypot && honeypot.value.trim() !== '') {
         event.preventDefault();
-        setFormStatus('error', 'Ihre Nachricht konnte nicht gesendet werden.');
+        formStatus.textContent = 'Ihre Nachricht konnte nicht gesendet werden.';
+        formStatus.className = 'form-status is-visible is-error';
         return;
       }
 
@@ -284,33 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (hasError) {
         event.preventDefault();
-        return;
-      }
-
-      if (!window.fetch) return;
-
-      event.preventDefault();
-
-      try {
-        if (submitButton) submitButton.disabled = true;
-
-        const response = await fetch(contactForm.action, {
-          method: 'POST',
-          body: new FormData(contactForm),
-          headers: { Accept: 'text/html' },
-        });
-
-        const resultUrl = response.url || '';
-        if (resultUrl.includes('status=sent')) {
-          contactForm.reset();
-          setFormStatus('success', 'Vielen Dank. Ihre Nachricht wurde gesendet.');
-        } else {
-          setFormStatus('error', 'Bitte prüfen Sie Ihre Angaben und versuchen Sie es noch einmal.');
-        }
-      } catch (error) {
-        contactForm.submit();
-      } finally {
-        if (submitButton) submitButton.disabled = false;
       }
     });
   }
