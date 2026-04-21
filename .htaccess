@@ -1,1 +1,5 @@
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+Options -Indexes
+
 Redirect 301 /kontakt.html /kontakt.php
