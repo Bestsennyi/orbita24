@@ -206,21 +206,21 @@ function orbita24_handle_contact_request(): array
 
         if ($sessionToken === '' || !hash_equals($sessionToken, $token)) {
             orbita24_new_csrf_token();
-            orbita24_set_contact_flash('error', 'Bitte laden Sie die Seite neu und versuchen Sie es erneut.', $oldInput);
+            orbita24_set_contact_flash('error', 'Bitte Seite neu laden und erneut versuchen.', $oldInput);
             orbita24_redirect_contact();
         }
 
         $honeypot = trim((string)($_POST['website'] ?? ''));
         if ($honeypot !== '') {
             orbita24_new_csrf_token();
-            orbita24_set_contact_flash('success', 'Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns so schnell wie möglich.');
+            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald bei Ihnen.');
             orbita24_redirect_contact();
         }
 
         [$isValid, $data] = orbita24_validate_contact($_POST);
         if (!$isValid) {
             orbita24_new_csrf_token();
-            orbita24_set_contact_flash('error', 'Bitte füllen Sie alle Pflichtfelder korrekt aus.', $data);
+            orbita24_set_contact_flash('error', 'Bitte alle Pflichtfelder korrekt ausfüllen.', $data);
             orbita24_redirect_contact();
         }
 
@@ -228,9 +228,9 @@ function orbita24_handle_contact_request(): array
         orbita24_new_csrf_token();
 
         if ($sent) {
-            orbita24_set_contact_flash('success', 'Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns so schnell wie möglich.');
+            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald bei Ihnen.');
         } else {
-            orbita24_set_contact_flash('error', 'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.', $data);
+            orbita24_set_contact_flash('error', 'Fehler beim Senden. Bitte später erneut versuchen.', $data);
         }
 
         orbita24_redirect_contact();
