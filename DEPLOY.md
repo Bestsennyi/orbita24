@@ -6,7 +6,7 @@ Orbita24 is deployed as a normal PHP/HTML/CSS/JS website to regular IONOS hostin
 
 - `dev` is for local development and testing.
 - `main` is the production branch.
-- Only pushes to `main` trigger the FTP deployment workflow.
+- Only pushes to `main` trigger the SFTP deployment workflow.
 - Pushes to `dev` do not deploy anything.
 
 Recommended flow:
@@ -15,25 +15,24 @@ Recommended flow:
 2. Check the site and contact form changes.
 3. Merge `dev` into `main`.
 4. Push `main` to GitHub.
-5. GitHub Actions uploads the site to IONOS by FTPS.
+5. GitHub Actions uploads the site to IONOS by SFTP on port `22`.
 
 ## GitHub Secrets
 
-Add these repository secrets in GitHub:
+The workflow keeps the existing secret names:
 
-- `FTP_SERVER`: IONOS FTP/FTPS host, for example `home123456789.1and1-data.host`.
-- `FTP_USERNAME`: IONOS FTP user.
-- `FTP_PASSWORD`: IONOS FTP password.
-- `FTP_SERVER_DIR`: target directory on IONOS, with a trailing slash.
+- `FTP_SERVER`: IONOS SFTP host.
+- `FTP_USERNAME`: IONOS SFTP user.
+- `FTP_PASSWORD`: IONOS SFTP password.
+- `FTP_SERVER_DIR`: target directory on IONOS.
 
-Examples for `FTP_SERVER_DIR` depend on the IONOS package and domain mapping:
+For this project the server root is:
 
-- `./`
-- `/`
-- `/clickandbuilds/orbita24/`
-- `/kunden/homepages/xx/xxxxxxxxx/htdocs/`
+```text
+/
+```
 
-Use the directory that is assigned to the live domain in the IONOS hosting panel.
+So `FTP_SERVER_DIR` should be set to `/`.
 
 ## Deployed Path
 
@@ -46,6 +45,22 @@ The website root is the repository root. The workflow uploads from:
 This is correct because `index.html`, `kontakt.php`, `.htaccess`, `css/`, `js/`, `images/`, `includes/`, and `optionen/` are directly in the project root.
 
 There is no frontend build step. The workflow uploads the working PHP/HTML/CSS/JS files as they are.
+
+## Deployment Method
+
+The workflow file is:
+
+```text
+.github/workflows/deploy.yml
+```
+
+It installs `lftp` on the GitHub Actions runner and uses SFTP:
+
+- protocol: `SFTP`
+- port: `22`
+- remote path: value of `FTP_SERVER_DIR`, expected `/`
+
+The deploy command uses `mirror --reverse --only-newer`. It uploads changed/newer local files to the server and does not perform a destructive full cleanup.
 
 ## Excluded From Upload
 
@@ -71,13 +86,13 @@ The workflow excludes development and repository files, including:
 - `HOSTING-READY.md`
 - `.gitignore`
 
-Site files such as `.html`, `.php`, `.htaccess`, `css/**`, `js/**`, `images/**`, `assets/**` if added later, and `optionen/**` are uploaded.
+Site files such as `.html`, `.php`, `.htaccess`, `css/**`, `js/**`, `images/**`, `assets/**` if added later, `includes/**`, and `optionen/**` are uploaded.
 
 ## First Deployment Notes
 
-The FTP action uses `dangerous-clean-slate: false`, so it does not wipe the whole target directory before upload. This is safer for the first deployment.
+The workflow does not use FTP/FTPS and does not use Deploy Now.
 
-Before the first production push, make sure `FTP_SERVER_DIR` points to the correct IONOS web root for the domain. A wrong target directory can upload the site to the wrong place or mix it with another website.
+Before the first production push, confirm that `FTP_SERVER_DIR` is exactly `/` for this IONOS account and domain. A wrong target directory can upload the site to the wrong place or mix it with another website.
 
 After the first deployment, check:
 

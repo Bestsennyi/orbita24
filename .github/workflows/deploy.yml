@@ -13,46 +13,60 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  ftp-deploy:
-    name: Upload website by FTP
+  sftp-deploy:
+    name: Upload website by SFTP
     runs-on: ubuntu-latest
     timeout-minutes: 15
+
+    env:
+      SFTP_PORT: 22
+      SFTP_SERVER: ${{ secrets.FTP_SERVER }}
+      SFTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+      SFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+      SFTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
 
     steps:
       - name: Checkout production branch
         uses: actions/checkout@v4
 
       # Orbita24 is a plain PHP/HTML/CSS/JS site, so no frontend build is needed.
-      # FTP credentials and the target directory must be configured as GitHub Secrets.
-      - name: Deploy to IONOS hosting
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          local-dir: ./
-          protocol: ftps
-          dangerous-clean-slate: false
-          log-level: minimal
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/.github/**
-            **/.vscode/**
-            **/node_modules/**
-            **/vendor/**
-            **/.env
-            **/.env.*
-            **/.ftp-deploy-sync-state.json
-            **/.DS_Store
-            **/Thumbs.db
-            **/*.log
-            **/*.bak
-            **/*.tmp
-            **/*.swp
-            **/*~
-            README.md
-            DEPLOY.md
-            HOSTING-READY.md
-            .gitignore
+      - name: Install SFTP client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      # Uses SFTP on port 22. No destructive server cleanup is performed.
+      - name: Deploy to IONOS hosting by SFTP
+        run: |
+          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" "sftp://$SFTP_SERVER:$SFTP_PORT" <<EOF
+          set sftp:auto-confirm yes
+          set net:timeout 30
+          set net:max-retries 2
+          mirror --reverse --verbose --only-newer --parallel=2 \
+            --exclude-glob .git/ \
+            --exclude-glob .git/** \
+            --exclude-glob .github/ \
+            --exclude-glob .github/** \
+            --exclude-glob .vscode/ \
+            --exclude-glob .vscode/** \
+            --exclude-glob node_modules/ \
+            --exclude-glob node_modules/** \
+            --exclude-glob vendor/ \
+            --exclude-glob vendor/** \
+            --exclude-glob .env \
+            --exclude-glob .env.* \
+            --exclude-glob .ftp-deploy-sync-state.json \
+            --exclude-glob .DS_Store \
+            --exclude-glob Thumbs.db \
+            --exclude-glob '*.log' \
+            --exclude-glob '*.bak' \
+            --exclude-glob '*.tmp' \
+            --exclude-glob '*.swp' \
+            --exclude-glob '*~' \
+            --exclude-glob README.md \
+            --exclude-glob DEPLOY.md \
+            --exclude-glob HOSTING-READY.md \
+            --exclude-glob .gitignore \
+            ./ "$SFTP_SERVER_DIR"
+          bye
+          EOF
