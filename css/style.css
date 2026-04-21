@@ -11,7 +11,6 @@
   --trust: #0f9f6e;
   --border: rgba(17, 24, 39, 0.08);
   --border-strong: rgba(17, 24, 39, 0.12);
-  --grid: rgba(17, 24, 39, 0.035);
   --shadow: 0 22px 64px rgba(17, 24, 39, 0.12);
   --shadow-soft: 0 14px 34px rgba(17, 24, 39, 0.08);
   --shadow-card-hover: 0 22px 56px rgba(17, 24, 39, 0.12);
@@ -70,6 +69,21 @@ a {
   text-decoration: none;
 }
 
+a,
+button,
+.btn,
+.card,
+.cta-box,
+.structure-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+.btn {
+  touch-action: manipulation;
+}
+
 button,
 input,
 textarea {
@@ -83,22 +97,15 @@ textarea {
   background:
     radial-gradient(circle at top left, rgba(255, 90, 31, 0.07), transparent 26%),
     radial-gradient(circle at bottom right, rgba(15, 159, 110, 0.06), transparent 28%),
-    radial-gradient(circle at center, rgba(255, 255, 255, 0.68), transparent 34%),
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px), var(--bg);
+    radial-gradient(circle at center, rgba(255, 255, 255, 0.68), transparent 34%), var(--bg);
   background-size:
     auto,
     auto,
-    auto,
-    56px 56px,
-    56px 56px,
     auto;
   background-position:
     0 0,
     100% 100%,
     center,
-    0 0,
-    0 0,
     0 0;
 }
 
@@ -186,7 +193,8 @@ textarea {
 }
 
 .logo:hover .logo-img,
-.logo:focus-visible .logo-img {
+.logo:focus-visible .logo-img,
+.logo:active .logo-img {
   opacity: 1;
   transform: translateY(-1px);
 }
@@ -212,7 +220,8 @@ textarea {
 }
 
 .nav-toggle:hover,
-.nav-toggle:focus-visible {
+.nav-toggle:focus-visible,
+.nav-toggle:active {
   border-color: rgba(255, 90, 31, 0.2);
   background: rgba(255, 255, 255, 0.035);
   box-shadow: var(--glow-orange);
@@ -292,7 +301,8 @@ textarea {
 }
 
 .nav-menu a:hover,
-.nav-menu a:focus-visible {
+.nav-menu a:focus-visible,
+.nav-menu a:active {
   color: var(--text-strong);
   background: transparent;
 }
@@ -506,7 +516,8 @@ textarea {
 }
 
 .btn:hover,
-.btn:focus-visible {
+.btn:focus-visible,
+.btn:active {
   transform: translateY(-2px);
 }
 
@@ -516,7 +527,8 @@ textarea {
 }
 
 .btn-primary:hover,
-.btn-primary:focus-visible {
+.btn-primary:focus-visible,
+.btn-primary:active {
   background: var(--accent-hover);
   box-shadow:
     0 10px 24px rgba(255, 90, 31, 0.12),
@@ -530,7 +542,8 @@ textarea {
 }
 
 .btn-secondary:hover,
-.btn-secondary:focus-visible {
+.btn-secondary:focus-visible,
+.btn-secondary:active {
   background: rgba(255, 255, 255, 0.96);
   border-color: rgba(255, 90, 31, 0.18);
   box-shadow: var(--glow-orange);
@@ -549,7 +562,8 @@ textarea {
 }
 
 .card:hover,
-.card:focus-within {
+.card:focus-within,
+.card:active {
   transform: translateY(-2px);
   box-shadow:
     0 14px 32px rgba(0, 0, 0, 0.07),
@@ -639,7 +653,8 @@ textarea {
   flex-shrink: 0;
 }
 
-.icon:hover svg {
+.icon:hover svg,
+.icon:active svg {
   transform: scale(1.07);
   filter: drop-shadow(0 0 7px rgba(255, 90, 31, 0.28));
 }
@@ -668,7 +683,8 @@ textarea {
     border-color var(--transition);
 }
 
-.cta-box:hover {
+.cta-box:hover,
+.cta-box:active {
   transform: translateY(-4px);
   box-shadow:
     0 22px 52px rgba(17, 24, 39, 0.12),
@@ -773,7 +789,8 @@ textarea {
   transition: background-color 0.2s ease;
 }
 
-.icon-list li:hover {
+.icon-list li:hover,
+.icon-list li:active {
   background: rgba(255, 90, 31, 0.06);
 }
 
@@ -1016,7 +1033,8 @@ textarea {
 }
 
 .footer-contact a:hover,
-.footer-contact a:focus-visible {
+.footer-contact a:focus-visible,
+.footer-contact a:active {
   color: var(--text);
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -1052,7 +1070,8 @@ textarea {
 }
 
 .footer-links a:hover,
-.footer-links a:focus-visible {
+.footer-links a:focus-visible,
+.footer-links a:active {
   color: var(--text);
   text-decoration: underline;
   text-decoration-color: currentColor;
@@ -1110,7 +1129,8 @@ textarea {
 }
 
 .scroll-top:hover,
-.scroll-top:focus-visible {
+.scroll-top:focus-visible,
+.scroll-top:active {
   background: #e04a17;
   box-shadow: 0 15px 35px rgba(255, 90, 31, 0.45);
 }
@@ -1570,5 +1590,128 @@ textarea {
   .hero-trust-icon svg {
     width: 20px;
     height: 20px;
+  }
+}
+
+@media (hover: none) {
+  .logo:hover .logo-img {
+    transform: none;
+  }
+
+  .logo:active .logo-img {
+    transform: translateY(-1px);
+  }
+
+  .nav-toggle:hover {
+    border-color: var(--border);
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: none;
+  }
+
+  .nav-toggle:active {
+    border-color: rgba(255, 90, 31, 0.2);
+    background: rgba(255, 255, 255, 0.035);
+    box-shadow: var(--glow-orange);
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+
+  .btn:active {
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+    box-shadow: none;
+  }
+
+  .btn-primary:active {
+    background: var(--accent-hover);
+    box-shadow:
+      0 10px 24px rgba(255, 90, 31, 0.12),
+      var(--glow-orange);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: var(--border);
+    box-shadow: none;
+  }
+
+  .btn-secondary:active {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: rgba(255, 90, 31, 0.18);
+    box-shadow: var(--glow-orange);
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border-color: rgba(17, 24, 39, 0.075);
+  }
+
+  .card:active {
+    transform: translateY(-2px);
+    box-shadow:
+      0 14px 32px rgba(0, 0, 0, 0.07),
+      var(--glow-orange);
+    border-color: rgba(255, 90, 31, 0.18);
+  }
+
+  .cta-box:hover {
+    transform: none;
+    box-shadow: var(--shadow-soft);
+    border-color: rgba(17, 24, 39, 0.08);
+  }
+
+  .cta-box:active {
+    transform: translateY(-4px);
+    box-shadow:
+      0 22px 52px rgba(17, 24, 39, 0.12),
+      var(--glow-orange);
+    border-color: rgba(255, 90, 31, 0.18);
+  }
+
+  .icon:hover svg {
+    transform: none;
+    filter: none;
+  }
+
+  .icon:active svg {
+    transform: scale(1.07);
+    filter: drop-shadow(0 0 7px rgba(255, 90, 31, 0.28));
+  }
+
+  .icon-list li:hover {
+    background: transparent;
+  }
+
+  .icon-list li:active {
+    background: rgba(255, 90, 31, 0.06);
+  }
+
+  .footer-contact a:hover,
+  .footer-links a:hover {
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  .footer-contact a:active,
+  .footer-links a:active {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+  }
+
+  .scroll-top:hover {
+    background: #ff5a1f;
+    box-shadow: 0 10px 25px rgba(255, 90, 31, 0.35);
+  }
+
+  .scroll-top:active {
+    background: #e04a17;
+    box-shadow: 0 15px 35px rgba(255, 90, 31, 0.45);
   }
 }

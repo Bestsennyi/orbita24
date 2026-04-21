@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('touchstart', () => {}, { passive: true });
+
   const body = document.body;
   const header = document.querySelector('.site-header');
   const navToggle = document.querySelector('.nav-toggle');
