@@ -1594,6 +1594,20 @@ textarea {
 }
 
 @media (hover: none) {
+  .logo-img,
+  .nav-toggle,
+  .nav-menu a,
+  .btn,
+  .card,
+  .cta-box,
+  .icon svg,
+  .icon-list li,
+  .footer-contact a,
+  .footer-links a,
+  .scroll-top {
+    transition-duration: 0.08s;
+  }
+
   .logo:hover .logo-img {
     transform: none;
   }
@@ -1608,18 +1622,22 @@ textarea {
     box-shadow: none;
   }
 
-  .nav-toggle:active {
-    border-color: rgba(255, 90, 31, 0.2);
-    background: rgba(255, 255, 255, 0.035);
-    box-shadow: var(--glow-orange);
+  .nav-toggle:active,
+  .nav-toggle.is-tapping {
+    border-color: rgba(255, 90, 31, 0.34);
+    background: rgba(255, 255, 255, 0.075);
+    box-shadow:
+      0 0 0 3px rgba(255, 90, 31, 0.14),
+      0 0 18px rgba(255, 90, 31, 0.18);
   }
 
   .btn:hover {
     transform: none;
   }
 
-  .btn:active {
-    transform: translateY(-2px);
+  .btn:active,
+  .btn.is-tapping {
+    transform: translateY(-2px) scale(0.985);
   }
 
   .btn-primary:hover {
@@ -1627,11 +1645,12 @@ textarea {
     box-shadow: none;
   }
 
-  .btn-primary:active {
+  .btn-primary:active,
+  .btn-primary.is-tapping {
     background: var(--accent-hover);
     box-shadow:
-      0 10px 24px rgba(255, 90, 31, 0.12),
-      var(--glow-orange);
+      0 12px 28px rgba(255, 90, 31, 0.28),
+      0 0 0 3px rgba(255, 90, 31, 0.16);
   }
 
   .btn-secondary:hover {
@@ -1640,10 +1659,13 @@ textarea {
     box-shadow: none;
   }
 
-  .btn-secondary:active {
+  .btn-secondary:active,
+  .btn-secondary.is-tapping {
     background: rgba(255, 255, 255, 0.96);
-    border-color: rgba(255, 90, 31, 0.18);
-    box-shadow: var(--glow-orange);
+    border-color: rgba(255, 90, 31, 0.34);
+    box-shadow:
+      0 12px 28px rgba(17, 24, 39, 0.12),
+      0 0 0 3px rgba(255, 90, 31, 0.14);
   }
 
   .card:hover {
@@ -1652,12 +1674,13 @@ textarea {
     border-color: rgba(17, 24, 39, 0.075);
   }
 
-  .card:active {
-    transform: translateY(-2px);
+  .card:active,
+  .card.is-tapping {
+    transform: translateY(-3px) scale(0.995);
     box-shadow:
-      0 14px 32px rgba(0, 0, 0, 0.07),
-      var(--glow-orange);
-    border-color: rgba(255, 90, 31, 0.18);
+      0 18px 42px rgba(17, 24, 39, 0.14),
+      0 0 0 2px rgba(255, 90, 31, 0.16);
+    border-color: rgba(255, 90, 31, 0.32);
   }
 
   .cta-box:hover {
@@ -1666,12 +1689,13 @@ textarea {
     border-color: rgba(17, 24, 39, 0.08);
   }
 
-  .cta-box:active {
-    transform: translateY(-4px);
+  .cta-box:active,
+  .cta-box.is-tapping {
+    transform: translateY(-4px) scale(0.995);
     box-shadow:
-      0 22px 52px rgba(17, 24, 39, 0.12),
-      var(--glow-orange);
-    border-color: rgba(255, 90, 31, 0.18);
+      0 24px 56px rgba(17, 24, 39, 0.16),
+      0 0 0 2px rgba(255, 90, 31, 0.16);
+    border-color: rgba(255, 90, 31, 0.34);
   }
 
   .icon:hover svg {
@@ -1679,17 +1703,19 @@ textarea {
     filter: none;
   }
 
-  .icon:active svg {
-    transform: scale(1.07);
-    filter: drop-shadow(0 0 7px rgba(255, 90, 31, 0.28));
+  .icon:active svg,
+  .icon.is-tapping svg {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 9px rgba(255, 90, 31, 0.36));
   }
 
   .icon-list li:hover {
     background: transparent;
   }
 
-  .icon-list li:active {
-    background: rgba(255, 90, 31, 0.06);
+  .icon-list li:active,
+  .icon-list li.is-tapping {
+    background: rgba(255, 90, 31, 0.11);
   }
 
   .footer-contact a:hover,
@@ -1699,7 +1725,9 @@ textarea {
   }
 
   .footer-contact a:active,
-  .footer-links a:active {
+  .footer-links a:active,
+  .footer-contact a.is-tapping,
+  .footer-links a.is-tapping {
     color: var(--text);
     text-decoration: underline;
     text-decoration-color: currentColor;
@@ -1710,8 +1738,11 @@ textarea {
     box-shadow: 0 10px 25px rgba(255, 90, 31, 0.35);
   }
 
-  .scroll-top:active {
+  .scroll-top:active,
+  .scroll-top.is-tapping {
     background: #e04a17;
-    box-shadow: 0 15px 35px rgba(255, 90, 31, 0.45);
+    box-shadow:
+      0 15px 35px rgba(255, 90, 31, 0.45),
+      0 0 0 3px rgba(255, 90, 31, 0.16);
   }
 }

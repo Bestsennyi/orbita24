@@ -2,4 +2,9 @@ DirectoryIndex index.html
 AddDefaultCharset UTF-8
 Options -Indexes
 
+RewriteEngine On
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.orbita24\.de$ [NC]
+RewriteRule ^ https://orbita24.de%{REQUEST_URI} [L,R=301]
+
 Redirect 301 /kontakt.html /kontakt.php

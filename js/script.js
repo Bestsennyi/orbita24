@@ -1,6 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('touchstart', () => {}, { passive: true });
 
+  const tapTargetSelector = 'a, button, .btn, .card, .cta-box, .structure-card, .structure-back, .icon-list li';
+  let activeTapTarget = null;
+  let tapClearTimer = null;
+
+  const clearTapTarget = (delay = 100) => {
+    if (tapClearTimer) {
+      window.clearTimeout(tapClearTimer);
+    }
+
+    tapClearTimer = window.setTimeout(() => {
+      activeTapTarget?.classList.remove('is-tapping');
+      activeTapTarget = null;
+    }, delay);
+  };
+
+  document.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'mouse') return;
+
+    const target = event.target.closest(tapTargetSelector);
+    if (!target) return;
+
+    activeTapTarget?.classList.remove('is-tapping');
+    activeTapTarget = target;
+    target.classList.add('is-tapping');
+  });
+
+  ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
+    document.addEventListener(eventName, () => clearTapTarget(), { passive: true });
+  });
+
   const body = document.body;
   const header = document.querySelector('.site-header');
   const navToggle = document.querySelector('.nav-toggle');

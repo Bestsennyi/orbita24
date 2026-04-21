@@ -448,6 +448,17 @@
 }
 
 @media (hover: none) {
+  .structure-back,
+  .structure-card,
+  .structure-card-icon,
+  .structure-card .btn,
+  .structure-card .btn::after,
+  .structure-final .btn,
+  .structure-cta .btn,
+  .structure-link {
+    transition-duration: 0.08s;
+  }
+
   .structure-back:hover {
     color: var(--text-strong);
     background: #ffffff;
@@ -456,13 +467,14 @@
     transform: none;
   }
 
-  .structure-back:active {
+  .structure-back:active,
+  .structure-back.is-tapping {
     color: #ffffff;
     background: #ff5a1f;
     border-color: #ff5a1f;
     box-shadow:
-      0 10px 24px rgba(255, 90, 31, 0.12),
-      var(--glow-orange);
+      0 12px 28px rgba(255, 90, 31, 0.26),
+      0 0 0 3px rgba(255, 90, 31, 0.16);
     transform: translateX(-2px);
   }
 
@@ -472,12 +484,13 @@
     border-color: rgba(17, 24, 39, 0.075);
   }
 
-  .structure-card:active {
-    transform: translateY(-4px);
+  .structure-card:active,
+  .structure-card.is-tapping {
+    transform: translateY(-4px) scale(0.995);
     box-shadow:
-      0 10px 25px rgba(0, 0, 0, 0.08),
-      var(--glow-orange);
-    border-color: rgba(255, 90, 31, 0.18);
+      0 18px 42px rgba(17, 24, 39, 0.14),
+      0 0 0 2px rgba(255, 90, 31, 0.16);
+    border-color: rgba(255, 90, 31, 0.34);
   }
 
   .structure-card:hover .structure-card-icon {
@@ -485,9 +498,10 @@
     filter: none;
   }
 
-  .structure-card:active .structure-card-icon {
+  .structure-card:active .structure-card-icon,
+  .structure-card.is-tapping .structure-card-icon {
     transform: translateY(-2px);
-    filter: drop-shadow(0 6px 10px rgba(255, 90, 31, 0.12));
+    filter: drop-shadow(0 8px 14px rgba(255, 90, 31, 0.24));
   }
 
   .structure-final .btn:hover,
@@ -503,11 +517,18 @@
   .structure-final .btn:active,
   .structure-cta .btn:active,
   .structure-card:active .btn,
-  .structure-card .btn:active {
+  .structure-card .btn:active,
+  .structure-final .btn.is-tapping,
+  .structure-cta .btn.is-tapping,
+  .structure-card.is-tapping .btn,
+  .structure-card .btn.is-tapping {
     color: #ffffff;
     background: #ff5a1f;
     border-color: #ff5a1f;
-    box-shadow: 0 12px 24px rgba(255, 90, 31, 0.18);
+    box-shadow:
+      0 12px 28px rgba(255, 90, 31, 0.28),
+      0 0 0 3px rgba(255, 90, 31, 0.16);
+    transform: translateY(-2px) scale(0.985);
   }
 
   .structure-card:hover .btn::after,
@@ -516,7 +537,9 @@
   }
 
   .structure-card:active .btn::after,
-  .structure-card .btn:active::after {
+  .structure-card .btn:active::after,
+  .structure-card.is-tapping .btn::after,
+  .structure-card .btn.is-tapping::after {
     transform: translateX(3px);
   }
 
@@ -525,7 +548,8 @@
     transform: none;
   }
 
-  .structure-card:active .structure-link {
+  .structure-card:active .structure-link,
+  .structure-card.is-tapping .structure-link {
     color: #ff5a1f;
     transform: translateX(3px);
   }
