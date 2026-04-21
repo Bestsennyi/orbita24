@@ -1,9 +1,6 @@
 <?php
 declare(strict_types=1);
 
-use PHPMailer\PHPMailer\Exception as MailerException;
-use PHPMailer\PHPMailer\PHPMailer;
-
 function orbita24_start_contact_session(): void
 {
     if (session_status() === PHP_SESSION_NONE) {
@@ -86,11 +83,24 @@ function orbita24_has_header_injection(string $value): bool
     return preg_match('/[\r\n]/', $value) === 1;
 }
 
+function orbita24_clean_text(string $value): string
+{
+    $value = str_replace("\0", '', $value);
+    return trim($value);
+}
+
+function orbita24_clean_multiline_text(string $value): string
+{
+    $value = str_replace("\0", '', $value);
+    $value = str_replace(["\r\n", "\r"], "\n", $value);
+    return trim($value);
+}
+
 function orbita24_validate_contact(array $post): array
 {
-    $name = trim((string)($post['name'] ?? ''));
-    $email = trim((string)($post['email'] ?? ''));
-    $message = trim((string)($post['message'] ?? ''));
+    $name = orbita24_clean_text((string)($post['name'] ?? ''));
+    $email = orbita24_clean_text((string)($post['email'] ?? ''));
+    $message = orbita24_clean_multiline_text((string)($post['message'] ?? ''));
 
     $old = [
         'name' => $name,
@@ -111,63 +121,73 @@ function orbita24_validate_contact(array $post): array
     return [$isValid, $old];
 }
 
+function orbita24_encode_mail_header(string $value): string
+{
+    return '=?UTF-8?B?' . base64_encode($value) . '?=';
+}
+
 function orbita24_send_contact_mail(array $data): bool
 {
-    $autoload = __DIR__ . '/../vendor/autoload.php';
-    if (!is_file($autoload)) {
-        error_log('Orbita24 Kontaktformular: PHPMailer Autoload wurde nicht gefunden.');
+    if (!function_exists('mail')) {
+        error_log('Orbita24 Kontaktformular: PHP mail() ist nicht verfuegbar.');
         return false;
     }
-
-    require_once $autoload;
 
     $config = require __DIR__ . '/config.php';
-    $mail = new PHPMailer(true);
 
-    try {
-        // SMTP-Versand ueber den Provider, keine mail()-Fallbacks.
-        $mail->isSMTP();
-        $mail->Host = (string)$config['SMTP_HOST'];
-        $mail->SMTPAuth = true;
-        $mail->Username = (string)$config['SMTP_USERNAME'];
-        $mail->Password = (string)$config['SMTP_PASSWORD'];
-        $mail->Port = (int)$config['SMTP_PORT'];
+    $to = orbita24_clean_text((string)($config['MAIL_TO_ADDRESS'] ?? ''));
+    $from = orbita24_clean_text((string)($config['MAIL_FROM_ADDRESS'] ?? ''));
+    $fromName = orbita24_clean_text((string)($config['MAIL_FROM_NAME'] ?? 'Orbita24'));
 
-        $encryption = strtolower((string)$config['SMTP_ENCRYPTION']);
-        if ($encryption === 'tls') {
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        } elseif ($encryption === 'ssl') {
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        }
-
-        $mail->CharSet = 'UTF-8';
-        $mail->Encoding = 'base64';
-        $mail->setFrom((string)$config['MAIL_FROM_ADDRESS'], (string)$config['MAIL_FROM_NAME']);
-        $mail->addAddress((string)$config['MAIL_TO_ADDRESS']);
-        $mail->addReplyTo($data['email'], $data['name']);
-        $mail->Subject = 'Neue Kontaktanfrage über Orbita24';
-        $mail->isHTML(false);
-
-        $date = (new DateTimeImmutable('now', new DateTimeZone('Europe/Berlin')))->format('d.m.Y H:i:s');
-        $ip = $_SERVER['REMOTE_ADDR'] ?? '';
-
-        $mail->Body = implode("\n", [
-            'Neue Kontaktanfrage über Orbita24',
-            '',
-            'Name: ' . $data['name'],
-            'E-Mail: ' . $data['email'],
-            'Datum/Uhrzeit: ' . $date,
-            $ip !== '' ? 'IP: ' . $ip : '',
-            '',
-            'Nachricht:',
-            $data['message'],
-        ]);
-
-        return $mail->send();
-    } catch (MailerException $exception) {
-        error_log('Orbita24 Kontaktformular: Versand fehlgeschlagen.');
+    if (
+        !filter_var($to, FILTER_VALIDATE_EMAIL)
+        || !filter_var($from, FILTER_VALIDATE_EMAIL)
+        || orbita24_has_header_injection($to)
+        || orbita24_has_header_injection($from)
+        || orbita24_has_header_injection($fromName)
+    ) {
+        error_log('Orbita24 Kontaktformular: Mail-Konfiguration ist ungueltig.');
         return false;
     }
+
+    $date = (new DateTimeImmutable('now', new DateTimeZone('Europe/Berlin')))->format('d.m.Y H:i:s');
+    $ip = orbita24_clean_text((string)($_SERVER['REMOTE_ADDR'] ?? ''));
+    $subject = orbita24_encode_mail_header('Neue Kontaktanfrage über Orbita24');
+
+    $bodyLines = [
+        'Neue Kontaktanfrage über Orbita24',
+        '',
+        'Name: ' . $data['name'],
+        'E-Mail: ' . $data['email'],
+        'Datum/Uhrzeit: ' . $date,
+    ];
+
+    if ($ip !== '') {
+        $bodyLines[] = 'IP: ' . $ip;
+    }
+
+    $bodyLines[] = '';
+    $bodyLines[] = 'Nachricht:';
+    $bodyLines[] = $data['message'];
+    $body = implode("\n", $bodyLines);
+
+    $headers = [
+        'From: ' . orbita24_encode_mail_header($fromName) . ' <' . $from . '>',
+        'Reply-To: ' . $data['email'],
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: 8bit',
+        'X-Mailer: PHP/' . PHP_VERSION,
+    ];
+
+    $headerText = implode("\r\n", $headers);
+    $sent = @mail($to, $subject, $body, $headerText, '-f' . $from);
+
+    if (!$sent) {
+        $sent = @mail($to, $subject, $body, $headerText);
+    }
+
+    return $sent;
 }
 
 function orbita24_handle_contact_request(): array

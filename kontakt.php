@@ -91,7 +91,7 @@ $csrfToken = $contactState['csrf_token'];
                 Schreiben Sie uns einfach eine Nachricht - wir melden uns so schnell wie möglich.
               </p>
 
-              <form class="contact-form kontakt-form" action="kontakt.php" method="post">
+              <form class="contact-form kontakt-form" action="kontakt.php" method="post" accept-charset="UTF-8">
                 <input type="hidden" name="csrf_token" value="<?= orbita24_e($csrfToken) ?>" />
 
                 <div class="form-group">
