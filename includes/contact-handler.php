@@ -213,7 +213,7 @@ function orbita24_handle_contact_request(): array
         $honeypot = trim((string)($_POST['website'] ?? ''));
         if ($honeypot !== '') {
             orbita24_new_csrf_token();
-            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald bei Ihnen.');
+            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald.');
             orbita24_redirect_contact();
         }
 
@@ -228,7 +228,7 @@ function orbita24_handle_contact_request(): array
         orbita24_new_csrf_token();
 
         if ($sent) {
-            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald bei Ihnen.');
+            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald.');
         } else {
             orbita24_set_contact_flash('error', 'Fehler beim Senden. Bitte später erneut versuchen.', $data);
         }

@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapTargetSelector = 'a, button, .btn, .card, .cta-box, .structure-card, .structure-back, .icon-list li';
   let activeTapTarget = null;
   let tapClearTimer = null;
+  let pendingTapNavigation = false;
 
-  const clearTapTarget = (delay = 100) => {
+  const clearTapTarget = (delay = 160) => {
     if (tapClearTimer) {
       window.clearTimeout(tapClearTimer);
     }
@@ -27,8 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
     target.classList.add('is-tapping');
   });
 
+  document.addEventListener('click', event => {
+    if (pendingTapNavigation) return;
+
+    const link = event.target.closest('a[href]');
+    if (!link || !link.classList.contains('is-tapping')) return;
+    if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target && link.target !== '_self') return;
+
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+    const url = new URL(href, window.location.href);
+    if (url.origin !== window.location.origin) return;
+
+    event.preventDefault();
+    pendingTapNavigation = true;
+    window.setTimeout(() => {
+      window.location.href = url.href;
+    }, 85);
+  });
+
   ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
-    document.addEventListener(eventName, () => clearTapTarget(), { passive: true });
+    document.addEventListener(eventName, () => clearTapTarget(180), { passive: true });
   });
 
   const body = document.body;
