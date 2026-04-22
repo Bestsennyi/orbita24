@@ -4,10 +4,30 @@ declare(strict_types=1);
 require __DIR__ . '/includes/contact-handler.php';
 
 $contactState = orbita24_handle_contact_request();
-$contactType = $contactState['type'];
-$contactMessage = $contactState['message'];
-$oldInput = $contactState['old'];
-$csrfToken = $contactState['csrf_token'];
+$contactType = is_string($contactState['type'] ?? null) ? $contactState['type'] : '';
+$contactMessage = is_string($contactState['message'] ?? null) ? $contactState['message'] : '';
+$oldInput = is_array($contactState['old'] ?? null) ? $contactState['old'] : [];
+$csrfToken = is_string($contactState['csrf_token'] ?? null) ? $contactState['csrf_token'] : '';
+$oldName = is_string($oldInput['name'] ?? null) ? $oldInput['name'] : '';
+$oldEmail = is_string($oldInput['email'] ?? null) ? $oldInput['email'] : '';
+$oldMessage = is_string($oldInput['message'] ?? null) ? $oldInput['message'] : '';
+$formStatusClass = 'form-status';
+
+if ($contactMessage !== '') {
+    $formStatusClass .= ' is-visible is-' . $contactType;
+}
+
+$csrfTokenHtml = orbita24_e($csrfToken);
+$oldNameHtml = orbita24_e($oldName);
+$oldEmailHtml = orbita24_e($oldEmail);
+$oldMessageHtml = orbita24_e($oldMessage);
+$formStatusClassHtml = orbita24_e($formStatusClass);
+$contactMessageHtml = orbita24_e($contactMessage);
+$csrfTokenFieldHtml = '<input type="hidden" name="csrf_token" value="' . $csrfTokenHtml . '" />';
+$nameInputHtml = '<input id="name" name="name" type="text" autocomplete="name" maxlength="120" value="' . $oldNameHtml . '" required aria-describedby="name-error" />';
+$emailInputHtml = '<input id="email" name="email" type="email" autocomplete="email" maxlength="190" value="' . $oldEmailHtml . '" required aria-describedby="email-error" />';
+$messageTextareaHtml = '<textarea id="message" name="message" rows="3" maxlength="5000" required aria-describedby="message-error">' . $oldMessageHtml . '</textarea>';
+$formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' . $contactMessageHtml . '</p>';
 ?>
 <!doctype html>
 <html lang="de">
@@ -100,48 +120,23 @@ $csrfToken = $contactState['csrf_token'];
               </p>
 
               <form class="contact-form kontakt-form" action="kontakt.php" method="post" accept-charset="UTF-8">
-                <input type="hidden" name="csrf_token" value="<?= orbita24_e($csrfToken) ?>" />
+                <?php echo $csrfTokenFieldHtml; ?>
 
                 <div class="form-group">
                   <label for="name">Name</label>
-                  <input
-                    id="name"
-                    name="name"
-                    type="text"
-                    autocomplete="name"
-                    maxlength="120"
-                    value="<?= orbita24_e($oldInput['name']) ?>"
-                    required
-                    aria-describedby="name-error"
-                  />
+                  <?php echo $nameInputHtml; ?>
                   <p class="field-error" id="name-error"></p>
                 </div>
 
                 <div class="form-group">
                   <label for="email">E-Mail</label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autocomplete="email"
-                    maxlength="190"
-                    value="<?= orbita24_e($oldInput['email']) ?>"
-                    required
-                    aria-describedby="email-error"
-                  />
+                  <?php echo $emailInputHtml; ?>
                   <p class="field-error" id="email-error"></p>
                 </div>
 
                 <div class="form-group">
                   <label for="message">Nachricht</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows="3"
-                    maxlength="5000"
-                    required
-                    aria-describedby="message-error"
-                  ><?= orbita24_e($oldInput['message']) ?></textarea>
+                  <?php echo $messageTextareaHtml; ?>
                   <p class="field-error" id="message-error"></p>
                 </div>
 
@@ -150,10 +145,7 @@ $csrfToken = $contactState['csrf_token'];
                   <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
                 </div>
 
-                <p
-                  class="form-status<?= $contactMessage !== '' ? ' is-visible is-' . orbita24_e($contactType) : '' ?>"
-                  aria-live="polite"
-                ><?= orbita24_e($contactMessage) ?></p>
+                <?php echo $formStatusHtml; ?>
 
                 <button type="submit" class="btn btn-primary">Nachricht senden</button>
               </form>
