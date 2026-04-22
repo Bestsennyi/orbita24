@@ -14,6 +14,14 @@ $csrfToken = $contactState['csrf_token'];
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      id="Cookiebot"
+      src="https://consent.cookiebot.com/uc.js"
+      data-cbid="2442c9f2-b102-489d-b183-906d466fc319"
+      data-culture="DE"
+      data-blockingmode="auto"
+      type="text/javascript"
+    ></script>
     <title>Kontakt – Orbita24</title>
     <meta
       name="description"
@@ -197,6 +205,7 @@ $csrfToken = $contactState['csrf_token'];
             <span>RECHTLICHES</span>
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
+            <a href="cookies.html">Cookie-Erklärung</a>
           </div>
         </div>
       </div>
