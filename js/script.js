@@ -6,6 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let tapClearTimer = null;
   let pendingTapNavigation = false;
 
+  document.addEventListener('click', event => {
+    const el = event.target.closest('[data-offer="true"]');
+    if (!el) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'affiliate_click',
+      offer_name: el.dataset.offerName || '',
+      offer_category: el.dataset.offerCategory || '',
+      offer_position: el.dataset.offerPosition || '',
+      offer_url: el.href || ''
+    });
+  });
+
   const clearTapTarget = (delay = 160) => {
     if (tapClearTimer) {
       window.clearTimeout(tapClearTimer);
