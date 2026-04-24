@@ -6,16 +6,53 @@ document.addEventListener('DOMContentLoaded', () => {
   let tapClearTimer = null;
   let pendingTapNavigation = false;
 
+  const normalizeText = value => value.replace(/\s+/g, ' ').trim();
+  const toTitleCase = value => value
+    .split('-')
+    .filter(Boolean)
+    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+
+  const getOfferCategory = offerCard => {
+    const section = offerCard?.closest('section, main');
+    const categorySource = section?.querySelector(
+      '.structure-breadcrumb a:last-of-type, .structure-breadcrumb-current, .section-title, .page-header h1, .structure-header h1'
+    );
+    const categoryText = normalizeText(categorySource?.textContent || '');
+
+    if (categoryText) {
+      return categoryText;
+    }
+
+    const optionenIndex = window.location.pathname.split('/').filter(Boolean).indexOf('optionen');
+    const categorySlug = optionenIndex >= 0
+      ? window.location.pathname.split('/').filter(Boolean)[optionenIndex + 1]
+      : '';
+
+    return categorySlug ? toTitleCase(categorySlug) : '';
+  };
+
   document.addEventListener('click', event => {
     const el = event.target.closest('[data-offer="true"]');
     if (!el) return;
 
+    const offerCard = el.closest('.offer-card, [data-offer-card], .card');
+    const offerTitle = offerCard?.querySelector('h3, .offer-title, .card-title, h2, h1');
+    const offerName = normalizeText(offerTitle?.textContent || el.textContent || '');
+    const offerGrid = offerCard?.closest('.offer-grid, [data-offer-list], section, main');
+    const offerCards = offerGrid
+      ? Array.from(offerGrid.querySelectorAll('.offer-card, [data-offer-card], .card'))
+          .filter(card => card.querySelector('[data-offer="true"]'))
+      : [];
+    const offerIndex = offerCard ? offerCards.indexOf(offerCard) : -1;
+    const offerPosition = offerIndex >= 0 ? String(offerIndex + 1) : '';
+
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'affiliate_click',
-      offer_name: el.dataset.offerName || '',
-      offer_category: el.dataset.offerCategory || '',
-      offer_position: el.dataset.offerPosition || '',
+      offer_name: offerName,
+      offer_category: getOfferCategory(offerCard),
+      offer_position: offerPosition,
       offer_url: el.href || ''
     });
   });
