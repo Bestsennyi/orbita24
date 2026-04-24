@@ -34,6 +34,17 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied',
+        'wait_for_update': 500
+      });
+    </script>
     <script
       id="Cookiebot"
       src="https://consent.cookiebot.com/uc.js"
@@ -42,17 +53,6 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
       data-blockingmode="auto"
       type="text/javascript"
     ></script>
-    <!-- Consent Mode v2 default (do not load GTM before Cookiebot) -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'gtm.consentInitialization',
-        ad_storage: 'denied',
-        analytics_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied'
-      });
-    </script>
     <!-- Google Tag Manager -->
     <script>
       (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
