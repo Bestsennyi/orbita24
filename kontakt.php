@@ -7,6 +7,7 @@ $contactState = orbita24_handle_contact_request();
 $contactType = is_string($contactState['type'] ?? null) ? $contactState['type'] : '';
 $contactMessage = is_string($contactState['message'] ?? null) ? $contactState['message'] : '';
 $oldInput = is_array($contactState['old'] ?? null) ? $contactState['old'] : [];
+$contactEvents = is_array($contactState['events'] ?? null) ? $contactState['events'] : [];
 $csrfToken = is_string($contactState['csrf_token'] ?? null) ? $contactState['csrf_token'] : '';
 $oldName = is_string($oldInput['name'] ?? null) ? $oldInput['name'] : '';
 $oldEmail = is_string($oldInput['email'] ?? null) ? $oldInput['email'] : '';
@@ -28,6 +29,7 @@ $nameInputHtml = '<input id="name" name="name" type="text" autocomplete="name" m
 $emailInputHtml = '<input id="email" name="email" type="email" autocomplete="email" maxlength="190" value="' . $oldEmailHtml . '" required aria-describedby="email-error" />';
 $messageTextareaHtml = '<textarea id="message" name="message" rows="3" maxlength="5000" required aria-describedby="message-error">' . $oldMessageHtml . '</textarea>';
 $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' . $contactMessageHtml . '</p>';
+$shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, true);
 ?>
 <!doctype html>
 <html lang="de">
@@ -232,6 +234,14 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
       <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
+    <?php if ($shouldPushContactFormSubmit): ?>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'contact_form_submit'
+      });
+    </script>
+    <?php endif; ?>
     <script src="js/script.js"></script>
   </body>
 </html>

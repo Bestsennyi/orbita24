@@ -39,12 +39,13 @@ function orbita24_redirect_contact(): void
     exit;
 }
 
-function orbita24_set_contact_flash(string $type, string $message, array $old = []): void
+function orbita24_set_contact_flash(string $type, string $message, array $old = [], array $events = []): void
 {
     $_SESSION['contact_flash'] = [
         'type' => $type,
         'message' => $message,
         'old' => $old,
+        'events' => $events,
     ];
 }
 
@@ -62,10 +63,12 @@ function orbita24_take_contact_flash(): array
                 'email' => '',
                 'message' => '',
             ],
+            'events' => [],
         ];
     }
 
     $old = is_array($flash['old'] ?? null) ? $flash['old'] : [];
+    $events = is_array($flash['events'] ?? null) ? $flash['events'] : [];
 
     return [
         'type' => is_string($flash['type'] ?? null) ? $flash['type'] : '',
@@ -75,6 +78,7 @@ function orbita24_take_contact_flash(): array
             'email' => is_string($old['email'] ?? null) ? $old['email'] : '',
             'message' => is_string($old['message'] ?? null) ? $old['message'] : '',
         ],
+        'events' => array_values(array_filter($events, 'is_string')),
     ];
 }
 
@@ -228,7 +232,7 @@ function orbita24_handle_contact_request(): array
         orbita24_new_csrf_token();
 
         if ($sent) {
-            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald.');
+            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald.', [], ['contact_form_submit']);
         } else {
             orbita24_set_contact_flash('error', 'Fehler beim Senden. Bitte später erneut versuchen.', $data);
         }
