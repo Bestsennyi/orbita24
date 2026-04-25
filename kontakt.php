@@ -95,7 +95,7 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body class="page-sticky">
+  <body class="page-sticky kontakt-page">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HL9LFK4"
