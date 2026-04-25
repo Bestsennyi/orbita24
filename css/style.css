@@ -72,7 +72,7 @@ body.menu-open::before {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.28);
+  background: rgba(0, 0, 0, 0.22);
   pointer-events: none;
   z-index: 55;
 }
@@ -1667,7 +1667,7 @@ textarea {
   .hero {
     text-align: center;
     padding-top: 60px;
-    padding-bottom: 100px;
+    padding-bottom: 105px;
     --hero-eyebrow-gap: 15px;
     --hero-title-gap: 20px;
     --hero-copy-gap: 18px;
@@ -1739,7 +1739,7 @@ textarea {
   }
 
   .kontakt-layout {
-    gap: 8px;
+    gap: 15px;
   }
 
   .kontakt-main .page-header {

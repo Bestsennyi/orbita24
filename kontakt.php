@@ -141,7 +141,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
             <div class="page-header">
               <p class="eyebrow">KONTAKT</p>
               <h1>Schreiben Sie uns</h1>
-              <p>Bei Fragen oder Anliegen können Sie uns schnell und unkompliziert kontaktieren.</p>
+              <p>Bei Fragen uns einfach kontaktieren.</p>
             </div>
 
             <article class="card form-card kontakt-form-card">
