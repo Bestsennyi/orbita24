@@ -277,12 +277,13 @@
   align-self: flex-start;
   margin-top: 12px;
   padding: 0 12px;
-  color: var(--text-strong);
+  color: #ff5a1f;
   background: #ffffff;
-  border-color: rgba(17, 24, 39, 0.14);
+  border-color: #ff5a1f;
   font-size: 0.875rem;
   font-weight: 700;
   transition:
+    transform 0.2s ease,
     color 0.2s ease,
     background 0.2s ease,
     border-color 0.2s ease,
@@ -295,20 +296,25 @@
   transition: transform 0.2s ease;
 }
 
+.structure-card .btn::after {
+  content: "\2192";
+  color: #ff5a1f;
+}
+
 .structure-card:hover .btn,
 .structure-card .btn:hover,
 .structure-card .btn:focus-visible,
 .structure-card:active .btn,
 .structure-card .btn:active {
-  color: #ffffff;
-  background: #ff5a1f;
+  color: #ff5a1f;
+  background: rgba(255, 90, 31, 0.08);
   border-color: #ff5a1f;
-  box-shadow: 0 12px 24px rgba(255, 90, 31, 0.18);
+  box-shadow: none;
 }
 
 .structure-card .btn:active {
-  background: #c94214;
-  border-color: #c94214;
+  background: rgba(255, 90, 31, 0.12);
+  border-color: #ff5a1f;
 }
 
 .structure-card:hover .btn::after,
@@ -317,6 +323,22 @@
 .structure-card:active .btn::after,
 .structure-card .btn:active::after {
   transform: translateX(3px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .structure-card:hover .btn,
+  .structure-card .btn:hover,
+  .structure-card .btn:focus-visible {
+    color: #ffffff;
+    background: #ff5a1f;
+    border-color: #ff5a1f;
+  }
+
+  .structure-card:hover .btn::after,
+  .structure-card .btn:hover::after,
+  .structure-card .btn:focus-visible::after {
+    color: #ffffff;
+  }
 }
 
 .optionen-structure-page .offer-intro.structure-header {
@@ -345,6 +367,30 @@
   overflow-wrap: normal;
   word-break: normal;
   hyphens: none;
+}
+
+.optionen-structure-page .offer-card .offer-cta,
+.optionen-structure-page .offer-card .btn[data-offer='true'] {
+  color: #ffffff !important;
+  background: #ff5a1f !important;
+  border-color: #ff5a1f !important;
+  box-shadow: none !important;
+}
+
+.optionen-structure-page .offer-card .offer-cta:hover,
+.optionen-structure-page .offer-card .offer-cta:focus-visible,
+.optionen-structure-page .offer-card .btn[data-offer='true']:hover,
+.optionen-structure-page .offer-card .btn[data-offer='true']:focus-visible {
+  color: #ffffff !important;
+  background: #e04a17 !important;
+  border-color: #e04a17 !important;
+}
+
+.optionen-structure-page .offer-card .offer-cta:active,
+.optionen-structure-page .offer-card .btn[data-offer='true']:active {
+  color: #ffffff !important;
+  background: #e04a17 !important;
+  border-color: #e04a17 !important;
 }
 
 .structure-link {
@@ -447,16 +493,19 @@
   }
 }
 
-@media (hover: none) {
+@media (hover: none) and (pointer: coarse) {
   .structure-back,
   .structure-card,
+  .offer-card,
   .structure-card-icon,
   .structure-card .btn,
+  .offer-card .btn,
+  .offer-card .offer-cta,
   .structure-card .btn::after,
   .structure-final .btn,
   .structure-cta .btn,
   .structure-link {
-    transition-duration: 0.08s;
+    transition-duration: 120ms;
   }
 
   .structure-back:hover {
@@ -472,47 +521,65 @@
     color: #ffffff;
     background: #ff5a1f;
     border-color: #ff5a1f;
-    box-shadow:
-      0 12px 28px rgba(255, 90, 31, 0.26),
-      0 0 0 3px rgba(255, 90, 31, 0.16);
-    transform: translateX(-2px);
+    box-shadow: none;
+    transform: scale(0.98);
   }
 
-  .structure-card:hover {
-    transform: none;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-    border-color: rgba(17, 24, 39, 0.075);
+  .structure-card,
+  .offer-card {
+    transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+  }
+
+  .structure-card:hover,
+  .offer-card:hover {
+    transform: none !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(17, 24, 39, 0.075) !important;
   }
 
   .structure-card:active,
-  .structure-card.is-tapping {
+  .structure-card.is-tapping,
+  .offer-card:active,
+  .offer-card.is-tapping {
     background: #ffffff;
-    transform: translateY(-5px) scale(0.995);
-    box-shadow:
-      0 24px 54px rgba(17, 24, 39, 0.18),
-      0 0 0 3px rgba(255, 90, 31, 0.2);
-    border-color: rgba(255, 90, 31, 0.42);
+    transform: scale(0.99) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+    border-color: rgba(17, 24, 39, 0.075) !important;
   }
 
-  .structure-card:hover .structure-card-icon {
-    transform: none;
-    filter: none;
+  .structure-card:hover .structure-card-icon,
+  .offer-card:hover .structure-card-icon {
+    transform: none !important;
+    filter: none !important;
   }
 
   .structure-card:active .structure-card-icon,
-  .structure-card.is-tapping .structure-card-icon {
-    transform: translateY(-2px);
-    filter: drop-shadow(0 8px 14px rgba(255, 90, 31, 0.24));
+  .structure-card.is-tapping .structure-card-icon,
+  .offer-card:active .structure-card-icon,
+  .offer-card.is-tapping .structure-card-icon {
+    transform: none !important;
+    filter: none !important;
   }
 
   .structure-final .btn:hover,
   .structure-cta .btn:hover,
   .structure-card:hover .btn,
   .structure-card .btn:hover {
-    color: var(--text-strong);
-    background: #ffffff;
-    border-color: rgba(17, 24, 39, 0.14);
-    box-shadow: none;
+    color: #ff5a1f !important;
+    background: #ffffff !important;
+    border-color: #ff5a1f !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  .offer-card:hover .btn,
+  .offer-card .btn:hover,
+  .offer-card .offer-cta:hover {
+    color: #ffffff !important;
+    background: #ff5a1f !important;
+    border-color: #ff5a1f !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .structure-final .btn:active,
@@ -523,13 +590,24 @@
   .structure-cta .btn.is-tapping,
   .structure-card.is-tapping .btn,
   .structure-card .btn.is-tapping {
-    color: #ffffff;
-    background: #ff5a1f;
-    border-color: #ff5a1f;
-    box-shadow:
-      0 16px 34px rgba(255, 90, 31, 0.34),
-      0 0 0 4px rgba(255, 90, 31, 0.2);
-    transform: translateY(-3px) scale(0.985);
+    color: #ff5a1f !important;
+    background: rgba(255, 90, 31, 0.08) !important;
+    border-color: #ff5a1f !important;
+    box-shadow: none !important;
+    transform: scale(0.98) !important;
+  }
+
+  .offer-card:active .btn,
+  .offer-card .btn:active,
+  .offer-card .offer-cta:active,
+  .offer-card.is-tapping .btn,
+  .offer-card .btn.is-tapping,
+  .offer-card .offer-cta.is-tapping {
+    color: #ffffff !important;
+    background: #e04a17 !important;
+    border-color: #e04a17 !important;
+    box-shadow: none !important;
+    transform: scale(0.98) !important;
   }
 
   .structure-card:hover .btn::after,
@@ -541,7 +619,7 @@
   .structure-card .btn:active::after,
   .structure-card.is-tapping .btn::after,
   .structure-card .btn.is-tapping::after {
-    transform: translateX(3px);
+    transform: none;
   }
 
   .structure-card:hover .structure-link {
@@ -553,5 +631,80 @@
   .structure-card.is-tapping .structure-link {
     color: #ff5a1f;
     transform: translateX(3px);
+  }
+}
+
+@media (max-width: 768px) {
+  .structure-nav-row {
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .structure-breadcrumb {
+    min-width: 0;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    font-size: 0.92rem;
+    line-height: 1.25;
+  }
+
+  .structure-breadcrumb a,
+  .structure-breadcrumb-separator {
+    display: none;
+  }
+
+  .structure-breadcrumb-current {
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    color: #ff5a1f;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .structure-header h1 {
+    max-width: 100%;
+    font-size: clamp(1.75rem, 7.6vw, 2.25rem);
+    line-height: 1.08;
+    overflow-wrap: normal;
+    white-space: normal;
+    word-break: normal;
+  }
+
+  .optionen-structure-page .offer-card h2 {
+    max-width: 100%;
+    font-size: clamp(1.05rem, 5.4vw, 1.22rem) !important;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+}
+
+@media (max-width: 768px) and (hover: none) and (pointer: coarse) {
+  .structure-card:hover,
+  .offer-card:hover {
+    transform: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border-color: rgba(17, 24, 39, 0.075);
+  }
+
+  .structure-card:active,
+  .structure-card.is-tapping,
+  .offer-card:active,
+  .offer-card.is-tapping {
+    transform: scale(0.99);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    border-color: rgba(255, 90, 31, 0.24);
+    transition: transform 120ms ease;
+  }
+
+  .structure-card:hover .structure-card-icon,
+  .structure-card:hover .btn,
+  .structure-card:hover .btn::after,
+  .structure-card:hover .structure-link {
+    transform: none;
+    filter: none;
   }
 }

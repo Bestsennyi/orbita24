@@ -212,9 +212,9 @@
         min-height: 38px;
         margin-top: auto;
         padding: 0 12px;
-        color: var(--text-strong);
+        color: #ff5a1f;
         background: #ffffff;
-        border-color: rgba(17, 24, 39, 0.14);
+        border-color: #ff5a1f;
         font-size: 0.875rem;
         transition:
           transform 0.2s ease,
@@ -227,27 +227,44 @@
       .optionen-page .optionen-card .btn::after {
         content: "\2192";
         margin-left: 8px;
+        color: #ff5a1f;
         transition: transform 0.2s ease;
       }
 
       .optionen-page .optionen-card:hover .btn,
       .optionen-page .optionen-card .btn:hover,
       .optionen-page .optionen-card .btn:focus-visible {
-        color: #ffffff;
-        background: #ff5a1f;
+        color: #ff5a1f;
+        background: rgba(255, 90, 31, 0.08);
         border-color: #ff5a1f;
-        box-shadow: 0 12px 24px rgba(255, 90, 31, 0.18);
+        box-shadow: none;
       }
 
       .optionen-page .optionen-card .btn:active {
-        background: #c94214;
-        border-color: #c94214;
+        background: rgba(255, 90, 31, 0.12);
+        border-color: #ff5a1f;
       }
 
       .optionen-page .optionen-card:hover .btn::after,
       .optionen-page .optionen-card .btn:hover::after,
       .optionen-page .optionen-card .btn:focus-visible::after {
         transform: translateX(3px);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .optionen-page .optionen-card:hover .btn,
+        .optionen-page .optionen-card .btn:hover,
+        .optionen-page .optionen-card .btn:focus-visible {
+          color: #ffffff;
+          background: #ff5a1f;
+          border-color: #ff5a1f;
+        }
+
+        .optionen-page .optionen-card:hover .btn::after,
+        .optionen-page .optionen-card .btn:hover::after,
+        .optionen-page .optionen-card .btn:focus-visible::after {
+          color: #ffffff;
+        }
       }
 
       .optionen-page .page-cta {
@@ -351,6 +368,42 @@
         .optionen-page .page-cta {
           margin-bottom: 32px;
           padding: 18px;
+        }
+      }
+
+      @media (max-width: 768px) and (hover: none) and (pointer: coarse) {
+        .optionen-page .optionen-card:hover {
+          transform: none;
+          border-color: rgba(17, 24, 39, 0.075);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .optionen-page .optionen-card:active,
+        .optionen-page .optionen-card.is-tapping {
+          transform: scale(0.99);
+          transition: transform 120ms ease;
+        }
+
+        .optionen-page .optionen-card:hover .icon,
+        .optionen-page .optionen-card:hover .btn,
+        .optionen-page .optionen-card:hover .btn::after {
+          transform: none;
+          filter: none;
+        }
+
+        .optionen-page .optionen-card .btn,
+        .optionen-page .optionen-card .btn:hover {
+          color: #ff5a1f;
+          background: #ffffff;
+          border-color: #ff5a1f;
+          box-shadow: none;
+        }
+
+        .optionen-page .optionen-card .btn:active,
+        .optionen-page .optionen-card .btn.is-tapping {
+          transform: scale(0.98);
+          background: rgba(255, 90, 31, 0.08);
+          transition: transform 120ms ease, background-color 120ms ease;
         }
       }
     </style>
