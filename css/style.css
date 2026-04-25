@@ -46,6 +46,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
   font-family: Inter, Arial, Helvetica, sans-serif;
   line-height: 1.6;
   color: var(--text);
@@ -53,6 +56,10 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   position: relative;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 body.menu-open {
@@ -983,6 +990,7 @@ textarea {
   --muted: #9ca3af;
   --muted-soft: #c4ccd7;
   position: relative;
+  flex-shrink: 0;
   color: var(--text);
   padding: 40px 0 31px;
   border-top: 1px solid rgba(255, 255, 255, 0.04);
