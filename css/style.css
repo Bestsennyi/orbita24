@@ -280,7 +280,7 @@ textarea {
   width: min(264px, calc(100vw - 32px));
   padding: 12px;
   border-radius: 20px;
-  background: rgba(19, 27, 43, 0.94);
+  background: #131b2b;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 28px 56px rgba(0, 0, 0, 0.32);
   z-index: 70;
@@ -301,6 +301,7 @@ textarea {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  background: #131b2b;
   transform: translate(-50%, 0);
 }
 
@@ -1648,8 +1649,8 @@ textarea {
 
   .hero {
     text-align: center;
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 60px;
+    padding-bottom: 85px;
     --hero-eyebrow-gap: 11px;
     --hero-title-gap: 18px;
     --hero-copy-gap: 17px;
@@ -1807,7 +1808,7 @@ textarea {
     gap: 3px;
     align-items: start;
     margin: 0 auto;
-    padding-right: 1px;
+    padding-right: 6px;
     text-align: center;
   }
 
