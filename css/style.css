@@ -67,6 +67,16 @@ body.menu-open {
   overflow: hidden;
 }
 
+body.menu-open::before {
+  content: "";
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+  z-index: 55;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -280,9 +290,14 @@ textarea {
   width: min(264px, calc(100vw - 32px));
   padding: 12px;
   border-radius: 20px;
-  background: #131b2b;
+  isolation: isolate;
+  background: rgba(17, 24, 39, 0.96);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 28px 56px rgba(0, 0, 0, 0.32);
+  box-shadow:
+    0 28px 56px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   z-index: 70;
   display: flex;
   flex-direction: column;
@@ -301,7 +316,6 @@ textarea {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  background: #131b2b;
   transform: translate(-50%, 0);
 }
 
@@ -1451,6 +1465,9 @@ textarea {
     border: 0;
     box-shadow: none;
     background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    isolation: auto;
     width: auto;
     transform: none;
     left: auto;
@@ -1650,10 +1667,10 @@ textarea {
   .hero {
     text-align: center;
     padding-top: 60px;
-    padding-bottom: 85px;
-    --hero-eyebrow-gap: 11px;
-    --hero-title-gap: 18px;
-    --hero-copy-gap: 17px;
+    padding-bottom: 100px;
+    --hero-eyebrow-gap: 15px;
+    --hero-title-gap: 20px;
+    --hero-copy-gap: 18px;
   }
 
   .hero-shell {
@@ -1834,14 +1851,37 @@ textarea {
 }
 
 @media (max-width: 991px) {
+  body.menu-open::before {
+    display: block;
+  }
+
   .nav-menu {
     gap: 9px;
   }
 
   .nav-menu a {
-    padding: 13px 14px;
-    font-size: 1.1rem;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
     line-height: 1.25;
+  }
+
+  .nav-menu a:hover,
+  .nav-menu a:focus-visible,
+  .nav-menu a:active {
+    color: #ffffff;
+    background: transparent;
+  }
+
+  .nav-menu a.active,
+  .nav-menu a[aria-current="page"] {
+    color: #ffffff;
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: currentColor;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 6px;
   }
 }
 
