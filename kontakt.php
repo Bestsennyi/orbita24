@@ -227,7 +227,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
             <span>RECHTLICHES</span>
             <a href="impressum.html">Impressum</a>
             <a href="datenschutz.html">Datenschutz</a>
-            <a href="cookies.html">Cookie-Erklärung</a>
+            <a href="cookies.html">Cookies</a>
           </div>
         </div>
       </div>
