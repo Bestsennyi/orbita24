@@ -109,7 +109,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
-          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
+          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" decoding="async" />
         </a>
 
         <button
@@ -206,7 +206,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
       <div class="container footer-grid">
         <div>
           <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
-            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
+            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" loading="lazy" decoding="async" />
           </a>
           <p class="footer-text">
             Informationen und einfache Lösungen rund um verschiedene Dienstleistungen und Angebote.
@@ -234,14 +234,6 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
       <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <?php if ($shouldPushContactFormSubmit): ?>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'contact_form_submit'
-      });
-    </script>
-    <?php endif; ?>
     <script src="js/script.js"></script>
   </body>
 </html>
