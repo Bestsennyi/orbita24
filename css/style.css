@@ -8,7 +8,7 @@
   --muted-soft: #4b5563;
   --accent: #ff5a1f;
   --accent-hover: #e04a17;
-  --trust: #0f9f6e;
+  --trust: #0b7f59;
   --border: rgba(17, 24, 39, 0.08);
   --border-strong: rgba(17, 24, 39, 0.12);
   --shadow: 0 22px 64px rgba(17, 24, 39, 0.12);
@@ -80,6 +80,7 @@ body.menu-open::before {
 img {
   display: block;
   max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -1276,7 +1277,7 @@ textarea {
     background: var(--accent);
     color: #ffffff;
     font: inherit;
-    font-weight: 700;
+    font-weight: 800;
     cursor: pointer;
   }
 
@@ -1838,6 +1839,10 @@ textarea {
   }
 
   .footer-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: 0.875rem;
     line-height: 1.35;
   }

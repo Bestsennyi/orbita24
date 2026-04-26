@@ -107,7 +107,7 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
-          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
+          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" decoding="async" />
         </a>
 
         <button
@@ -204,7 +204,7 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
       <div class="container footer-grid">
         <div>
           <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
-            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" />
+            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" loading="lazy" decoding="async" />
           </a>
           <p class="footer-text">
             Informationen und einfache Lösungen rund um verschiedene Dienstleistungen und Angebote.
@@ -232,6 +232,6 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
       <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
   </body>
 </html>
