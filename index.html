@@ -8,13 +8,15 @@
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 500
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500,
       });
     </script>
     <script
@@ -27,39 +29,54 @@
     ></script>
     <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5HL9LFK4');
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5HL9LFK4");
     </script>
     <!-- End Google Tag Manager -->
-    <title>Orbita24 - Klar erklärt und einfach weiter</title>
+    <title>Angebote & Vergleiche in Deutschland | Orbita24</title>
     <meta
       name="description"
-      content="Orbita24 bereitet Informationen klar und verständlich auf, damit Sie Angebote schneller vergleichen und einfacher den nächsten Schritt finden."
+      content="Finden Sie passende Angebote f&#252;r Strom, Kredit, Versicherungen und mehr. Jetzt Anbieter vergleichen und einfach sparen mit Orbita24."
     />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#111827" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="Orbita24" />
-    <meta property="og:title" content="Orbita24 - Klar erklärt und einfach weiter" />
+    <meta
+      property="og:title"
+      content="Orbita24 - Klar erklärt und einfach weiter"
+    />
     <meta
       property="og:description"
       content="Klar aufgebaute Informationen und einfache Wege zu passenden Lösungen."
     />
     <meta property="og:url" content="https://orbita24.de/" />
-    <meta property="og:image" content="https://orbita24.de/images/hero-bg.webp" />
+    <meta
+      property="og:image"
+      content="https://orbita24.de/images/hero-bg.webp"
+    />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Orbita24 - Klar erklärt und einfach weiter" />
+    <meta
+      name="twitter:title"
+      content="Orbita24 - Klar erklärt und einfach weiter"
+    />
     <meta
       name="twitter:description"
       content="Klar aufgebaute Informationen und einfache Wege zu passenden Lösungen."
     />
-    <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
+    <meta
+      name="twitter:image"
+      content="https://orbita24.de/images/hero-bg.webp"
+    />
     <link rel="canonical" href="https://orbita24.de/" />
     <link
       rel="preload"
@@ -198,7 +215,11 @@
             rgba(17, 24, 39, 0.34) 72%,
             rgba(17, 24, 39, 0.14) 100%
           ),
-          linear-gradient(180deg, rgba(17, 24, 39, 0.12) 0%, rgba(17, 24, 39, 0.2) 100%);
+          linear-gradient(
+            180deg,
+            rgba(17, 24, 39, 0.12) 0%,
+            rgba(17, 24, 39, 0.2) 100%
+          );
       }
 
       .hero .container {
@@ -293,8 +314,17 @@
 
         .hero-media-overlay {
           background:
-            linear-gradient(180deg, rgba(17, 24, 39, 0.48) 0%, rgba(17, 24, 39, 0.34) 100%),
-            linear-gradient(90deg, rgba(17, 24, 39, 0.8) 0%, rgba(17, 24, 39, 0.56) 50%, rgba(17, 24, 39, 0.18) 100%);
+            linear-gradient(
+              180deg,
+              rgba(17, 24, 39, 0.48) 0%,
+              rgba(17, 24, 39, 0.34) 100%
+            ),
+            linear-gradient(
+              90deg,
+              rgba(17, 24, 39, 0.8) 0%,
+              rgba(17, 24, 39, 0.56) 50%,
+              rgba(17, 24, 39, 0.18) 100%
+            );
         }
 
         .hero-shell {
@@ -482,15 +512,30 @@
       rel="preload"
       href="css/style.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript><link rel="stylesheet" href="css/style.css" /></noscript>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Orbita24",
+        "url": "https://orbita24.de"
+      }
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript>
-      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5HL9LFK4"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5HL9LFK4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div class="site-bg" aria-hidden="true"></div>
@@ -498,7 +543,14 @@
     <header class="site-header">
       <div class="container nav">
         <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
-          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" decoding="async" />
+          <img
+            src="images/logo-orbita24.svg"
+            alt="Orbita24 Logo"
+            class="logo-img"
+            width="1991"
+            height="390"
+            decoding="async"
+          />
         </a>
 
         <button
@@ -519,7 +571,12 @@
           <a href="kontakt.php">Kontakt</a>
         </nav>
 
-        <a href="optionen.html" class="btn btn-primary nav-cta cta-all-options" data-location="header">Alle Optionen ansehen</a>
+        <a
+          href="optionen.html"
+          class="btn btn-primary nav-cta cta-all-options"
+          data-location="header"
+          >Alle Optionen ansehen</a
+        >
       </div>
     </header>
 
@@ -547,17 +604,27 @@
               <h1>Finden Sie schnell die passende Lösung</h1>
 
               <p class="hero-text">
-                Wir zeigen Ihnen ausgewählte Angebote übersichtlich und verständlich. Vergleichen
-                Sie Optionen einfach und treffen Sie die passende Entscheidung. Klar, unabhängig und
-                verständlich erklärt.
+                Wir zeigen Ihnen ausgewählte Angebote übersichtlich und
+                verständlich. Vergleichen Sie Optionen einfach und treffen Sie
+                die passende Entscheidung. Klar, unabhängig und verständlich
+                erklärt.
               </p>
 
-              <a href="optionen.html" class="hero-cta-mobile cta-all-options" data-location="hero">Alle Optionen ansehen</a>
+              <a
+                href="optionen.html"
+                class="hero-cta-mobile cta-all-options"
+                data-location="hero"
+                >Alle Optionen ansehen</a
+              >
 
               <ul class="hero-trust">
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 128 128"
+                      fill="none"
+                    >
                       <g
                         stroke="#00ff88"
                         stroke-width="8"
@@ -572,7 +639,11 @@
                 </li>
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 128 128"
+                      fill="none"
+                    >
                       <g
                         stroke="#00ff88"
                         stroke-width="8"
@@ -589,7 +660,11 @@
                 </li>
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 128 128"
+                      fill="none"
+                    >
                       <g
                         stroke="#00ff88"
                         stroke-width="8"
@@ -615,56 +690,87 @@
             <p class="eyebrow">Unser Angebot</p>
             <h2>Übersichtliche Informationen und passende Optionen</h2>
             <p>
-              Wir bereiten Inhalte verständlich auf, damit Sie sich schnell orientieren und
-              Optionen leichter vergleichen können.
+              Wir bereiten Inhalte verständlich auf, damit Sie sich schnell
+              orientieren und Optionen leichter vergleichen können.
             </p>
           </div>
 
           <div class="cards-grid">
             <article class="card feature-card">
               <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ff5a1f"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <g transform="translate(2.4 2.4) scale(0.8)">
                     <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
-                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                    <path
+                      d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                    />
                     <path d="m9 14 2 2 4-4" />
                   </g>
                 </svg>
               </div>
               <h3>Klar aufbereitete Inhalte</h3>
               <p>
-                Wichtige Informationen sind übersichtlich dargestellt, damit Sie schnell erfassen,
-                worauf es ankommt.
+                Wichtige Informationen sind übersichtlich dargestellt, damit Sie
+                schnell erfassen, worauf es ankommt.
               </p>
             </article>
 
             <article class="card feature-card">
               <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ff5a1f"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <g transform="translate(3 3) scale(0.75)">
-                    <path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z" />
+                    <path
+                      d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"
+                    />
                   </g>
                 </svg>
               </div>
               <h3>Ausgewählte Angebote</h3>
               <p>
-                Angebote aus verschiedenen Bereichen werden übersichtlich dargestellt und lassen
-                sich leichter vergleichen.
+                Angebote aus verschiedenen Bereichen werden übersichtlich
+                dargestellt und lassen sich leichter vergleichen.
               </p>
             </article>
 
             <article class="card feature-card">
               <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ff5a1f"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <g transform="translate(3 3) scale(0.75)">
-                    <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" />
+                    <path
+                      d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"
+                    />
                     <path d="m9 12 2 2 4-4" />
                   </g>
                 </svg>
               </div>
               <h3>Einfacher Kontakt</h3>
               <p>
-                Bei offenen Fragen finden Sie schnell den passenden nächsten Schritt.
+                Bei offenen Fragen finden Sie schnell den passenden nächsten
+                Schritt.
               </p>
             </article>
           </div>
@@ -677,15 +783,23 @@
             <p class="eyebrow">Warum Orbita24</p>
             <h2>Weniger Umwege, mehr Orientierung</h2>
             <p>
-              Wir setzen auf klare Informationen und einfache Strukturen, damit Sie sich schneller
-              orientieren und Optionen finden.
+              Wir setzen auf klare Informationen und einfache Strukturen, damit
+              Sie sich schneller orientieren und Optionen finden.
             </p>
           </div>
 
           <div class="trust-grid">
             <article class="card trust-card">
               <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ff5a1f"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <g transform="translate(3 3) scale(0.75)">
                     <path d="M21.801 10A10 10 0 1 1 17 3.335" />
                     <path d="m9 11 3 3L22 4" />
@@ -694,14 +808,22 @@
               </div>
               <h3>Klare Informationen</h3>
               <p>
-                Inhalte werden so aufbereitet, dass Sie sie schnell erfassen und leicht verstehen
-                können.
+                Inhalte werden so aufbereitet, dass Sie sie schnell erfassen und
+                leicht verstehen können.
               </p>
             </article>
 
             <article class="card trust-card">
               <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ff5a1f"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <g transform="translate(3 3) scale(0.75)">
                     <rect width="7" height="7" x="3" y="3" rx="1" />
                     <rect width="7" height="7" x="14" y="3" rx="1" />
@@ -712,14 +834,22 @@
               </div>
               <h3>Einfacher Überblick</h3>
               <p>
-                Wichtige Punkte stehen im Vordergrund, damit Entscheidungen nicht unnötig
-                kompliziert werden.
+                Wichtige Punkte stehen im Vordergrund, damit Entscheidungen
+                nicht unnötig kompliziert werden.
               </p>
             </article>
 
             <article class="card trust-card">
               <div class="icon" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#ff5a1f"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
                   <g transform="translate(3 3) scale(0.75)">
                     <circle cx="12" cy="12" r="10" />
                     <path d="m12 16 4-4-4-4" />
@@ -729,7 +859,8 @@
               </div>
               <h3>Direkt zum nächsten Schritt</h3>
               <p>
-                Sie finden schneller den passenden Weg und kommen ohne Umwege weiter.
+                Sie finden schneller den passenden Weg und kommen ohne Umwege
+                weiter.
               </p>
             </article>
           </div>
@@ -742,13 +873,18 @@
             <p class="eyebrow">Starten Sie jetzt</p>
             <h2>Sie möchten einfach und schnell weiterkommen?</h2>
             <p>
-              Wir zeigen Ihnen passende Optionen, damit Sie den nächsten Schritt einfach und
-              schnell finden.
+              Wir zeigen Ihnen passende Optionen, damit Sie den nächsten Schritt
+              einfach und schnell finden.
             </p>
           </div>
 
           <div class="cta-side">
-            <a href="optionen.html" class="btn btn-primary cta-all-options" data-location="footer">Alle Optionen ansehen</a>
+            <a
+              href="optionen.html"
+              class="btn btn-primary cta-all-options"
+              data-location="footer"
+              >Alle Optionen ansehen</a
+            >
           </div>
         </div>
       </section>
@@ -757,13 +893,28 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
-            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" loading="lazy" decoding="async" />
+          <a
+            href="index.html"
+            class="logo footer-logo"
+            aria-label="Orbita24 Startseite"
+          >
+            <img
+              src="images/logo-orbita24.svg"
+              alt="Orbita24 Logo"
+              class="logo-img"
+              width="1991"
+              height="390"
+              loading="lazy"
+              decoding="async"
+            />
           </a>
           <p class="footer-text">
-            Informationen und einfache Lösungen rund um verschiedene Dienstleistungen und Angebote.
+            Informationen und einfache Lösungen rund um verschiedene
+            Dienstleistungen und Angebote.
           </p>
-          <p class="footer-note">Unabhängige Informationen. Klar und verständlich aufbereitet.</p>
+          <p class="footer-note">
+            Unabhängige Informationen. Klar und verständlich aufbereitet.
+          </p>
           <p class="footer-contact">
             <a href="mailto:kontakt@orbita24.de">kontakt@orbita24.de</a>
           </p>

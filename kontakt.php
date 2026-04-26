@@ -68,11 +68,8 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
       })(window,document,'script','dataLayer','GTM-5HL9LFK4');
     </script>
     <!-- End Google Tag Manager -->
-    <title>Kontakt – Orbita24</title>
-    <meta
-      name="description"
-      content="Kontaktieren Sie Orbita24 schnell und unkompliziert. Schreiben Sie uns über das Kontaktformular oder per E-Mail."
-    />
+    <title>Orbita24 Kontakt: Fragen zu Angeboten &amp; Vergleichen</title>
+    <meta name="description" content="Kontaktieren Sie Orbita24 bei Fragen zu Angeboten, Anbietern oder Vergleichen. Wir helfen Ihnen klar, schnell und verst&#228;ndlich bei Ihrem Anliegen weiter." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#111827" />
     <meta property="og:type" content="website" />
