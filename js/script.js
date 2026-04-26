@@ -223,109 +223,129 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleHeaderState, { passive: true });
   handleHeaderState();
 
-  const scrollTopButton = document.createElement('button');
-  const siteFooter = document.querySelector('.site-footer');
-  scrollTopButton.className = 'scroll-top';
-  scrollTopButton.type = 'button';
-  scrollTopButton.setAttribute('aria-label', 'Nach oben');
-  scrollTopButton.innerHTML = `
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-      <g stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M64 26v76" />
-        <path d="M34 54l30-30 30 30" />
-      </g>
-    </svg>
-  `;
+  const scheduleAfterLoad = callback => {
+    const run = () => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(callback, { timeout: 1600 });
+      } else {
+        window.setTimeout(callback, 350);
+      }
+    };
 
-  if (siteFooter) {
-    siteFooter.before(scrollTopButton);
-  } else {
-    document.body.appendChild(scrollTopButton);
-  }
+    if (document.readyState === 'complete') {
+      run();
+    } else {
+      window.addEventListener('load', run, { once: true });
+    }
+  };
 
-  const updateScrollTopPosition = () => {
-    if (!siteFooter) return;
+  const initScrollTopButton = () => {
+    const scrollTopButton = document.createElement('button');
+    const siteFooter = document.querySelector('.site-footer');
+    scrollTopButton.className = 'scroll-top';
+    scrollTopButton.type = 'button';
+    scrollTopButton.setAttribute('aria-label', 'Nach oben');
+    scrollTopButton.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+        <g stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M64 26v76" />
+          <path d="M34 54l30-30 30 30" />
+        </g>
+      </svg>
+    `;
 
-    const footerRect = siteFooter.getBoundingClientRect();
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
-    const canOverlapFooter = window.matchMedia('(min-width: 768px)').matches;
+    if (siteFooter) {
+      siteFooter.before(scrollTopButton);
+    } else {
+      document.body.appendChild(scrollTopButton);
+    }
 
-    if (isMobile && footerRect.top < window.innerHeight) {
-      if (scrollTopButton.parentElement !== siteFooter) {
-        siteFooter.appendChild(scrollTopButton);
+    const updateScrollTopPosition = () => {
+      if (!siteFooter) return;
+
+      const footerRect = siteFooter.getBoundingClientRect();
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      const canOverlapFooter = window.matchMedia('(min-width: 768px)').matches;
+
+      if (isMobile && footerRect.top < window.innerHeight) {
+        if (scrollTopButton.parentElement !== siteFooter) {
+          siteFooter.appendChild(scrollTopButton);
+        }
+
+        scrollTopButton.classList.add('is-footer-docked');
+        scrollTopButton.style.removeProperty('--scroll-top-bottom');
+        return;
       }
 
-      scrollTopButton.classList.add('is-footer-docked');
-      scrollTopButton.style.removeProperty('--scroll-top-bottom');
-      return;
-    }
+      if (scrollTopButton.parentElement === siteFooter) {
+        siteFooter.before(scrollTopButton);
+      }
 
-    if (scrollTopButton.parentElement === siteFooter) {
-      siteFooter.before(scrollTopButton);
-    }
+      scrollTopButton.classList.remove('is-footer-docked');
 
-    scrollTopButton.classList.remove('is-footer-docked');
+      const safeGap = canOverlapFooter ? -10 : 16;
+      const defaultBottom = 24;
+      const buttonHeight = scrollTopButton.offsetHeight || 44;
+      const maxBottom = Math.max(defaultBottom, window.innerHeight - buttonHeight - safeGap);
+      const footerOffset = window.innerHeight - footerRect.top + safeGap;
+      const nextBottom = footerRect.top < window.innerHeight
+        ? Math.min(Math.max(defaultBottom, footerOffset), maxBottom)
+        : defaultBottom;
 
-    const safeGap = canOverlapFooter ? -10 : 16;
-    const defaultBottom = 24;
-    const buttonHeight = scrollTopButton.offsetHeight || 44;
-    const maxBottom = Math.max(defaultBottom, window.innerHeight - buttonHeight - safeGap);
-    const footerOffset = window.innerHeight - footerRect.top + safeGap;
-    const nextBottom = footerRect.top < window.innerHeight
-      ? Math.min(Math.max(defaultBottom, footerOffset), maxBottom)
-      : defaultBottom;
+      scrollTopButton.style.setProperty('--scroll-top-bottom', `${Math.round(nextBottom)}px`);
+    };
 
-    scrollTopButton.style.setProperty('--scroll-top-bottom', `${Math.round(nextBottom)}px`);
-  };
+    let isScrollTopMagnetActive = false;
 
-  let isScrollTopMagnetActive = false;
+    const resetScrollTopTransform = () => {
+      scrollTopButton.style.removeProperty('transform');
+    };
 
-  const resetScrollTopTransform = () => {
-    scrollTopButton.style.removeProperty('transform');
-  };
+    const toggleScrollTopButton = () => {
+      const isVisible = window.scrollY > 200;
+      scrollTopButton.classList.toggle('visible', isVisible);
+      if (!isVisible) {
+        isScrollTopMagnetActive = false;
+        resetScrollTopTransform();
+        updateScrollTopPosition();
+        return;
+      }
 
-  const toggleScrollTopButton = () => {
-    const isVisible = window.scrollY > 200;
-    scrollTopButton.classList.toggle('visible', isVisible);
-    if (!isVisible) {
+      if (!isScrollTopMagnetActive) {
+        resetScrollTopTransform();
+      }
+      updateScrollTopPosition();
+    };
+
+    window.addEventListener('scroll', toggleScrollTopButton, { passive: true });
+    window.addEventListener('resize', updateScrollTopPosition);
+    toggleScrollTopButton();
+    updateScrollTopPosition();
+
+    scrollTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    scrollTopButton.addEventListener('mousemove', event => {
+      if (!scrollTopButton.classList.contains('visible')) return;
+
+      isScrollTopMagnetActive = true;
+      const rect = scrollTopButton.getBoundingClientRect();
+      const offsetX = event.clientX - rect.left - rect.width / 2;
+      const offsetY = event.clientY - rect.top - rect.height / 2;
+      const x = (offsetX / (rect.width / 2)) * 5;
+      const y = (offsetY / (rect.height / 2)) * 5;
+
+      scrollTopButton.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
+    });
+
+    scrollTopButton.addEventListener('mouseleave', () => {
       isScrollTopMagnetActive = false;
       resetScrollTopTransform();
-      updateScrollTopPosition();
-      return;
-    }
-
-    if (!isScrollTopMagnetActive) {
-      resetScrollTopTransform();
-    }
-    updateScrollTopPosition();
+    });
   };
 
-  window.addEventListener('scroll', toggleScrollTopButton, { passive: true });
-  window.addEventListener('resize', updateScrollTopPosition);
-  toggleScrollTopButton();
-  updateScrollTopPosition();
-
-  scrollTopButton.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  scrollTopButton.addEventListener('mousemove', event => {
-    if (!scrollTopButton.classList.contains('visible')) return;
-
-    isScrollTopMagnetActive = true;
-    const rect = scrollTopButton.getBoundingClientRect();
-    const offsetX = event.clientX - rect.left - rect.width / 2;
-    const offsetY = event.clientY - rect.top - rect.height / 2;
-    const x = (offsetX / (rect.width / 2)) * 5;
-    const y = (offsetY / (rect.height / 2)) * 5;
-
-    scrollTopButton.style.transform = `translate(${x.toFixed(2)}px, ${y.toFixed(2)}px)`;
-  });
-
-  scrollTopButton.addEventListener('mouseleave', () => {
-    isScrollTopMagnetActive = false;
-    resetScrollTopTransform();
-  });
+  scheduleAfterLoad(initScrollTopButton);
 
   const contactForm = document.querySelector('.contact-form');
   const formStatus = document.querySelector('.form-status');
