@@ -493,10 +493,6 @@ textarea {
   color: var(--text);
   font-size: 1.02rem;
   font-weight: 600;
-  transition:
-    color 0.22s ease,
-    transform 0.22s ease,
-    text-shadow 0.22s ease;
 }
 
 .hero-trust-icon {
@@ -506,9 +502,6 @@ textarea {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition:
-    transform 0.22s ease,
-    filter 0.22s ease;
 }
 
 .hero-trust-icon svg {

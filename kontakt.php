@@ -36,7 +36,9 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
+    <link rel="preconnect" href="https://consent.cookiebot.com" />
+    <link rel="preconnect" href="https://consentcdn.cookiebot.com" />
+<script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('consent', 'default', {
@@ -52,8 +54,8 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
       src="https://consent.cookiebot.com/uc.js"
       data-cbid="2442c9f2-b102-489d-b183-906d466fc319"
       data-culture="DE"
-      data-blockingmode="auto"
       type="text/javascript"
+      async
     ></script>
     <!-- Google Tag Manager -->
     <script>
