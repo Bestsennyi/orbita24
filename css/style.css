@@ -1671,16 +1671,22 @@ textarea {
   }
 
   .hero {
+    min-height: clamp(560px, 88dvh, 680px);
+    display: flex;
+    align-items: center;
     text-align: center;
-    padding-top: 60px;
-    padding-bottom: 90px;
+    padding-top: 44px;
+    padding-bottom: 48px;
     --hero-eyebrow-gap: 15px;
     --hero-title-gap: 20px;
     --hero-copy-gap: 18px;
   }
 
   .hero-shell {
+    min-height: auto;
     justify-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .hero-content {
