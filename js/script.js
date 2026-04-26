@@ -12,6 +12,35 @@ document.addEventListener('DOMContentLoaded', () => {
     .filter(Boolean)
     .map(part => part.charAt(0).toUpperCase() + part.slice(1))
     .join(' ');
+  const getCurrentPagePath = () => `${window.location.pathname}${window.location.search}`;
+
+  document.addEventListener('click', event => {
+    const el = event.target.closest('a[href]');
+    if (!el) return;
+
+    const buttonText = normalizeText(el.textContent || '');
+    if (buttonText !== 'Alle Optionen ansehen') return;
+
+    const href = el.getAttribute('href');
+    const url = new URL(href, window.location.href);
+    if (!url.pathname.endsWith('/optionen.html')) return;
+
+    const buttonLocation = el.closest('.site-header')
+      ? 'header'
+      : el.closest('.hero')
+        ? 'hero'
+        : '';
+
+    if (!buttonLocation) return;
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'view_options_click',
+      button_location: buttonLocation,
+      button_text: 'Alle Optionen ansehen',
+      page_path: getCurrentPagePath()
+    });
+  });
 
   const getOfferCategory = offerCard => {
     const section = offerCard?.closest('section, main');
@@ -33,16 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   document.addEventListener('click', event => {
-    const el = event.target.closest('[data-offer="true"]');
+    const el = event.target.closest('[data-offer="true"], a.optionen-card, a.structure-card');
     if (!el) return;
 
-    const offerCard = el.closest('.offer-card, [data-offer-card], .card');
+    const offerCard = el.matches('.optionen-card, .structure-card')
+      ? el
+      : el.closest('.offer-card, [data-offer-card], .card');
     const offerTitle = offerCard?.querySelector('h3, .offer-title, .card-title, h2, h1');
     const offerName = normalizeText(offerTitle?.textContent || el.textContent || '');
-    const offerGrid = offerCard?.closest('.offer-grid, [data-offer-list], section, main');
+    const offerGrid = offerCard?.closest('.offer-grid, .optionen-grid, .structure-grid, [data-offer-list], section, main');
     const offerCards = offerGrid
-      ? Array.from(offerGrid.querySelectorAll('.offer-card, [data-offer-card], .card'))
-          .filter(card => card.querySelector('[data-offer="true"]'))
+      ? Array.from(offerGrid.querySelectorAll('.offer-card, .optionen-card, .structure-card, [data-offer-card], .card'))
+          .filter(card => card.matches('.optionen-card, .structure-card') || card.querySelector('[data-offer="true"]'))
       : [];
     const offerIndex = offerCard ? offerCards.indexOf(offerCard) : -1;
     const offerPosition = offerIndex >= 0 ? String(offerIndex + 1) : '';
