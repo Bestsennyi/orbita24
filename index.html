@@ -19,14 +19,28 @@
         wait_for_update: 500,
       });
     </script>
-    <script
-      id="Cookiebot"
-      src="https://consent.cookiebot.com/uc.js"
-      data-cbid="2442c9f2-b102-489d-b183-906d466fc319"
-      data-culture="DE"
-      type="text/javascript"
-      async
-    ></script>
+    <script>
+      window.addEventListener(
+        "load",
+        () => {
+          const loadCookiebot = () => {
+            if (document.getElementById("Cookiebot")) return;
+
+            const script = document.createElement("script");
+            script.id = "Cookiebot";
+            script.src = "https://consent.cookiebot.com/uc.js";
+            script.dataset.cbid = "2442c9f2-b102-489d-b183-906d466fc319";
+            script.dataset.culture = "DE";
+            script.type = "text/javascript";
+            script.async = true;
+            document.head.appendChild(script);
+          };
+
+          window.setTimeout(loadCookiebot, 2200);
+        },
+        { once: true }
+      );
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
