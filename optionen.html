@@ -374,27 +374,33 @@
       }
 
       @media (max-width: 768px) and (hover: none) and (pointer: coarse) {
-        .optionen-page .optionen-card:hover {
+        .optionen-page .optionen-card:hover,
+        .optionen-page .page-cta:hover {
           transform: none;
           border-color: rgba(17, 24, 39, 0.075);
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
         }
 
         .optionen-page .optionen-card:active,
-        .optionen-page .optionen-card.is-tapping {
-          transform: scale(0.99);
+        .optionen-page .optionen-card.is-tapping,
+        .optionen-page .page-cta:active,
+        .optionen-page .page-cta.is-tapping {
+          transform: scale(0.995);
           transition: transform 120ms ease;
         }
 
         .optionen-page .optionen-card:hover .icon,
         .optionen-page .optionen-card:hover .btn,
-        .optionen-page .optionen-card:hover .btn::after {
+        .optionen-page .optionen-card:hover .btn::after,
+        .optionen-page .page-cta:hover .btn {
           transform: none;
           filter: none;
         }
 
         .optionen-page .optionen-card .btn,
-        .optionen-page .optionen-card .btn:hover {
+        .optionen-page .optionen-card .btn:hover,
+        .optionen-page .page-cta .btn,
+        .optionen-page .page-cta .btn:hover {
           color: #ff5a1f;
           background: #ffffff;
           border-color: #ff5a1f;
@@ -402,8 +408,10 @@
         }
 
         .optionen-page .optionen-card .btn:active,
-        .optionen-page .optionen-card .btn.is-tapping {
-          transform: scale(0.98);
+        .optionen-page .optionen-card .btn.is-tapping,
+        .optionen-page .page-cta .btn:active,
+        .optionen-page .page-cta .btn.is-tapping {
+          transform: scale(0.99);
           background: rgba(255, 90, 31, 0.08);
           transition: transform 120ms ease, background-color 120ms ease;
         }

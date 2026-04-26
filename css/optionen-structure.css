@@ -526,12 +526,14 @@
   }
 
   .structure-card,
-  .offer-card {
+  .offer-card,
+  .structure-final {
     transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease, border-color 120ms ease;
   }
 
   .structure-card:hover,
-  .offer-card:hover {
+  .offer-card:hover,
+  .structure-final:hover {
     transform: none !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
     border-color: rgba(17, 24, 39, 0.075) !important;
@@ -540,9 +542,11 @@
   .structure-card:active,
   .structure-card.is-tapping,
   .offer-card:active,
-  .offer-card.is-tapping {
+  .offer-card.is-tapping,
+  .structure-final:active,
+  .structure-final.is-tapping {
     background: #ffffff;
-    transform: scale(0.99) !important;
+    transform: scale(0.995) !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
     border-color: rgba(17, 24, 39, 0.075) !important;
   }
@@ -594,7 +598,7 @@
     background: rgba(255, 90, 31, 0.08) !important;
     border-color: #ff5a1f !important;
     box-shadow: none !important;
-    transform: scale(0.98) !important;
+    transform: scale(0.99) !important;
   }
 
   .offer-card:active .btn,

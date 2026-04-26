@@ -1,10 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  document.addEventListener('touchstart', () => {}, { passive: true });
-
-  const tapTargetSelector = 'a, button, .btn, .card, .cta-box, .structure-card, .structure-back, .icon-list li';
-  let activeTapTarget = null;
-  let tapClearTimer = null;
-  let pendingTapNavigation = false;
+  const isCoarsePointer = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
   const normalizeText = value => value.replace(/\s+/g, ' ').trim();
   const toTitleCase = value => value
@@ -74,55 +69,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const clearTapTarget = (delay = 160) => {
-    if (tapClearTimer) {
-      window.clearTimeout(tapClearTimer);
-    }
+  if (isCoarsePointer) {
+    document.addEventListener('touchstart', () => {}, { passive: true });
 
-    tapClearTimer = window.setTimeout(() => {
+    const tapTargetSelector = 'a, button, .btn, .card, .cta-box, .structure-card, .structure-back, .icon-list li';
+    let activeTapTarget = null;
+    let tapClearTimer = null;
+    let pendingTapNavigation = false;
+
+    const clearTapTarget = (delay = 160) => {
+      if (tapClearTimer) {
+        window.clearTimeout(tapClearTimer);
+      }
+
+      tapClearTimer = window.setTimeout(() => {
+        activeTapTarget?.classList.remove('is-tapping');
+        activeTapTarget = null;
+      }, delay);
+    };
+
+    document.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse') return;
+
+      const target = event.target.closest(tapTargetSelector);
+      if (!target) return;
+
       activeTapTarget?.classList.remove('is-tapping');
-      activeTapTarget = null;
-    }, delay);
-  };
+      activeTapTarget = target;
+      target.classList.add('is-tapping');
+    });
 
-  document.addEventListener('pointerdown', event => {
-    if (event.pointerType === 'mouse') return;
+    document.addEventListener('click', event => {
+      if (pendingTapNavigation) return;
 
-    const target = event.target.closest(tapTargetSelector);
-    if (!target) return;
+      const link = event.target.closest('a[href]');
+      if (!link || !link.classList.contains('is-tapping')) return;
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (link.target && link.target !== '_self') return;
 
-    activeTapTarget?.classList.remove('is-tapping');
-    activeTapTarget = target;
-    target.classList.add('is-tapping');
-  });
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-  document.addEventListener('click', event => {
-    if (pendingTapNavigation) return;
+      const url = new URL(href, window.location.href);
+      if (url.origin !== window.location.origin) return;
 
-    const link = event.target.closest('a[href]');
-    if (!link || !link.classList.contains('is-tapping')) return;
-    if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    if (link.target && link.target !== '_self') return;
+      event.preventDefault();
+      pendingTapNavigation = true;
+      window.setTimeout(() => {
+        window.location.href = url.href;
+      }, 85);
+    });
 
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-
-    const url = new URL(href, window.location.href);
-    if (url.origin !== window.location.origin) return;
-
-    event.preventDefault();
-    pendingTapNavigation = true;
-    window.setTimeout(() => {
-      window.location.href = url.href;
-    }, 85);
-  });
-
-  ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
-    document.addEventListener(eventName, () => clearTapTarget(180), { passive: true });
-  });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
+      document.addEventListener(eventName, () => clearTapTarget(180), { passive: true });
+    });
+  }
 
   const body = document.body;
-  const header = document.querySelector('.site-header');
   const navToggle = document.querySelector('.nav-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const menuLinks = navMenu ? Array.from(navMenu.querySelectorAll('a')) : [];
@@ -214,14 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeMenu();
     });
   });
-
-  const handleHeaderState = () => {
-    if (!header) return;
-    header.classList.toggle('is-scrolled', window.scrollY > 12);
-  };
-
-  window.addEventListener('scroll', handleHeaderState, { passive: true });
-  handleHeaderState();
 
   const scheduleAfterLoad = callback => {
     const run = () => {
