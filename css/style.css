@@ -1671,7 +1671,7 @@ textarea {
   }
 
   .hero {
-    min-height: clamp(560px, 88dvh, 680px);
+    min-height: clamp(560px, 90dvh, 680px);
     display: flex;
     align-items: center;
     text-align: center;
