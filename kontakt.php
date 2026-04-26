@@ -130,7 +130,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
           <a href="kontakt.php" class="active" aria-current="page">Kontakt</a>
         </nav>
 
-        <a href="optionen.html" class="btn btn-primary nav-cta">Alle Optionen ansehen</a>
+        <a href="optionen.html" class="btn btn-primary nav-cta cta-all-options" data-location="header">Alle Optionen ansehen</a>
       </div>
     </header>
 

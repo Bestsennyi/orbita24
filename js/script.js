@@ -14,31 +14,17 @@ document.addEventListener('DOMContentLoaded', () => {
     .join(' ');
   const getCurrentPagePath = () => `${window.location.pathname}${window.location.search}`;
 
-  document.addEventListener('click', event => {
-    const el = event.target.closest('a[href]');
-    if (!el) return;
+  document.querySelectorAll('.cta-all-options').forEach(button => {
+    button.addEventListener('click', () => {
+      const buttonLocation = button.dataset.location || 'unknown';
 
-    const buttonText = normalizeText(el.textContent || '');
-    if (buttonText !== 'Alle Optionen ansehen') return;
-
-    const href = el.getAttribute('href');
-    const url = new URL(href, window.location.href);
-    if (!url.pathname.endsWith('/optionen.html')) return;
-
-    const buttonLocation = el.closest('.site-header')
-      ? 'header'
-      : el.closest('.hero')
-        ? 'hero'
-        : '';
-
-    if (!buttonLocation) return;
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'view_options_click',
-      button_location: buttonLocation,
-      button_text: 'Alle Optionen ansehen',
-      page_path: getCurrentPagePath()
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'view_options_click',
+        button_location: buttonLocation,
+        button_text: 'Alle Optionen ansehen',
+        page_path: getCurrentPagePath()
+      });
     });
   });
 
