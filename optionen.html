@@ -269,15 +269,15 @@
       .optionen-page .page-cta {
         margin-bottom: 40px;
         padding: 18px 24px;
-        border-color: rgba(17, 24, 39, 0.085);
+        border-color: rgba(17, 24, 39, 0.075);
         background: #ffffff;
-        box-shadow: 0 8px 20px rgba(17, 24, 39, 0.065);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
       }
 
       .optionen-page .page-cta:hover {
         border-color: rgba(255, 90, 31, 0.18);
         box-shadow:
-          0 10px 24px rgba(17, 24, 39, 0.075),
+          0 14px 32px rgba(0, 0, 0, 0.07),
           var(--glow-orange);
       }
 
@@ -399,12 +399,18 @@
         }
 
         .optionen-page .optionen-card .btn,
-        .optionen-page .optionen-card .btn:hover,
-        .optionen-page .page-cta .btn,
-        .optionen-page .page-cta .btn:hover {
+        .optionen-page .optionen-card .btn:hover {
           color: #ff5a1f;
           background: #ffffff;
           border-color: #ff5a1f;
+          box-shadow: none;
+        }
+
+        .optionen-page .page-cta .btn,
+        .optionen-page .page-cta .btn:hover {
+          color: var(--text-strong);
+          background: #ffffff;
+          border-color: rgba(17, 24, 39, 0.14);
           box-shadow: none;
         }
 
@@ -415,6 +421,39 @@
           transform: scale(0.99);
           background: rgba(255, 90, 31, 0.08);
           transition: transform 120ms ease, background-color 120ms ease;
+        }
+      }
+
+      @media (hover: none) and (pointer: coarse) {
+        .optionen-page .page-cta:hover {
+          transform: none !important;
+          border-color: rgba(17, 24, 39, 0.075) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .optionen-page .page-cta:active,
+        .optionen-page .page-cta.is-tapping {
+          background: #ffffff;
+          transform: scale(0.995) !important;
+          border-color: rgba(17, 24, 39, 0.075) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .optionen-page .page-cta .btn:hover {
+          color: #ff5a1f !important;
+          background: #ffffff !important;
+          border-color: #ff5a1f !important;
+          box-shadow: none !important;
+          transform: none !important;
+        }
+
+        .optionen-page .page-cta .btn:active,
+        .optionen-page .page-cta .btn.is-tapping {
+          color: #ff5a1f !important;
+          background: rgba(255, 90, 31, 0.08) !important;
+          border-color: #ff5a1f !important;
+          box-shadow: none !important;
+          transform: scale(0.99) !important;
         }
       }
     </style>
