@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /scripts/
-Disallow: /private/
 
 Sitemap: https://orbita24.de/sitemap.xml
