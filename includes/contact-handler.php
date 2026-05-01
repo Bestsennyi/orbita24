@@ -232,7 +232,7 @@ function orbita24_handle_contact_request(): array
         orbita24_new_csrf_token();
 
         if ($sent) {
-            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald.', [], ['contact_form_submit']);
+            orbita24_set_contact_flash('success', 'Vielen Dank! Wir melden uns bald.');
         } else {
             orbita24_set_contact_flash('error', 'Fehler beim Senden. Bitte später erneut versuchen.', $data);
         }

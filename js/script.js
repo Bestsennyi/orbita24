@@ -114,14 +114,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }, event, link);
   }, true);
 
-  const contactFormSubmitEvent = document.querySelector('[data-contact-form-submit-event="true"]');
-  if (contactFormSubmitEvent) {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
+  const pushContactFormSubmit = (event, form) => {
+    if (form.dataset.trackingSubmitted === 'true') return;
+
+    const payload = {
       event: 'contact_form_submit',
       page_path: getCurrentPagePath()
-    });
-  }
+    };
+
+    window.dataLayer = window.dataLayer || [];
+
+    if (!window.google_tag_manager) {
+      window.dataLayer.push(payload);
+      return;
+    }
+
+    let didSubmit = false;
+    const submitForm = () => {
+      if (didSubmit) return;
+      didSubmit = true;
+      form.dataset.trackingSubmitted = 'true';
+      form.submit();
+    };
+
+    event.preventDefault();
+    payload.eventCallback = submitForm;
+    payload.eventTimeout = trackingNavigationDelay;
+    window.dataLayer.push(payload);
+    window.setTimeout(submitForm, trackingNavigationDelay);
+  };
 
   const getOfferCategory = offerCard => {
     const pathParts = window.location.pathname.split('/').filter(Boolean);
@@ -493,7 +514,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (hasError) {
         event.preventDefault();
+        return;
       }
+
+      pushContactFormSubmit(event, contactForm);
     });
   }
 });

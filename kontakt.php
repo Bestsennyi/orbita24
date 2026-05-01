@@ -7,12 +7,10 @@ $contactState = orbita24_handle_contact_request();
 $contactType = is_string($contactState['type'] ?? null) ? $contactState['type'] : '';
 $contactMessage = is_string($contactState['message'] ?? null) ? $contactState['message'] : '';
 $oldInput = is_array($contactState['old'] ?? null) ? $contactState['old'] : [];
-$contactEvents = is_array($contactState['events'] ?? null) ? $contactState['events'] : [];
 $csrfToken = is_string($contactState['csrf_token'] ?? null) ? $contactState['csrf_token'] : '';
 $oldName = is_string($oldInput['name'] ?? null) ? $oldInput['name'] : '';
 $oldEmail = is_string($oldInput['email'] ?? null) ? $oldInput['email'] : '';
 $oldMessage = is_string($oldInput['message'] ?? null) ? $oldInput['message'] : '';
-$shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, true);
 $formStatusClass = 'form-status';
 
 if ($contactMessage !== '') {
@@ -30,7 +28,6 @@ $nameInputHtml = '<input id="name" name="name" type="text" autocomplete="name" m
 $emailInputHtml = '<input id="email" name="email" type="email" autocomplete="email" maxlength="190" value="' . $oldEmailHtml . '" required aria-describedby="email-error" />';
 $messageTextareaHtml = '<textarea id="message" name="message" rows="3" maxlength="5000" required aria-describedby="message-error">' . $oldMessageHtml . '</textarea>';
 $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' . $contactMessageHtml . '</p>';
-$contactFormSubmitEventHtml = $shouldPushContactFormSubmit ? '<span hidden data-contact-form-submit-event="true"></span>' : '';
 ?>
 <!doctype html>
 <html lang="de">
@@ -83,13 +80,21 @@ $contactFormSubmitEventHtml = $shouldPushContactFormSubmit ? '<span hidden data-
           analytics_storage: analyticsStorage,
         });
 
-        if (consent.statistics || consent.marketing) {
+        if (analyticsStorage === "granted") {
           window.orbita24LoadGtm();
         }
       };
 
-      window.addEventListener("CookiebotOnConsentReady", window.orbita24UpdateConsent);
-      window.addEventListener("CookiebotOnAccept", window.orbita24UpdateConsent);
+      window.orbita24HandleCookiebotConsent = function () {
+        window.orbita24UpdateConsent();
+        window.setTimeout(window.orbita24UpdateConsent, 250);
+      };
+
+      window.CookiebotCallback_OnLoad = window.orbita24HandleCookiebotConsent;
+      window.CookiebotCallback_OnAccept = window.orbita24HandleCookiebotConsent;
+      window.CookiebotCallback_OnDecline = window.orbita24UpdateConsent;
+      window.addEventListener("CookiebotOnConsentReady", window.orbita24HandleCookiebotConsent);
+      window.addEventListener("CookiebotOnAccept", window.orbita24HandleCookiebotConsent);
       window.addEventListener("CookiebotOnDecline", window.orbita24UpdateConsent);
     </script>
     <script
@@ -101,8 +106,8 @@ $contactFormSubmitEventHtml = $shouldPushContactFormSubmit ? '<span hidden data-
       async
     ></script>
     <!-- Google Tag Manager -->
-    <script>
-      // GTM is loaded by orbita24LoadGtm after Cookiebot consent.
+    <script type="text/plain" data-cookieconsent="statistics">
+      window.orbita24LoadGtm();
     </script>
     <!-- End Google Tag Manager -->
     <title>Orbita24 Kontakt: Fragen zu Angeboten &amp; Vergleichen</title>
@@ -214,7 +219,6 @@ $contactFormSubmitEventHtml = $shouldPushContactFormSubmit ? '<span hidden data-
                 </div>
 
                 <?php echo $formStatusHtml; ?>
-                <?php echo $contactFormSubmitEventHtml; ?>
 
                 <button type="submit" class="btn btn-primary">Nachricht senden</button>
               </form>

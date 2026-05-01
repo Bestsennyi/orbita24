@@ -49,13 +49,21 @@
           analytics_storage: analyticsStorage,
         });
 
-        if (consent.statistics || consent.marketing) {
+        if (analyticsStorage === "granted") {
           window.orbita24LoadGtm();
         }
       };
 
-      window.addEventListener("CookiebotOnConsentReady", window.orbita24UpdateConsent);
-      window.addEventListener("CookiebotOnAccept", window.orbita24UpdateConsent);
+      window.orbita24HandleCookiebotConsent = function () {
+        window.orbita24UpdateConsent();
+        window.setTimeout(window.orbita24UpdateConsent, 250);
+      };
+
+      window.CookiebotCallback_OnLoad = window.orbita24HandleCookiebotConsent;
+      window.CookiebotCallback_OnAccept = window.orbita24HandleCookiebotConsent;
+      window.CookiebotCallback_OnDecline = window.orbita24UpdateConsent;
+      window.addEventListener("CookiebotOnConsentReady", window.orbita24HandleCookiebotConsent);
+      window.addEventListener("CookiebotOnAccept", window.orbita24HandleCookiebotConsent);
       window.addEventListener("CookiebotOnDecline", window.orbita24UpdateConsent);
     </script>
     <script
@@ -67,8 +75,8 @@
       async
     ></script>
     <!-- Google Tag Manager -->
-    <script>
-      // GTM is loaded by orbita24LoadGtm after Cookiebot consent.
+    <script type="text/plain" data-cookieconsent="statistics">
+      window.orbita24LoadGtm();
     </script>
     <!-- End Google Tag Manager -->
     <title>Orbita24: Angebote vergleichen und Anbieter finden</title>
