@@ -2,72 +2,146 @@ document.addEventListener('DOMContentLoaded', () => {
   const isCoarsePointer = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 
   const normalizeText = value => value.replace(/\s+/g, ' ').trim();
-  const toTitleCase = value => value
-    .split('-')
-    .filter(Boolean)
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1))
-    .join(' ');
-  const getCurrentPagePath = () => `${window.location.pathname}${window.location.search}`;
+  const getCurrentPagePath = () => window.location.pathname;
+  const trackingNavigationDelay = 150;
 
-  document.querySelectorAll('.cta-all-options').forEach(button => {
-    button.addEventListener('click', () => {
-      const buttonLocation = button.dataset.location || 'unknown';
+  const isPlainSameTabClick = (event, link) => {
+    if (event.defaultPrevented) return false;
+    if (event.button !== 0) return false;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return false;
+    if (link.target && link.target !== '_self') return false;
+    if (link.hasAttribute('download')) return false;
+    return true;
+  };
 
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'view_options_click',
-        button_location: buttonLocation,
-        button_text: 'Alle Optionen ansehen',
-        page_path: getCurrentPagePath()
-      });
+  const pushTrackedEvent = (eventName, eventData, event, link) => {
+    window.dataLayer = window.dataLayer || [];
+
+    const payload = {
+      event: eventName,
+      ...eventData
+    };
+
+    if (!link || !isPlainSameTabClick(event, link)) {
+      window.dataLayer.push(payload);
+      return;
+    }
+
+    const url = new URL(link.href, window.location.href);
+    const currentUrl = new URL(window.location.href);
+    const isSamePage = url.href === currentUrl.href;
+
+    if (isSamePage) {
+      window.dataLayer.push(payload);
+      return;
+    }
+
+    let didNavigate = false;
+    const navigate = () => {
+      if (didNavigate) return;
+      didNavigate = true;
+      window.location.href = url.href;
+    };
+
+    event.preventDefault();
+
+    if (window.google_tag_manager) {
+      payload.eventCallback = navigate;
+      payload.eventTimeout = trackingNavigationDelay;
+    }
+
+    window.dataLayer.push(payload);
+    window.setTimeout(navigate, trackingNavigationDelay);
+  };
+
+  const getLinkText = link => {
+    const ariaLabel = normalizeText(link.getAttribute('aria-label') || '');
+    return normalizeText(link.textContent || '') || ariaLabel || link.href;
+  };
+
+  const getButtonLocation = link => {
+    if (link.dataset.location) return link.dataset.location;
+    if (link.closest('.site-header')) return 'header';
+    if (link.closest('.hero')) return 'hero';
+    if (link.closest('.cta-section, .cta-block, .cta-box')) return 'cta_block';
+    if (link.closest('.site-footer')) return 'footer';
+    if (link.closest('.nav-menu')) return 'navigation';
+    return 'content';
+  };
+
+  const isOptionsIndexLink = link => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return false;
+
+    const url = new URL(href, window.location.href);
+    const pathname = url.pathname.replace(/\/index\.html$/, '/').replace(/\/+$/, '');
+    return pathname === '/optionen';
+  };
+
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link || !isOptionsIndexLink(link)) return;
+
+    pushTrackedEvent('view_options_click', {
+      button_location: getButtonLocation(link),
+      button_text: getLinkText(link),
+      page_path: getCurrentPagePath()
+    }, event, link);
+  }, true);
+
+  document.addEventListener('click', event => {
+    const el = event.target.closest('[data-offer="true"]');
+    if (!el) return;
+
+    const offerCard = el.closest('.offer-card, [data-offer-card], .card');
+    const offerTitle = offerCard?.querySelector('h3, .offer-title, .card-title, h2, h1');
+    const offer_name = normalizeText(offerTitle?.textContent || el.textContent || 'unknown');
+    const offerGrid = offerCard?.closest('.offer-grid, .optionen-grid, .structure-grid, [data-offer-list], section, main');
+    const offerCards = offerGrid
+      ? Array.from(offerGrid.querySelectorAll('.offer-card, [data-offer-card], .card'))
+          .filter(card => card.querySelector('[data-offer="true"]'))
+      : [];
+    const offerIndex = offerCard ? offerCards.indexOf(offerCard) : -1;
+    const offer_position = offerIndex >= 0 ? offerIndex + 1 : 0;
+    const link = el.closest('a[href]');
+
+    pushTrackedEvent('affiliate_click', {
+      offer_category: getOfferCategory(offerCard),
+      offer_name,
+      offer_position,
+      offer_url: link?.href || el.href || '',
+      page_path: getCurrentPagePath()
+    }, event, link);
+  }, true);
+
+  const contactFormSubmitEvent = document.querySelector('[data-contact-form-submit-event="true"]');
+  if (contactFormSubmitEvent) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'contact_form_submit',
+      page_path: getCurrentPagePath()
     });
-  });
+  }
 
   const getOfferCategory = offerCard => {
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const optionenIndex = pathParts.indexOf('optionen');
+    const categorySlug = optionenIndex >= 0
+      ? pathParts[optionenIndex + 1]
+      : '';
+
+    if (categorySlug) {
+      return categorySlug;
+    }
+
     const section = offerCard?.closest('section, main');
     const categorySource = section?.querySelector(
       '.structure-breadcrumb a:last-of-type, .structure-breadcrumb-current, .section-title, .page-header h1, .structure-header h1'
     );
     const categoryText = normalizeText(categorySource?.textContent || '');
 
-    if (categoryText) {
-      return categoryText;
-    }
-
-    const optionenIndex = window.location.pathname.split('/').filter(Boolean).indexOf('optionen');
-    const categorySlug = optionenIndex >= 0
-      ? window.location.pathname.split('/').filter(Boolean)[optionenIndex + 1]
-      : '';
-
-    return categorySlug ? toTitleCase(categorySlug) : '';
+    return categoryText ? categoryText.toLowerCase() : 'unknown';
   };
-
-  document.addEventListener('click', event => {
-    const el = event.target.closest('[data-offer="true"], a.optionen-card, a.structure-card');
-    if (!el) return;
-
-    const offerCard = el.matches('.optionen-card, .structure-card')
-      ? el
-      : el.closest('.offer-card, [data-offer-card], .card');
-    const offerTitle = offerCard?.querySelector('h3, .offer-title, .card-title, h2, h1');
-    const offerName = normalizeText(offerTitle?.textContent || el.textContent || '');
-    const offerGrid = offerCard?.closest('.offer-grid, .optionen-grid, .structure-grid, [data-offer-list], section, main');
-    const offerCards = offerGrid
-      ? Array.from(offerGrid.querySelectorAll('.offer-card, .optionen-card, .structure-card, [data-offer-card], .card'))
-          .filter(card => card.matches('.optionen-card, .structure-card') || card.querySelector('[data-offer="true"]'))
-      : [];
-    const offerIndex = offerCard ? offerCards.indexOf(offerCard) : -1;
-    const offerPosition = offerIndex >= 0 ? String(offerIndex + 1) : '';
-
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: 'affiliate_click',
-      offer_name: offerName,
-      offer_category: getOfferCategory(offerCard),
-      offer_position: offerPosition,
-      offer_url: el.href || ''
-    });
-  });
 
   if (isCoarsePointer) {
     document.addEventListener('touchstart', () => {}, { passive: true });

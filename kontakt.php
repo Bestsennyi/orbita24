@@ -12,6 +12,7 @@ $csrfToken = is_string($contactState['csrf_token'] ?? null) ? $contactState['csr
 $oldName = is_string($oldInput['name'] ?? null) ? $oldInput['name'] : '';
 $oldEmail = is_string($oldInput['email'] ?? null) ? $oldInput['email'] : '';
 $oldMessage = is_string($oldInput['message'] ?? null) ? $oldInput['message'] : '';
+$shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, true);
 $formStatusClass = 'form-status';
 
 if ($contactMessage !== '') {
@@ -29,7 +30,7 @@ $nameInputHtml = '<input id="name" name="name" type="text" autocomplete="name" m
 $emailInputHtml = '<input id="email" name="email" type="email" autocomplete="email" maxlength="190" value="' . $oldEmailHtml . '" required aria-describedby="email-error" />';
 $messageTextareaHtml = '<textarea id="message" name="message" rows="3" maxlength="5000" required aria-describedby="message-error">' . $oldMessageHtml . '</textarea>';
 $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' . $contactMessageHtml . '</p>';
-$shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, true);
+$contactFormSubmitEventHtml = $shouldPushContactFormSubmit ? '<span hidden data-contact-form-submit-event="true"></span>' : '';
 ?>
 <!doctype html>
 <html lang="de">
@@ -213,6 +214,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
                 </div>
 
                 <?php echo $formStatusHtml; ?>
+                <?php echo $contactFormSubmitEventHtml; ?>
 
                 <button type="submit" class="btn btn-primary">Nachricht senden</button>
               </form>
@@ -272,16 +274,6 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
       <p class="footer-copy">&copy; 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <?php if ($shouldPushContactFormSubmit): ?>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'contact_form_submit',
-          form_name: 'kontakt',
-          page_path: window.location.pathname + window.location.search
-        });
-      </script>
-    <?php endif; ?>
     <script src="/js/script.js" defer></script>
   </body>
 </html>
