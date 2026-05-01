@@ -110,8 +110,8 @@ $formStatusHtml = '<p class="' . $formStatusClassHtml . '" aria-live="polite">' 
       window.orbita24LoadGtm();
     </script>
     <!-- End Google Tag Manager -->
-    <title>Orbita24 Kontakt: Fragen zu Angeboten &amp; Vergleichen</title>
-    <meta name="description" content="Kontaktieren Sie Orbita24 bei Fragen zu Angeboten, Anbietern oder Vergleichen. Wir helfen Ihnen klar, schnell und verst&#228;ndlich bei Ihrem Anliegen weiter." />
+    <title>Kontakt einfach finden: Anbieter &amp; Optionen im &#220;berblick</title>
+    <meta name="description" content="Finden Sie passende Kontakt in Deutschland. Entdecken Sie Anbieter, Optionen und M&#246;glichkeiten einfach und verst&#228;ndlich mit Orbita24." />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#111827" />
     <meta property="og:type" content="website" />
