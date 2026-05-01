@@ -4,7 +4,7 @@
 }
 
 .optionen-structure-page .structure-container {
-  width: min(100% - 32px, 1280px);
+  width: min(100% - 32px, calc(var(--container) * 1.1));
 }
 
 .structure-nav-row {
@@ -16,9 +16,9 @@
 
 .structure-back {
   position: relative;
-  width: 44px;
-  min-width: 44px;
-  height: 44px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -226,6 +226,78 @@
   align-items: center;
 }
 
+.related-options {
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  background: #ffffff;
+}
+
+.related-options h2 {
+  margin: 0 0 12px;
+  color: var(--text-strong);
+  font-size: 1.12rem;
+  line-height: 1.2;
+}
+
+.related-options-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.related-options-list a {
+  color: #ff5a1f;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 90, 31, 0.32);
+  text-underline-offset: 3px;
+  transition:
+    color 0.2s ease,
+    text-decoration-color 0.2s ease;
+}
+
+.structure-overview-link {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-color: rgba(75, 85, 99, 0.34);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.related-options-list a {
+  min-height: 36px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(255, 90, 31, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 90, 31, 0.045);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.related-options-list a:hover,
+.related-options-list a:focus-visible,
+.related-options-list a:active {
+  color: #e04a17;
+  text-decoration-color: currentColor;
+}
+
+.structure-overview-link:hover,
+.structure-overview-link:focus-visible,
+.structure-overview-link:active {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+
+.related-options-list a:hover,
+.related-options-list a:focus-visible,
+.related-options-list a:active {
+  background: rgba(255, 90, 31, 0.08);
+  border-color: rgba(255, 90, 31, 0.3);
+}
+
 .structure-final .cta-side {
   align-self: center;
 }
@@ -369,25 +441,74 @@
   hyphens: none;
 }
 
+.optionen-structure-page .offer-card ul {
+  margin: 0 0 22px !important;
+  padding: 0 !important;
+  display: grid !important;
+  gap: 10px !important;
+  list-style: none !important;
+}
+
+.optionen-structure-page .offer-card li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  color: #4b5563 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.35 !important;
+}
+
+.optionen-structure-page .offer-card li::before {
+  content: "\2713" !important;
+  width: 18px !important;
+  min-width: 18px !important;
+  height: 18px !important;
+  margin-right: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #0b7f59 !important;
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+
 .optionen-structure-page .offer-card .offer-cta,
-.optionen-structure-page .offer-card .btn[data-offer='true'] {
+.optionen-structure-page .offer-card .btn[data-offer="true"] {
+  width: 100% !important;
+  min-height: 48px !important;
+  margin-top: auto !important;
+  padding: 0 20px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   color: #ffffff !important;
   background: #ff5a1f !important;
   border-color: #ff5a1f !important;
+  border-radius: 14px !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
   box-shadow: none !important;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease !important;
 }
 
 .optionen-structure-page .offer-card .offer-cta:hover,
 .optionen-structure-page .offer-card .offer-cta:focus-visible,
-.optionen-structure-page .offer-card .btn[data-offer='true']:hover,
-.optionen-structure-page .offer-card .btn[data-offer='true']:focus-visible {
+.optionen-structure-page .offer-card .btn[data-offer="true"]:hover,
+.optionen-structure-page .offer-card .btn[data-offer="true"]:focus-visible {
   color: #ffffff !important;
   background: #e04a17 !important;
   border-color: #e04a17 !important;
 }
 
 .optionen-structure-page .offer-card .offer-cta:active,
-.optionen-structure-page .offer-card .btn[data-offer='true']:active {
+.optionen-structure-page .offer-card .btn[data-offer="true"]:active {
   color: #ffffff !important;
   background: #e04a17 !important;
   border-color: #e04a17 !important;
@@ -528,7 +649,12 @@
   .structure-card,
   .offer-card,
   .structure-final {
-    transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+    transition:
+      transform 120ms ease,
+      box-shadow 120ms ease,
+      background-color 120ms ease,
+      color 120ms ease,
+      border-color 120ms ease;
   }
 
   .structure-card:hover,

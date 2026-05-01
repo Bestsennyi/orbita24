@@ -75,26 +75,28 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:site_name" content="Orbita24" />
-    <meta property="og:title" content="Kontakt – Orbita24" />
+    <meta property="og:title" content="Kontakt &ndash; Orbita24" />
     <meta
       property="og:description"
-      content="Schreiben Sie uns einfach. Wir melden uns so schnell wie möglich zurück."
+      content="Schreiben Sie uns einfach. Wir melden uns so schnell wie m&ouml;glich zur&uuml;ck."
     />
     <meta property="og:url" content="https://orbita24.de/kontakt.php" />
     <meta property="og:image" content="https://orbita24.de/images/hero-bg.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kontakt – Orbita24" />
+    <meta name="twitter:title" content="Kontakt &ndash; Orbita24" />
     <meta
       name="twitter:description"
-      content="Schreiben Sie uns einfach. Wir melden uns so schnell wie möglich zurück."
+      content="Schreiben Sie uns einfach. Wir melden uns so schnell wie m&ouml;glich zur&uuml;ck."
     />
     <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
-    <link rel="canonical" href="https://orbita24.de/kontakt.php" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="canonical" href="https://orbita24.de/kontakt.php" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body class="page-sticky kontakt-page">
     <!-- Google Tag Manager (noscript) -->
@@ -107,13 +109,13 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
 
     <header class="site-header">
       <div class="container nav">
-        <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
-          <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" decoding="async" />
+        <a href="/" class="logo" aria-label="Orbita24 Startseite">
+          <img src="/images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" decoding="async" />
         </a>
 
         <button
           class="nav-toggle"
-          aria-label="Menü öffnen"
+          aria-label="Men&uuml; &ouml;ffnen"
           aria-expanded="false"
           aria-controls="main-navigation"
         >
@@ -123,13 +125,13 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
         </button>
 
         <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
-          <a href="index.html">Startseite</a>
-          <a href="optionen.html" class="nav-mobile-only">Optionen</a>
-          <a href="about.html">Über uns</a>
-          <a href="kontakt.php" class="active" aria-current="page">Kontakt</a>
+          <a href="/">Startseite</a>
+          <a href="/optionen/" class="nav-mobile-options">Optionen</a>
+          <a href="/about.html">&Uuml;ber uns</a>
+          <a href="/kontakt.php" class="active" aria-current="page">Kontakt</a>
         </nav>
 
-        <a href="optionen.html" class="btn btn-primary nav-cta cta-all-options" data-location="header">Alle Optionen ansehen</a>
+        <a href="/optionen/" class="btn btn-primary nav-cta cta-all-options" data-location="header">Alle Optionen ansehen</a>
       </div>
     </header>
 
@@ -145,7 +147,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
 
             <article class="card form-card kontakt-form-card">
               <p class="form-intro">
-                Schreiben Sie uns einfach eine Nachricht - wir melden uns so schnell wie möglich.
+                Schreiben Sie uns einfach eine Nachricht - wir melden uns so schnell wie m&ouml;glich.
               </p>
 
               <form class="contact-form kontakt-form" action="kontakt.php" method="post" accept-charset="UTF-8">
@@ -180,8 +182,8 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
               </form>
 
               <p class="form-note">
-                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gemäß unserer
-                <a href="datenschutz.html">Datenschutzerklärung</a>
+                Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Daten gem&auml;&szlig; unserer
+                <a href="/datenschutz.html">Datenschutzerkl&auml;rung</a>
                 zu.
               </p>
             </article>
@@ -192,25 +194,25 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
             <p class="kontakt-email">
               <a href="mailto:kontakt@orbita24.de">kontakt@orbita24.de</a>
             </p>
-            <p>Schreiben Sie uns gerne per E-Mail. Wir melden uns so schnell wie möglich.</p>
+            <p>Schreiben Sie uns gerne per E-Mail. Wir melden uns so schnell wie m&ouml;glich.</p>
             <p class="kontakt-side-note">
-              Allgemeine Anfragen, Rückmeldungen und Hinweise sind jederzeit willkommen.
+              Allgemeine Anfragen, R&uuml;ckmeldungen und Hinweise sind jederzeit willkommen.
             </p>
           </aside>
         </div>
       </section>
-    </main>
+</main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
-            <img src="images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" loading="lazy" decoding="async" />
+          <a href="/" class="logo footer-logo" aria-label="Orbita24 Startseite">
+            <img src="/images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" loading="lazy" decoding="async" />
           </a>
           <p class="footer-text">
-            Informationen und einfache Lösungen rund um verschiedene Dienstleistungen und Angebote.
+            Informationen und einfache L&ouml;sungen rund um verschiedene Dienstleistungen und Angebote.
           </p>
-          <p class="footer-note">Unabhängige Informationen. Klar und verständlich aufbereitet.</p>
+          <p class="footer-note">Unabh&auml;ngige Informationen. Klar und verst&auml;ndlich aufbereitet.</p>
           <p class="footer-contact">
             <a href="mailto:kontakt@orbita24.de">kontakt@orbita24.de</a>
           </p>
@@ -219,20 +221,31 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
         <div class="footer-links">
           <div class="footer-link-group">
             <span>NAVIGATION</span>
-            <a href="about.html">Über uns</a>
-            <a href="kontakt.php">Kontakt</a>
+            <a href="/optionen/">Optionen</a>
+            <a href="/about.html">&Uuml;ber uns</a>
+            <a href="/kontakt.php" class="active" aria-current="page">Kontakt</a>
           </div>
           <div class="footer-link-group">
             <span>RECHTLICHES</span>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutz</a>
-            <a href="cookies.html">Cookies</a>
+            <a href="/impressum.html">Impressum</a>
+            <a href="/datenschutz.html">Datenschutz</a>
+            <a href="/cookies.html">Cookies</a>
           </div>
         </div>
       </div>
-      <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
+      <p class="footer-copy">&copy; 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <?php if ($shouldPushContactFormSubmit): ?>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'contact_form_submit',
+          form_name: 'kontakt',
+          page_path: window.location.pathname + window.location.search
+        });
+      </script>
+    <?php endif; ?>
+    <script src="/js/script.js"></script>
   </body>
 </html>

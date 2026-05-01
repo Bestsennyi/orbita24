@@ -50,13 +50,15 @@
     <meta name="twitter:title" content="Energieberatung einfach erkl&auml;rt - Orbita24" />
     <meta name="twitter:description" content="Energieberatung einfach erkl&auml;rt: passende Angebote f&uuml;r Ihren Haushalt." />
     <meta name="twitter:image" content="https://orbita24.de/images/hero-bg.webp" />
-    <link rel="canonical" href="https://orbita24.de/optionen/energie/energieberatung/" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png" />
-    <link rel="manifest" href="../../../site.webmanifest" />
-    <link rel="stylesheet" href="../../../css/style.css" />
-    <link rel="stylesheet" href="../../../css/optionen-structure.css" />
+    <link rel="canonical" href="https://orbita24.de/optionen/energie/energieberatung/" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/optionen-structure.css" />
     <style>
       .offer-intro { margin-bottom: 22px; }
       .offer-intro h1 { margin-bottom: 8px; }
@@ -90,8 +92,8 @@
 
     <header class="site-header">
       <div class="container nav">
-        <a href="../../../index.html" class="logo" aria-label="Orbita24 Startseite">
-          <img src="../../../images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" decoding="async" />
+        <a href="/" class="logo" aria-label="Orbita24 Startseite">
+          <img src="/images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" decoding="async" />
         </a>
         <button class="nav-toggle" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false" aria-controls="main-navigation">
           <span></span>
@@ -99,27 +101,31 @@
           <span></span>
         </button>
         <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
-          <a href="../../../index.html">Startseite</a>
-          <a href="../../../optionen.html" class="active" aria-current="page">Optionen</a>
-          <a href="../../../about.html">&Uuml;ber uns</a>
-          <a href="../../../kontakt.php">Kontakt</a>
+          <a href="/">Startseite</a>
+          <a href="/optionen/" class="nav-mobile-options">Optionen</a>
+          <a href="/about.html">&Uuml;ber uns</a>
+          <a href="/kontakt.php">Kontakt</a>
         </nav>
+
+        <a href="/optionen/" class="btn btn-primary nav-cta cta-all-options" data-location="header">Alle Optionen ansehen</a>
       </div>
     </header>
 
     <main>
       <section class="section structure-section">
         <div class="container structure-container">
-          <div class="structure-nav-row">
-            <a href="../" class="structure-back" aria-label="Zur&uuml;ck zur Kategorie">
+                    <div class="structure-nav-row">
+            <a href="/optionen/energie/" class="structure-back" aria-label="Zur&uuml;ck zu Energie">
               <span class="structure-back-arrow" aria-hidden="true">&larr;</span>
             </a>
             <nav class="structure-breadcrumb" aria-label="Breadcrumb">
-              <a href="../../../optionen.html">Optionen</a>
+              <a href="/">Startseite</a>
               <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
-              <a href="../">Energie</a>
+              <a href="/optionen/">Optionen</a>
               <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
-              <span class="structure-breadcrumb-current">Energieberatung</span>
+              <a href="/optionen/energie/">Energie</a>
+              <span class="structure-breadcrumb-separator" aria-hidden="true">/</span>
+              <span class="structure-breadcrumb-current" aria-current="page">Energieberatung</span>
             </nav>
           </div>
 
@@ -139,7 +145,7 @@
                 <li>Feste Konditionen</li>
                 <li>Einfach erkl&auml;rt</li>
               </ul>
-              <a href="../../../kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
+              <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
             </article>
             <article class="card offer-card">
               <div class="offer-logo" aria-hidden="true">Demo</div>
@@ -151,7 +157,7 @@
                 <li>Anpassbare Optionen</li>
                 <li>Gute &Uuml;bersicht</li>
               </ul>
-              <a href="../../../kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
+              <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
             </article>
             <article class="card offer-card">
               <div class="offer-logo" aria-hidden="true">Demo</div>
@@ -163,9 +169,19 @@
                 <li>Direkt online m&ouml;glich</li>
                 <li>Schnell gestartet</li>
               </ul>
-              <a href="../../../kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
+              <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
             </article>
           </div>
+                <section class="card related-options" aria-labelledby="related-options-energie-energieberatung">
+        <h2 id="related-options-energie-energieberatung">Weitere Themen</h2>
+        <div class="related-options-list">
+            <a href="/optionen/energie/strom/">Strom</a>
+            <a href="/optionen/energie/gas/">Gas</a>
+            <a href="/optionen/energie/oekostrom/">&Ouml;kostrom</a>
+            <a href="/optionen/energie/solaranlage/">Solaranlage</a>
+            <a href="/optionen/energie/waermepumpe/">W&auml;rmepumpe</a>
+        </div>
+      </section>
 
           <article class="card structure-final">
             <div>
@@ -178,13 +194,13 @@
           </article>
         </div>
       </section>
-    </main>
+</main>
 
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="../../../index.html" class="logo footer-logo" aria-label="Orbita24 Startseite">
-            <img src="../../../images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" loading="lazy" decoding="async" />
+          <a href="/" class="logo footer-logo" aria-label="Orbita24 Startseite">
+            <img src="/images/logo-orbita24.svg" alt="Orbita24 Logo" class="logo-img" width="1991" height="390" loading="lazy" decoding="async" />
           </a>
           <p class="footer-text">Informationen und einfache L&ouml;sungen rund um verschiedene Dienstleistungen und Angebote.</p>
           <p class="footer-note">Unabh&auml;ngige Informationen. Klar und verst&auml;ndlich aufbereitet.</p>
@@ -193,20 +209,21 @@
         <div class="footer-links">
           <div class="footer-link-group">
             <span>NAVIGATION</span>
-            <a href="../../../about.html">&Uuml;ber uns</a>
-            <a href="../../../kontakt.php">Kontakt</a>
+            <a href="/optionen/">Optionen</a>
+            <a href="/about.html">&Uuml;ber uns</a>
+            <a href="/kontakt.php">Kontakt</a>
           </div>
           <div class="footer-link-group">
             <span>RECHTLICHES</span>
-            <a href="../../../impressum.html">Impressum</a>
-            <a href="../../../datenschutz.html">Datenschutz</a>
-            <a href="../../../cookies.html">Cookies</a>
+            <a href="/impressum.html">Impressum</a>
+            <a href="/datenschutz.html">Datenschutz</a>
+            <a href="/cookies.html">Cookies</a>
           </div>
         </div>
       </div>
       <p class="footer-copy">&copy; 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <script src="../../../js/script.js" defer></script>
+    <script src="/js/script.js" defer></script>
   </body>
 </html>

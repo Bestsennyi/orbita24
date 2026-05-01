@@ -38,7 +38,7 @@
 
           window.setTimeout(loadCookiebot, 2200);
         },
-        { once: true }
+        { once: true },
       );
     </script>
     <!-- Google Tag Manager -->
@@ -67,11 +67,11 @@
     <meta property="og:site_name" content="Orbita24" />
     <meta
       property="og:title"
-      content="Orbita24 - Klar erklärt und einfach weiter"
+      content="Orbita24 - Klar erkl&auml;rt und einfach weiter"
     />
     <meta
       property="og:description"
-      content="Klar aufgebaute Informationen und einfache Wege zu passenden Lösungen."
+      content="Klar aufgebaute Informationen und einfache Wege zu passenden L&ouml;sungen."
     />
     <meta property="og:url" content="https://orbita24.de/" />
     <meta
@@ -81,28 +81,31 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Orbita24 - Klar erklärt und einfach weiter"
+      content="Orbita24 - Klar erkl&auml;rt und einfach weiter"
     />
     <meta
       name="twitter:description"
-      content="Klar aufgebaute Informationen und einfache Wege zu passenden Lösungen."
+      content="Klar aufgebaute Informationen und einfache Wege zu passenden L&ouml;sungen."
     />
     <meta
       name="twitter:image"
       content="https://orbita24.de/images/hero-bg.webp"
     />
     <link rel="canonical" href="https://orbita24.de/" />
+
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
     <link
       rel="preload"
       as="image"
-      href="images/hero-bg.webp"
+      href="/images/hero-bg.webp"
       type="image/webp"
       fetchpriority="high"
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <style>
       :root {
         --header-height: 80px;
@@ -117,6 +120,7 @@
 
       html {
         scrollbar-gutter: stable;
+        overflow-y: scroll;
       }
 
       body {
@@ -151,6 +155,7 @@
       }
 
       .nav {
+        width: min(100% - 32px, 1210px);
         min-height: var(--header-height);
         display: flex;
         align-items: center;
@@ -189,9 +194,95 @@
         background: #f9fafb;
       }
 
+      .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
       .nav-menu,
       .nav-cta {
         display: none;
+      }
+
+      .site-header a,
+      .site-header button {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .site-header a:focus,
+      .site-header a:active,
+      .site-header button:focus,
+      .site-header button:active {
+        outline: 0;
+        box-shadow: none;
+      }
+
+      .site-header .btn:active,
+      .site-header .btn:focus-visible,
+      .site-header .btn:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .site-header .btn-primary:hover,
+      .site-header .btn-primary:focus-visible,
+      .site-header .btn-primary:active {
+        color: #ffffff;
+        background: var(--accent);
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      .site-header .logo,
+      .site-header .nav-menu a,
+      .site-header .nav-cta {
+        transition: none;
+      }
+
+      .site-header .nav-cta.is-optionen-active {
+        width: auto;
+        min-height: auto;
+        margin-left: -12px;
+        padding: 10px 14px;
+        color: #ffffff;
+        background: transparent;
+        border-color: transparent;
+        border-radius: 12px;
+        box-shadow: none;
+        font-size: inherit;
+        font-weight: inherit;
+        line-height: inherit;
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.55);
+        text-underline-offset: 5px;
+        cursor: default;
+      }
+
+      .site-header .nav-cta.is-optionen-active:hover,
+      .site-header .nav-cta.is-optionen-active:focus-visible,
+      .site-header .nav-cta.is-optionen-active:active {
+        color: #ffffff;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+        transform: none;
+      }
+
+      body.is-navigating .site-header *,
+      body.is-navigating .site-header *::before,
+      body.is-navigating .site-header *::after {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        outline: 0 !important;
+        box-shadow: none !important;
       }
 
       .hero {
@@ -308,7 +399,7 @@
         height: 18px;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 767px) {
         .site-header .logo-img {
           height: 32px;
         }
@@ -385,7 +476,7 @@
         .hero-trust {
           width: max-content;
           max-width: 100%;
-          margin: 18px auto 17px;
+          margin: 17px auto 17px;
           gap: 10px;
           text-align: left;
         }
@@ -424,7 +515,7 @@
         }
       }
 
-      @media (min-width: 992px) {
+      @media (min-width: 1025px) {
         .nav-toggle {
           display: none;
         }
@@ -438,6 +529,25 @@
 
         .nav-menu a {
           padding: 10px 14px;
+          margin: 0;
+          font-size: 1rem;
+          line-height: 1.25;
+          border: 0;
+          outline: 0;
+        }
+
+        .nav-menu a.is-optionen-active {
+          padding: 10px 14px;
+          margin: 0;
+          font-size: 1rem;
+          line-height: 1.25;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a:focus-visible,
+        .nav-menu a:active {
+          outline: 0;
+          box-shadow: none;
         }
 
         .nav-menu a.nav-mobile-only {
@@ -453,7 +563,13 @@
           border-radius: 14px;
           background: var(--accent);
           color: #ffffff;
+          font-size: 1rem;
           font-weight: 700;
+          line-height: 1.25;
+        }
+
+        .site-header .nav-cta.is-optionen-active {
+          margin-left: -12px;
         }
 
         .hero {
@@ -522,16 +638,7 @@
         }
       }
     </style>
-    <link
-      rel="preload"
-      href="css/style.css"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <noscript><link rel="stylesheet" href="css/style.css" /></noscript>
+    <link rel="stylesheet" href="/css/style.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -556,9 +663,9 @@
 
     <header class="site-header">
       <div class="container nav">
-        <a href="index.html" class="logo" aria-label="Orbita24 Startseite">
+        <a href="/" class="logo" aria-label="Orbita24 Startseite">
           <img
-            src="images/logo-orbita24.svg"
+            src="/images/logo-orbita24.svg"
             alt="Orbita24 Logo"
             class="logo-img"
             width="1991"
@@ -569,7 +676,7 @@
 
         <button
           class="nav-toggle"
-          aria-label="Menü öffnen"
+          aria-label="Men&uuml; &ouml;ffnen"
           aria-expanded="false"
           aria-controls="main-navigation"
         >
@@ -579,14 +686,14 @@
         </button>
 
         <nav class="nav-menu" id="main-navigation" aria-label="Hauptnavigation">
-          <a href="index.html" class="active" aria-current="page">Startseite</a>
-          <a href="optionen.html" class="nav-mobile-only">Optionen</a>
-          <a href="about.html">Über uns</a>
-          <a href="kontakt.php">Kontakt</a>
+          <a href="/" class="active" aria-current="page">Startseite</a>
+          <a href="/optionen/" class="nav-mobile-options">Optionen</a>
+          <a href="/about.html">&Uuml;ber uns</a>
+          <a href="/kontakt.php">Kontakt</a>
         </nav>
 
         <a
-          href="optionen.html"
+          href="/optionen/"
           class="btn btn-primary nav-cta cta-all-options"
           data-location="header"
           >Alle Optionen ansehen</a
@@ -598,7 +705,7 @@
       <section class="hero section">
         <div class="hero-media" aria-hidden="true">
           <img
-            src="images/hero-bg.webp"
+            src="/images/hero-bg.webp"
             alt=""
             class="hero-img"
             width="1920"
@@ -613,20 +720,20 @@
         <div class="container">
           <div class="hero-shell">
             <div class="hero-content">
-              <p class="eyebrow">Einfache und klare Lösungen</p>
+              <p class="eyebrow">Einfache und klare L&ouml;sungen</p>
 
-              <h1>Finden Sie schnell die passende Lösung</h1>
+              <h1>Finden Sie schnell die passende L&ouml;sung</h1>
 
               <p class="hero-text">
-                Wir zeigen Ihnen ausgewählte Angebote übersichtlich und
-                verständlich. Vergleichen Sie Optionen einfach und treffen Sie
-                die passende Entscheidung. Klar, unabhängig und verständlich
-                erklärt.
+                Wir zeigen Ihnen ausgew&auml;hlte Angebote &uuml;bersichtlich
+                und verst&auml;ndlich. Vergleichen Sie Optionen einfach und
+                treffen Sie die passende Entscheidung. Klar, unabh&auml;ngig und
+                verst&auml;ndlich erkl&auml;rt.
               </p>
 
               <a
-                href="optionen.html"
-                class="hero-cta-mobile cta-all-options"
+                href="/optionen/"
+                class="btn btn-primary hero-cta cta-all-options"
                 data-location="hero"
                 >Alle Optionen ansehen</a
               >
@@ -649,7 +756,7 @@
                       </g>
                     </svg>
                   </span>
-                  <span>Klar erklärt</span>
+                  <span>Klar erkl&auml;rt</span>
                 </li>
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
@@ -670,7 +777,7 @@
                       </g>
                     </svg>
                   </span>
-                  <span>Übersichtlich aufgebaut</span>
+                  <span>&Uuml;bersichtlich aufgebaut</span>
                 </li>
                 <li>
                   <span class="hero-trust-icon" aria-hidden="true">
@@ -697,15 +804,16 @@
           </div>
         </div>
       </section>
-
       <section id="leistungen" class="section">
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Unser Angebot</p>
-            <h2>Übersichtliche Informationen und passende Optionen</h2>
+            <h2>&Uuml;bersichtliche Informationen und passende Optionen</h2>
             <p>
-              Wir bereiten Inhalte verständlich auf, damit Sie sich schnell
-              orientieren und Optionen leichter vergleichen können.
+              Wir bereiten Inhalte verst&auml;ndlich auf, damit Sie sich schnell
+              orientieren und
+              <a href="/optionen/">Optionen</a> leichter vergleichen
+              k&ouml;nnen.
             </p>
           </div>
 
@@ -732,8 +840,8 @@
               </div>
               <h3>Klar aufbereitete Inhalte</h3>
               <p>
-                Wichtige Informationen sind übersichtlich dargestellt, damit Sie
-                schnell erfassen, worauf es ankommt.
+                Wichtige Informationen sind &uuml;bersichtlich dargestellt,
+                damit Sie schnell erfassen, worauf es ankommt.
               </p>
             </article>
 
@@ -755,9 +863,9 @@
                   </g>
                 </svg>
               </div>
-              <h3>Ausgewählte Angebote</h3>
+              <h3>Ausgew&auml;hlte Angebote</h3>
               <p>
-                Angebote aus verschiedenen Bereichen werden übersichtlich
+                Angebote aus verschiedenen Bereichen werden &uuml;bersichtlich
                 dargestellt und lassen sich leichter vergleichen.
               </p>
             </article>
@@ -783,8 +891,8 @@
               </div>
               <h3>Einfacher Kontakt</h3>
               <p>
-                Bei offenen Fragen finden Sie schnell den passenden nächsten
-                Schritt.
+                Bei offenen Fragen finden Sie schnell den passenden
+                n&auml;chsten Schritt.
               </p>
             </article>
           </div>
@@ -798,7 +906,8 @@
             <h2>Weniger Umwege, mehr Orientierung</h2>
             <p>
               Wir setzen auf klare Informationen und einfache Strukturen, damit
-              Sie sich schneller orientieren und Optionen finden.
+              Sie sich schneller orientieren und
+              <a href="/optionen/">Optionen</a> finden.
             </p>
           </div>
 
@@ -823,7 +932,7 @@
               <h3>Klare Informationen</h3>
               <p>
                 Inhalte werden so aufbereitet, dass Sie sie schnell erfassen und
-                leicht verstehen können.
+                leicht verstehen k&ouml;nnen.
               </p>
             </article>
 
@@ -846,10 +955,10 @@
                   </g>
                 </svg>
               </div>
-              <h3>Einfacher Überblick</h3>
+              <h3>Einfacher &Uuml;berblick</h3>
               <p>
                 Wichtige Punkte stehen im Vordergrund, damit Entscheidungen
-                nicht unnötig kompliziert werden.
+                nicht unn&ouml;tig kompliziert werden.
               </p>
             </article>
 
@@ -871,7 +980,7 @@
                   </g>
                 </svg>
               </div>
-              <h3>Direkt zum nächsten Schritt</h3>
+              <h3>Direkt zum n&auml;chsten Schritt</h3>
               <p>
                 Sie finden schneller den passenden Weg und kommen ohne Umwege
                 weiter.
@@ -885,16 +994,16 @@
         <div class="container cta-box">
           <div class="cta-copy">
             <p class="eyebrow">Starten Sie jetzt</p>
-            <h2>Sie möchten einfach und schnell weiterkommen?</h2>
+            <h2>Sie m&ouml;chten einfach und schnell weiterkommen?</h2>
             <p>
-              Wir zeigen Ihnen passende Optionen, damit Sie den nächsten Schritt
-              einfach und schnell finden.
+              Wir zeigen Ihnen passende Optionen, damit Sie den n&auml;chsten
+              Schritt einfach und schnell finden.
             </p>
           </div>
 
           <div class="cta-side">
             <a
-              href="optionen.html"
+              href="/optionen/"
               class="btn btn-primary cta-all-options"
               data-location="footer"
               >Alle Optionen ansehen</a
@@ -907,13 +1016,9 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a
-            href="index.html"
-            class="logo footer-logo"
-            aria-label="Orbita24 Startseite"
-          >
+          <a href="/" class="logo footer-logo" aria-label="Orbita24 Startseite">
             <img
-              src="images/logo-orbita24.svg"
+              src="/images/logo-orbita24.svg"
               alt="Orbita24 Logo"
               class="logo-img"
               width="1991"
@@ -923,11 +1028,12 @@
             />
           </a>
           <p class="footer-text">
-            Informationen und einfache Lösungen rund um verschiedene
+            Informationen und einfache L&ouml;sungen rund um verschiedene
             Dienstleistungen und Angebote.
           </p>
           <p class="footer-note">
-            Unabhängige Informationen. Klar und verständlich aufbereitet.
+            Unabh&auml;ngige Informationen. Klar und verst&auml;ndlich
+            aufbereitet.
           </p>
           <p class="footer-contact">
             <a href="mailto:kontakt@orbita24.de">kontakt@orbita24.de</a>
@@ -937,20 +1043,21 @@
         <div class="footer-links">
           <div class="footer-link-group">
             <span>NAVIGATION</span>
-            <a href="about.html">Über uns</a>
-            <a href="kontakt.php">Kontakt</a>
+            <a href="/optionen/">Optionen</a>
+            <a href="/about.html">&Uuml;ber uns</a>
+            <a href="/kontakt.php">Kontakt</a>
           </div>
           <div class="footer-link-group">
             <span>RECHTLICHES</span>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutz</a>
-            <a href="cookies.html">Cookies</a>
+            <a href="/impressum.html">Impressum</a>
+            <a href="/datenschutz.html">Datenschutz</a>
+            <a href="/cookies.html">Cookies</a>
           </div>
         </div>
       </div>
-      <p class="footer-copy">© 2026 Orbita24. Alle Rechte vorbehalten.</p>
+      <p class="footer-copy">&copy; 2026 Orbita24. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <script src="js/script.js" defer></script>
+    <script src="/js/script.js" defer></script>
   </body>
 </html>

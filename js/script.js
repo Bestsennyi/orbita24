@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const tapTargetSelector = 'a, button, .btn, .card, .cta-box, .structure-card, .structure-back, .icon-list li';
     let activeTapTarget = null;
     let tapClearTimer = null;
-    let pendingTapNavigation = false;
 
     const clearTapTarget = (delay = 160) => {
       if (tapClearTimer) {
@@ -93,17 +92,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const target = event.target.closest(tapTargetSelector);
       if (!target) return;
+      if (target.closest('.site-header')) return;
 
       activeTapTarget?.classList.remove('is-tapping');
       activeTapTarget = target;
       target.classList.add('is-tapping');
     });
 
-    document.addEventListener('click', event => {
-      if (pendingTapNavigation) return;
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
+      document.addEventListener(eventName, () => clearTapTarget(80), { passive: true });
+    });
+  }
 
-      const link = event.target.closest('a[href]');
-      if (!link || !link.classList.contains('is-tapping')) return;
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  const menuLinks = navMenu ? Array.from(navMenu.querySelectorAll('a')) : [];
+  const headerLinks = Array.from(document.querySelectorAll('.site-header a[href]'));
+
+  headerLinks.forEach(link => {
+    link.addEventListener('click', event => {
       if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       if (link.target && link.target !== '_self') return;
 
@@ -111,37 +118,32 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
       const url = new URL(href, window.location.href);
-      if (url.origin !== window.location.origin) return;
+      const currentUrl = new URL(window.location.href);
+      url.hash = '';
+      currentUrl.hash = '';
+      link.blur();
 
-      event.preventDefault();
-      pendingTapNavigation = true;
-      window.setTimeout(() => {
-        window.location.href = url.href;
-      }, 85);
+      if (url.href === currentUrl.href || link.classList.contains('is-optionen-active')) {
+        event.preventDefault();
+        return;
+      }
+
+      return;
     });
-
-    ['pointerup', 'pointercancel', 'pointerleave'].forEach(eventName => {
-      document.addEventListener(eventName, () => clearTapTarget(180), { passive: true });
-    });
-  }
-
-  const body = document.body;
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  const menuLinks = navMenu ? Array.from(navMenu.querySelectorAll('a')) : [];
+  });
 
   const closeMenu = () => {
     if (!navMenu || !navToggle) return;
     navMenu.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded', 'false');
-    body.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
   };
 
   const openMenu = () => {
     if (!navMenu || !navToggle) return;
     navMenu.classList.add('is-open');
     navToggle.setAttribute('aria-expanded', 'true');
-    body.classList.add('menu-open');
+    document.body.classList.add('menu-open');
   };
 
   if (navToggle && navMenu) {
@@ -172,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (window.innerWidth < 992) {
+        if (window.innerWidth <= 1024) {
           closeMenu();
         }
       });
@@ -182,15 +184,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentPathname = window.location.pathname;
   const currentFile = currentPathname.split('/').pop() || 'index.html';
   const isOptionenSection =
-    currentPathname.endsWith('/optionen.html') || currentPathname.includes('/optionen/');
+    currentPathname === '/optionen' ||
+    currentPathname.startsWith('/optionen/') ||
+    currentPathname.endsWith('/optionen.html');
   const normalizePath = path => (path === '' ? 'index.html' : path);
+
+  document.body.classList.toggle('is-options-section', isOptionenSection);
+  document.querySelectorAll('.site-header .nav-cta').forEach(button => {
+    button.classList.toggle('is-active-section', isOptionenSection);
+    button.classList.toggle('is-in-options', isOptionenSection);
+  });
 
   document.querySelectorAll('.nav-menu a, .footer-links a').forEach(link => {
     const href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http')) return;
 
-    const linkPath = normalizePath(href.split('/').pop() || 'index.html');
-    const isActive = isOptionenSection ? linkPath === 'optionen.html' : linkPath === currentFile;
+    const linkUrl = new URL(href, window.location.origin);
+    const linkPathname = linkUrl.pathname;
+    const isOptionenLink = linkPathname === '/optionen' || linkPathname === '/optionen/';
+    const isHomeLink = linkPathname === '/';
+    const linkPath = normalizePath(linkPathname.split('/').pop() || 'index.html');
+    const isActive =
+      (isOptionenLink && isOptionenSection) ||
+      (isHomeLink && !isOptionenSection && (currentPathname === '/' || currentFile === 'index.html')) ||
+      (!isOptionenLink && !isHomeLink && !isOptionenSection && linkPath === currentFile);
 
     if (isActive) {
       link.classList.add('active');
