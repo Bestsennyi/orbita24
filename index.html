@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://consent.cookiebot.com" />
     <link rel="preconnect" href="https://consentcdn.cookiebot.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
+
+      const ORBITA24_GTM_ID = "GTM-5HL9LFK4";
+
       gtag("consent", "default", {
         ad_storage: "denied",
         ad_user_data: "denied",
@@ -18,41 +20,55 @@
         analytics_storage: "denied",
         wait_for_update: 500,
       });
-    </script>
-    <script>
-      window.addEventListener(
-        "load",
-        () => {
-          const loadCookiebot = () => {
-            if (document.getElementById("Cookiebot")) return;
 
-            const script = document.createElement("script");
-            script.id = "Cookiebot";
-            script.src = "https://consent.cookiebot.com/uc.js";
-            script.dataset.cbid = "2442c9f2-b102-489d-b183-906d466fc319";
-            script.dataset.culture = "DE";
-            script.type = "text/javascript";
-            script.async = true;
-            document.head.appendChild(script);
-          };
+      window.orbita24LoadGtm = function () {
+        if (window.orbita24GtmLoaded) return;
+        window.orbita24GtmLoaded = true;
 
-          window.setTimeout(loadCookiebot, 2200);
-        },
-        { once: true },
-      );
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", ORBITA24_GTM_ID);
+      };
+
+      window.orbita24UpdateConsent = function () {
+        const consent = window.Cookiebot && window.Cookiebot.consent ? window.Cookiebot.consent : {};
+        const analyticsStorage = consent.statistics ? "granted" : "denied";
+        const adStorage = consent.marketing ? "granted" : "denied";
+
+        gtag("consent", "update", {
+          ad_storage: adStorage,
+          ad_user_data: adStorage,
+          ad_personalization: adStorage,
+          analytics_storage: analyticsStorage,
+        });
+
+        if (consent.statistics || consent.marketing) {
+          window.orbita24LoadGtm();
+        }
+      };
+
+      window.addEventListener("CookiebotOnConsentReady", window.orbita24UpdateConsent);
+      window.addEventListener("CookiebotOnAccept", window.orbita24UpdateConsent);
+      window.addEventListener("CookiebotOnDecline", window.orbita24UpdateConsent);
     </script>
+    <script
+      id="Cookiebot"
+      src="https://consent.cookiebot.com/uc.js"
+      data-cbid="2442c9f2-b102-489d-b183-906d466fc319"
+      data-culture="DE"
+      type="text/javascript"
+      async
+    ></script>
     <!-- Google Tag Manager -->
     <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-5HL9LFK4");
+      // GTM is loaded by orbita24LoadGtm after Cookiebot consent.
     </script>
     <!-- End Google Tag Manager -->
     <title>Angebote & Vergleiche in Deutschland | Orbita24</title>

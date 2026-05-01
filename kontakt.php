@@ -38,16 +38,58 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://consent.cookiebot.com" />
     <link rel="preconnect" href="https://consentcdn.cookiebot.com" />
-<script>
+    <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 500
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      const ORBITA24_GTM_ID = "GTM-5HL9LFK4";
+
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500,
       });
+
+      window.orbita24LoadGtm = function () {
+        if (window.orbita24GtmLoaded) return;
+        window.orbita24GtmLoaded = true;
+
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != "dataLayer" ? "&l=" + l : "";
+          j.async = true;
+          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", ORBITA24_GTM_ID);
+      };
+
+      window.orbita24UpdateConsent = function () {
+        const consent = window.Cookiebot && window.Cookiebot.consent ? window.Cookiebot.consent : {};
+        const analyticsStorage = consent.statistics ? "granted" : "denied";
+        const adStorage = consent.marketing ? "granted" : "denied";
+
+        gtag("consent", "update", {
+          ad_storage: adStorage,
+          ad_user_data: adStorage,
+          ad_personalization: adStorage,
+          analytics_storage: analyticsStorage,
+        });
+
+        if (consent.statistics || consent.marketing) {
+          window.orbita24LoadGtm();
+        }
+      };
+
+      window.addEventListener("CookiebotOnConsentReady", window.orbita24UpdateConsent);
+      window.addEventListener("CookiebotOnAccept", window.orbita24UpdateConsent);
+      window.addEventListener("CookiebotOnDecline", window.orbita24UpdateConsent);
     </script>
     <script
       id="Cookiebot"
@@ -59,13 +101,7 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
     ></script>
     <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-5HL9LFK4');
+      // GTM is loaded by orbita24LoadGtm after Cookiebot consent.
     </script>
     <!-- End Google Tag Manager -->
     <title>Orbita24 Kontakt: Fragen zu Angeboten &amp; Vergleichen</title>
@@ -246,6 +282,6 @@ $shouldPushContactFormSubmit = in_array('contact_form_submit', $contactEvents, t
         });
       </script>
     <?php endif; ?>
-    <script src="/js/script.js"></script>
+    <script src="/js/script.js" defer></script>
   </body>
 </html>
