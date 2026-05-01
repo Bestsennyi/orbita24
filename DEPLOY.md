@@ -42,9 +42,26 @@ The website root is the repository root. The workflow uploads from:
 ./
 ```
 
-This is correct because `index.html`, `kontakt.php`, `.htaccess`, `css/`, `js/`, `images/`, `includes/`, and `optionen/` are directly in the project root.
+This is correct because `index.php`, `kontakt.php`, `.htaccess`, `css/`, `js/`, `images/`, `includes/`, `data/`, `tools/`, and `optionen/` are directly in the project root.
 
 There is no frontend build step. The workflow uploads the working PHP/HTML/CSS/JS files as they are.
+
+## Pre-Push Checks
+
+Before pushing to `main`, run:
+
+```text
+php tools/generate-sitemap.php
+php tools/predeploy-check.php
+```
+
+If the predeploy check returns `PASS`, save and push:
+
+```text
+git saveall "Plan B PHP includes and sitemap"
+```
+
+Then push/deploy through the normal branch workflow.
 
 ## Deployment Method
 
@@ -86,7 +103,7 @@ The workflow excludes development and repository files, including:
 - `HOSTING-READY.md`
 - `.gitignore`
 
-Site files such as `.html`, `.php`, `.htaccess`, `css/**`, `js/**`, `images/**`, `assets/**` if added later, `includes/**`, and `optionen/**` are uploaded.
+Site files such as `.html`, `.php`, `.htaccess`, `css/**`, `js/**`, `images/**`, `assets/**` if added later, `includes/**`, `data/**`, `tools/**`, and `optionen/**` are uploaded. The root `.htaccess` denies public browser access to service directories such as `data/`, `tools/`, and `templates/`.
 
 ## First Deployment Notes
 
@@ -97,7 +114,25 @@ Before the first production push, confirm that `FTP_SERVER_DIR` is exactly `/` f
 After the first deployment, check:
 
 - `https://orbita24.de/`
+- `https://orbita24.de/optionen/`
+- `https://orbita24.de/optionen/finanzen/`
+- `https://orbita24.de/optionen/finanzen/kredit/`
+- `https://orbita24.de/optionen/energie/strom/`
 - `https://orbita24.de/kontakt.php`
 - CSS, JavaScript, logo, favicon, and option pages
 - contact form submission
 - that `includes/config.php` and `includes/contact-handler.php` are not directly accessible in the browser
+
+Post-deploy source checks:
+
+- `view-source:https://orbita24.de/`
+- `view-source:https://orbita24.de/optionen/`
+- `view-source:https://orbita24.de/optionen/finanzen/kredit/`
+
+Confirm:
+
+- no raw `<?php` appears in source
+- `site-header` and `site-footer` are present
+- breadcrumbs are present on `/optionen/*` pages
+- `Weitere Themen` appears on child option pages
+- public URLs do not contain `index.php` or `index.html`

@@ -1,0 +1,537 @@
+<?php
+$orbita24Root = dirname(__FILE__, 2);
+require_once $orbita24Root . '/includes/site-functions.php';
+orbita24_set_current_page('/optionen/');
+?>
+<!doctype html>
+<html lang="de">
+  <head>
+    <?php include $orbita24Root . '/includes/head.php'; ?>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      .optionen-page .page-section {
+        padding-top: 32px;
+        padding-bottom: 40px;
+      }
+
+      .optionen-page .page-section > .container {
+        width: min(100% - 32px, calc(var(--container) * 1.1));
+      }
+
+      .optionen-page .page-header {
+        max-width: 700px;
+        margin-bottom: 24px;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .optionen-page .page-intro {
+        margin-bottom: 24px;
+      }
+
+      .optionen-page .page-header > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .optionen-page .page-header h1 {
+        max-width: 680px;
+        margin-bottom: 8px;
+        font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+        line-height: 1.18;
+      }
+
+      .optionen-page .page-header p:not(.eyebrow) {
+        max-width: 600px;
+        margin-bottom: 0;
+        font-size: 0.9375rem;
+        line-height: 1.5;
+      }
+
+      .optionen-page .optionen-grid {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 48px;
+      }
+
+      .optionen-page .optionen-card {
+        min-height: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        border-color: rgba(17, 24, 39, 0.085);
+        box-shadow: 0 8px 22px rgba(17, 24, 39, 0.055);
+        background: #ffffff;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .optionen-page .optionen-card::after {
+        content: none;
+      }
+
+      .optionen-page .optionen-card:hover,
+      .optionen-page .optionen-card:focus-within {
+        transform: translateY(-4px);
+        border-color: rgba(255, 90, 31, 0.18);
+        box-shadow:
+          0 10px 25px rgba(0, 0, 0, 0.08),
+          var(--glow-orange);
+      }
+
+      .optionen-page .optionen-card:focus-visible {
+        outline: 3px solid rgba(255, 90, 31, 0.22);
+        outline-offset: 3px;
+      }
+
+      .optionen-page .optionen-card .icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 12px;
+        border-radius: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        transition:
+          transform 0.2s ease,
+          filter 0.2s ease;
+      }
+
+      .optionen-page .optionen-card .icon svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      .optionen-page .optionen-card:hover .icon,
+      .optionen-page .optionen-card:focus-within .icon {
+        transform: translateY(-2px);
+        filter: drop-shadow(0 6px 10px rgba(255, 90, 31, 0.12));
+      }
+
+      .optionen-page .optionen-badge {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        max-width: calc(100% - 48px);
+        padding: 3px 7px;
+        border-radius: 999px;
+        color: #1f7a5a;
+        background: rgba(0, 255, 136, 0.06);
+        border: 1px solid rgba(0, 255, 136, 0.12);
+        font-size: 0.65625rem;
+        font-weight: 500;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+
+      .optionen-page .optionen-card h3 {
+        margin-top: 0;
+        margin-bottom: 6px;
+        font-size: 1.125rem;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--text-strong);
+      }
+
+      .optionen-page .optionen-card p {
+        flex: 1 1 auto;
+        min-height: 42px;
+        margin-top: 0;
+        margin-bottom: 12px;
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+
+      .optionen-page .optionen-card .btn {
+        min-height: 38px;
+        margin-top: auto;
+        padding: 0 12px;
+        color: #ff5a1f;
+        background: #ffffff;
+        border-color: #ff5a1f;
+        font-size: 0.875rem;
+        transition:
+          transform 0.2s ease,
+          background 0.2s ease,
+          border-color 0.2s ease,
+          color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .optionen-page .optionen-card .btn::after {
+        content: "\2192";
+        margin-left: 8px;
+        color: #ff5a1f;
+        transition: transform 0.2s ease;
+      }
+
+      .optionen-page .optionen-card:hover .btn,
+      .optionen-page .optionen-card .btn:hover,
+      .optionen-page .optionen-card .btn:focus-visible {
+        color: #ff5a1f;
+        background: rgba(255, 90, 31, 0.08);
+        border-color: #ff5a1f;
+        box-shadow: none;
+      }
+
+      .optionen-page .optionen-card .btn:active {
+        background: rgba(255, 90, 31, 0.12);
+        border-color: #ff5a1f;
+      }
+
+      .optionen-page .optionen-card:hover .btn::after,
+      .optionen-page .optionen-card .btn:hover::after,
+      .optionen-page .optionen-card .btn:focus-visible::after {
+        transform: translateX(3px);
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .optionen-page .optionen-card:hover .btn,
+        .optionen-page .optionen-card .btn:hover,
+        .optionen-page .optionen-card .btn:focus-visible {
+          color: #ffffff;
+          background: #ff5a1f;
+          border-color: #ff5a1f;
+        }
+
+        .optionen-page .optionen-card:hover .btn::after,
+        .optionen-page .optionen-card .btn:hover::after,
+        .optionen-page .optionen-card .btn:focus-visible::after {
+          color: #ffffff;
+        }
+      }
+
+      .optionen-page .page-cta {
+        margin-bottom: 40px;
+        padding: 18px 24px;
+        border-color: rgba(17, 24, 39, 0.075);
+        background: #ffffff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      }
+
+      .optionen-page .page-cta:hover {
+        border-color: rgba(255, 90, 31, 0.18);
+        box-shadow:
+          0 14px 32px rgba(0, 0, 0, 0.07),
+          var(--glow-orange);
+      }
+
+      .optionen-page .page-cta h2 {
+        margin-bottom: 6px;
+        font-size: clamp(1.45rem, 2.2vw, 1.8rem);
+        font-weight: 600;
+        line-height: 1.1;
+      }
+
+      .optionen-page .page-cta p {
+        max-width: 760px;
+        margin-top: 0;
+        line-height: 1.42;
+      }
+
+      .optionen-page .page-cta .cta-side {
+        align-self: center;
+      }
+
+      .optionen-page .page-cta .btn {
+        min-height: 42px;
+        padding: 0 18px;
+        color: var(--text-strong);
+        background: #ffffff;
+        border-color: rgba(17, 24, 39, 0.14);
+        font-size: 0.92rem;
+      }
+
+      .optionen-page .page-cta .btn:hover,
+      .optionen-page .page-cta .btn:focus-visible {
+        color: #ffffff;
+        background: #ff5a1f;
+        border-color: #ff5a1f;
+      }
+
+      .optionen-page .page-cta .btn:active {
+        background: #c94214;
+        border-color: #c94214;
+      }
+
+      @media (min-width: 768px) {
+        .optionen-page .optionen-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (min-width: 1180px) {
+        .optionen-page main {
+          min-height: calc(100vh - 80px);
+        }
+
+        .optionen-page .optionen-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 767px) {
+        .optionen-page .page-section {
+          padding-top: 28px;
+          padding-bottom: 32px;
+        }
+
+        .optionen-page .page-header {
+          margin-bottom: 20px;
+        }
+
+        .optionen-page .page-intro {
+          margin-bottom: 20px;
+        }
+
+        .optionen-page .optionen-grid {
+          gap: 18px;
+          margin-bottom: 40px;
+        }
+
+        .optionen-page .optionen-card {
+          padding: 20px;
+        }
+
+        .optionen-page .optionen-badge {
+          top: 14px;
+          right: 14px;
+        }
+
+        .optionen-page .optionen-card .btn,
+        .optionen-page .page-cta .btn {
+          width: 100%;
+        }
+
+        .optionen-page .page-cta {
+          margin-bottom: 32px;
+          padding: 18px;
+        }
+      }
+
+      @media (max-width: 768px) and (hover: none) and (pointer: coarse) {
+        .optionen-page .optionen-card:hover,
+        .optionen-page .page-cta:hover {
+          transform: none;
+          border-color: rgba(17, 24, 39, 0.075);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .optionen-page .optionen-card:active,
+        .optionen-page .optionen-card.is-tapping,
+        .optionen-page .page-cta:active,
+        .optionen-page .page-cta.is-tapping {
+          transform: scale(0.995);
+          transition: transform 120ms ease;
+        }
+
+        .optionen-page .optionen-card:hover .icon,
+        .optionen-page .optionen-card:hover .btn,
+        .optionen-page .optionen-card:hover .btn::after,
+        .optionen-page .page-cta:hover .btn {
+          transform: none;
+          filter: none;
+        }
+
+        .optionen-page .optionen-card .btn,
+        .optionen-page .optionen-card .btn:hover {
+          color: #ff5a1f;
+          background: #ffffff;
+          border-color: #ff5a1f;
+          box-shadow: none;
+        }
+
+        .optionen-page .page-cta .btn,
+        .optionen-page .page-cta .btn:hover {
+          color: var(--text-strong);
+          background: #ffffff;
+          border-color: rgba(17, 24, 39, 0.14);
+          box-shadow: none;
+        }
+
+        .optionen-page .optionen-card .btn:active,
+        .optionen-page .optionen-card .btn.is-tapping,
+        .optionen-page .page-cta .btn:active,
+        .optionen-page .page-cta .btn.is-tapping {
+          transform: scale(0.99);
+          background: rgba(255, 90, 31, 0.08);
+          transition: transform 120ms ease, background-color 120ms ease;
+        }
+      }
+
+      @media (hover: none) and (pointer: coarse) {
+        .optionen-page .page-cta:hover {
+          transform: none !important;
+          border-color: rgba(17, 24, 39, 0.075) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .optionen-page .page-cta:active,
+        .optionen-page .page-cta.is-tapping {
+          background: #ffffff;
+          transform: scale(0.995) !important;
+          border-color: rgba(17, 24, 39, 0.075) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .optionen-page .page-cta .btn:hover {
+          color: #ff5a1f !important;
+          background: #ffffff !important;
+          border-color: #ff5a1f !important;
+          box-shadow: none !important;
+          transform: none !important;
+        }
+
+        .optionen-page .page-cta .btn:active,
+        .optionen-page .page-cta .btn.is-tapping {
+          color: #ff5a1f !important;
+          background: rgba(255, 90, 31, 0.08) !important;
+          border-color: #ff5a1f !important;
+          box-shadow: none !important;
+          transform: scale(0.99) !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="optionen-page">
+    <div class="site-bg" aria-hidden="true"></div>
+    <?php include $orbita24Root . '/includes/header.php'; ?>
+
+    <main>
+      <section class="section page-section">
+        <div class="container">
+          <div class="page-header page-intro">
+            <p class="eyebrow">OPTIONEN</p>
+            <h1>Optionen im &Uuml;berblick</h1>
+            <p>&Uuml;bersichtlich und einfach vergleichbar.</p>
+          </div>
+
+          <div class="optionen-grid">
+            <a href="/optionen/finanzen/" class="card optionen-card">
+              <span class="optionen-badge">&Uuml;berblick</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g transform="translate(3 3) scale(0.75)">
+                    <path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" />
+                    <path d="M7 12h5" />
+                    <path d="M15 9.4a4 4 0 1 0 0 5.2" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Finanzen</h3>
+              <p>Finanzl&ouml;sungen einfach verstehen und vergleichen.<br />Passende Optionen f&uuml;r Ihren Bedarf finden.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/optionen/versicherungen/" class="card optionen-card">
+              <span class="optionen-badge">Schutz</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g transform="translate(3 3) scale(0.75)">
+                    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                    <path d="m9 12 2 2 4-4" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Versicherungen</h3>
+              <p>Versicherungen &uuml;bersichtlich vergleichen.<br />Zuverl&auml;ssigen Schutz in Ruhe ausw&auml;hlen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/optionen/energie/" class="card optionen-card">
+              <span class="optionen-badge">Sparen</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g transform="translate(3 3) scale(0.75)">
+                    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Energie</h3>
+              <p>Energieangebote einfach einordnen.<br />Strom, Gas und W&auml;rme besser verstehen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/optionen/internet/" class="card optionen-card">
+              <span class="optionen-badge">Online</span>
+              <div class="icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <g transform="translate(3 3) scale(0.75)">
+                    <path d="M12 20h.01" />
+                    <path d="M2 8.82a15 15 0 0 1 20 0" />
+                    <path d="M5 12.859a10 10 0 0 1 14 0" />
+                    <path d="M8.5 16.429a5 5 0 0 1 7 0" />
+                  </g>
+                </svg>
+              </div>
+              <h3>Internet</h3>
+              <p>Internet- und Mobilfunktarife vergleichen.<br />Passende Vertr&auml;ge schnell finden.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/optionen/immobilien/" class="card optionen-card">
+              <span class="optionen-badge">Wohnen</span>
+              <div class="icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                      <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    </g>
+                  </svg>
+              </div>
+              <h3>Immobilien</h3>
+              <p>Immobilienangebote gezielt vergleichen.<br />Finanzierung und Planung besser abstimmen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+
+            <a href="/optionen/auto/" class="card optionen-card">
+              <span class="optionen-badge">Mobil</span>
+              <div class="icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
+                      <path d="M7 14h.01" />
+                      <path d="M17 14h.01" />
+                      <rect width="18" height="8" x="3" y="10" rx="2" />
+                      <path d="M5 18v2" />
+                      <path d="M19 18v2" />
+                    </g>
+                  </svg>
+              </div>
+              <h3>Auto</h3>
+              <p>Autoangebote &uuml;bersichtlich pr&uuml;fen.<br />Finanzierung und Optionen klar vergleichen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+          </div>
+
+          <section class="cta-box page-cta" aria-labelledby="optionen-cta-title">
+            <div class="cta-copy">
+              <h2 id="optionen-cta-title">Pers&ouml;nlicher Kontakt</h2>
+              <p>
+                Unser Ziel ist es, dass Sie die passende L&ouml;sung finden und sich bei Ihrer
+                Entscheidung sicher f&uuml;hlen.
+              </p>
+            </div>
+
+            <div class="cta-side">
+              <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>
+            </div>
+          </section>
+        </div>
+      </section>
+</main>
+    <?php include $orbita24Root . '/includes/footer.php'; ?>
+    <?php include $orbita24Root . '/includes/scripts.php'; ?>
+  </body>
+</html>

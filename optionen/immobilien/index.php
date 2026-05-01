@@ -1,0 +1,146 @@
+<?php
+$orbita24Root = dirname(__FILE__, 3);
+require_once $orbita24Root . '/includes/site-functions.php';
+orbita24_set_current_page('/optionen/immobilien/');
+?>
+<!doctype html>
+<html lang="de">
+  <head>
+    <?php include $orbita24Root . '/includes/head.php'; ?>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/optionen-structure.css" />
+  </head>
+  <body class="optionen-structure-page">
+    <div class="site-bg" aria-hidden="true"></div>
+    <?php include $orbita24Root . '/includes/header.php'; ?>
+
+    <main>
+      <section class="section structure-section">
+        <div class="container structure-container">
+                    <div class="structure-nav-row">
+            <a href="/optionen/" class="structure-back" aria-label="Zur&uuml;ck zu Optionen">
+              <span class="structure-back-arrow" aria-hidden="true">&larr;</span>
+            </a>
+            <?php orbita24_render_breadcrumbs(); ?>
+          </div><div class="structure-header">
+            <h1>Immobilien im &Uuml;berblick</h1>
+            <p>Hier finden Sie passende Finanzierungsl&ouml;sungen f&uuml;r Immobilien. Alle Bereiche finden Sie in unserer &Uuml;bersicht der <a href="/optionen/" class="structure-overview-link">Optionen</a>.</p>
+          </div>
+
+          <div class="structure-grid">
+            <a href="/optionen/immobilien/baufinanzierung/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M12.5 21H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v2.5" />
+                      <path d="M9 21v-8a1 1 0 0 1 1-1h4" />
+                      <path d="M19 15v6" />
+                      <path d="M16 18h6" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Kredit</span>
+              </span>
+              <h3>Baufinanzierung</h3>
+              <p class="structure-card-description"><span>Baufinanzierung einfach vergleichen.</span><span>Passende L&ouml;sung f&uuml;r Ihr Projekt finden.</span></p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/immobilien/anschlussfinanzierung/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                      <path d="M21 3v5h-5" />
+                      <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                      <path d="M8 16H3v5" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Anschluss</span>
+              </span>
+              <h3>Anschlussfinanzierung</h3>
+              <p class="structure-card-description"><span>Anschlussfinanzierung gezielt pr&uuml;fen.</span><span>Beste Konditionen rechtzeitig sichern.</span></p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/immobilien/modernisierung/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Umbau</span>
+              </span>
+              <h3>Modernisierungskredit</h3>
+              <p class="structure-card-description"><span>Modernisierung einfach finanzieren.</span><span>Passende Kredite f&uuml;r Ihr Zuhause finden.</span></p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/immobilien/bewertung/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M3 3v18h18" />
+                      <path d="m19 9-5 5-4-4-3 3" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Bewertung</span>
+              </span>
+              <h3>Immobilienbewertung</h3>
+              <p class="structure-card-description"><span>Immobilienwert einfach ermitteln.</span><span>Marktgerechte Einsch&auml;tzung schnell erhalten.</span></p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/immobilien/verkauf/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+                      <circle cx="7.5" cy="7.5" r=".5" fill="#ff5a1f" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Verkauf</span>
+              </span>
+              <h3>Immobilienverkauf</h3>
+              <p class="structure-card-description"><span>Immobilie erfolgreich verkaufen.</span><span>Passende Unterst&uuml;tzung einfach finden.</span></p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/immobilien/foerderung/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.12 2.12 0 0 0 1.595 1.16l5.166.751a.53.53 0 0 1 .294.904l-3.738 3.644a2.12 2.12 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.62-2.428a2.12 2.12 0 0 0-1.973 0L6.39 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.12 2.12 0 0 0-.611-1.879L2.152 9.79a.53.53 0 0 1 .294-.904l5.165-.751a2.12 2.12 0 0 0 1.596-1.16z" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">F&ouml;rderung</span>
+              </span>
+              <h3>F&ouml;rdermittel</h3>
+              <p class="structure-card-description"><span>F&ouml;rderungen und Zusch&uuml;sse pr&uuml;fen.</span><span>Staatliche Vorteile gezielt nutzen.</span></p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+          </div>
+
+          <article class="card structure-final">
+            <div>
+              <h2>Passende Optionen entdecken</h2>
+              <p>W&auml;hlen Sie ein Thema und entdecken Sie die n&auml;chsten Schritte in Ruhe.</p>
+            </div>
+            <div class="cta-side">
+              <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>
+            </div>
+          </article>
+        </div>
+      </section>
+</main>
+    <?php include $orbita24Root . '/includes/footer.php'; ?>
+    <?php include $orbita24Root . '/includes/scripts.php'; ?>
+  </body>
+</html>

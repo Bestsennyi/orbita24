@@ -1,0 +1,153 @@
+<?php
+$orbita24Root = dirname(__FILE__, 3);
+require_once $orbita24Root . '/includes/site-functions.php';
+orbita24_set_current_page('/optionen/energie/');
+?>
+<!doctype html>
+<html lang="de">
+  <head>
+    <?php include $orbita24Root . '/includes/head.php'; ?>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/optionen-structure.css" />
+  </head>
+  <body class="optionen-structure-page">
+    <div class="site-bg" aria-hidden="true"></div>
+    <?php include $orbita24Root . '/includes/header.php'; ?>
+
+    <main>
+      <section class="section structure-section">
+        <div class="container structure-container">
+                    <div class="structure-nav-row">
+            <a href="/optionen/" class="structure-back" aria-label="Zur&uuml;ck zu Optionen">
+              <span class="structure-back-arrow" aria-hidden="true">&larr;</span>
+            </a>
+            <?php orbita24_render_breadcrumbs(); ?>
+          </div><div class="structure-header">
+            <h1>Energie im &Uuml;berblick</h1>
+            <p>Hier finden Sie passende Energieoptionen f&uuml;r Ihren Alltag. Alle Bereiche finden Sie in unserer &Uuml;bersicht der <a href="/optionen/" class="structure-overview-link">Optionen</a>.</p>
+          </div>
+
+          <div class="structure-grid">
+            <a href="/optionen/energie/strom/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Tarif</span>
+              </span>
+              <h3>Strom</h3>
+              <p>Stromtarife einfach vergleichen.<br />Passenden Tarif schnell online wechseln.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/energie/gas/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Preis</span>
+              </span>
+              <h3>Gas</h3>
+              <p>Gasangebote klar vergleichen.<br />Passenden Tarif direkt und einfach w&auml;hlen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/energie/solaranlage/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Solar</span>
+              </span>
+              <h3>Solaranlage</h3>
+              <p>Solarstrom selbst erzeugen.<br />Kosten langfristig senken und Zuhause sparen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/energie/waermepumpe/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <rect x="5" y="4" width="14" height="16" rx="2" />
+                      <path d="M9 4v16" />
+                      <path d="M15 4v16" />
+                      <path d="M5 9h14" />
+                      <path d="M5 15h14" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Effizienz</span>
+              </span>
+              <h3>W&auml;rmepumpe</h3>
+              <p>Moderne Heizl&ouml;sungen vergleichen.<br />Energie sparen und nachhaltig heizen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/energie/oekostrom/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                      <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Gr&uuml;n</span>
+              </span>
+              <h3>&Ouml;kostrom</h3>
+              <p>Nachhaltige Stromtarife vergleichen.<br />Umweltfreundlich wechseln und sparen.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+            <a href="/optionen/energie/energieberatung/" class="card structure-card">
+              <span class="structure-card-top">
+                <span class="structure-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ff5a1f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <g transform="translate(3 3) scale(0.75)">
+                      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5" />
+                      <path d="M9 18h6" />
+                      <path d="M10 22h4" />
+                    </g>
+                  </svg>
+                </span>
+                <span class="structure-card-meta">Beratung</span>
+              </span>
+              <h3>Energieberatung</h3>
+              <p>Energieberatung einfach anfragen.<br />Passende L&ouml;sungen f&uuml;r Ihr Zuhause finden.</p>
+              <span class="btn btn-secondary">Optionen ansehen</span>
+            </a>
+          </div>
+
+          <article class="card structure-final">
+            <div>
+              <h2>Passende Optionen entdecken</h2>
+              <p>W&auml;hlen Sie ein Thema und entdecken Sie die n&auml;chsten Schritte in Ruhe.</p>
+            </div>
+            <div class="cta-side">
+              <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>
+            </div>
+          </article>
+        </div>
+      </section>
+</main>
+    <?php include $orbita24Root . '/includes/footer.php'; ?>
+    <?php include $orbita24Root . '/includes/scripts.php'; ?>
+  </body>
+</html>
