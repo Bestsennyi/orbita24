@@ -1,6 +1,6 @@
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div>
+    <div class="footer-brand">
       <a href="/" class="logo footer-logo" aria-label="Orbita24 Startseite">
         <img
           src="/images/logo-orbita24.svg"
