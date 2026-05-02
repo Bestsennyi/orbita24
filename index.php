@@ -7,6 +7,7 @@ orbita24_set_current_page('/');
 <html lang="de">
   <head>
     <?php include $orbita24Root . '/includes/head.php'; ?>
+    <link rel="preload" as="image" href="/images/hero-bg.webp" type="image/webp" fetchpriority="high" />
     <style>
       :root {
         --header-height: 80px;
