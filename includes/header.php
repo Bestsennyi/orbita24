@@ -2,6 +2,7 @@
 $orbita24IsOptions = orbita24_is_options_section();
 $orbita24CtaClass = 'btn btn-primary nav-cta cta-all-options' . ($orbita24IsOptions ? ' is-active-section is-in-options is-optionen-active' : '');
 ?>
+<?php include __DIR__ . '/gtm-noscript.php'; ?>
 <header class="site-header">
   <div class="container nav">
     <a href="/" class="logo" aria-label="Orbita24 Startseite">
