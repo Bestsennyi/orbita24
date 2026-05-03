@@ -181,7 +181,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit/');
                 <li>Kurze Bearbeitung</li>
                 <li>Direkt online m&ouml;glich</li>
               </ul>
-              <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
+              <a href="https://q47cm.bemobtrcks.com/click" class="btn offer-cta" data-offer="true">Zum Angebot</a>
             </article>
 
             <article class="card offer-card">
@@ -196,7 +196,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit/');
                 <li>Flexible Laufzeiten</li>
                 <li>&Uuml;bersichtliche R&uuml;ckzahlung</li>
               </ul>
-              <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
+              <a href="https://q47cm.bemobtrcks.com/click" class="btn offer-cta" data-offer="true">Zum Angebot</a>
             </article>
 
             <article class="card offer-card">
@@ -211,7 +211,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit/');
                 <li>Einfache Anfrage</li>
                 <li>Direkt online pr&uuml;fen</li>
               </ul>
-              <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
+              <a href="https://q47cm.bemobtrcks.com/click" class="btn offer-cta" data-offer="true">Zum Angebot</a>
             </article>
           </div>
         <?php orbita24_render_related_topics(); ?>
