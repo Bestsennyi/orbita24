@@ -171,7 +171,7 @@ orbita24_set_current_page('/optionen/versicherungen/haftpflichtversicherung/');
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Einstieg</span>
               <h2>Haftpflichtversicherung f&uuml;r den Alltag</h2>
-              <p>Einfach Leistungen vergleichen und passenden Schutz f&uuml;r den Alltag sicher ausw&auml;hlen.</p>
+              <p>Einfach Leistungen ansehen und passenden Schutz f&uuml;r den Alltag sicher ausw&auml;hlen.</p>
               <ul>
                 <li>&Uuml;bersichtlicher Ablauf</li>
                 <li>Klare Struktur</li>
@@ -197,7 +197,7 @@ orbita24_set_current_page('/optionen/versicherungen/haftpflichtversicherung/');
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Schnell</span>
               <h2>Schnell</h2>
-              <p>Schnell vergleichen, abschlie&szlig;en und direkt vor allt&auml;glichen Risiken gesch&uuml;tzt sein.</p>
+              <p>Schnell ansehen, abschlie&szlig;en und direkt vor allt&auml;glichen Risiken gesch&uuml;tzt sein.</p>
               <ul>
                 <li>Schneller Einstieg</li>
                 <li>Kurzer Ablauf</li>
@@ -212,7 +212,7 @@ orbita24_set_current_page('/optionen/versicherungen/haftpflichtversicherung/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

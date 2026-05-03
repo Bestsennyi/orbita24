@@ -206,7 +206,7 @@ orbita24_set_current_page('/optionen/internet/glasfaser/');
           <article class="card structure-final">
             <div>
               <h2>Weitere Optionen entdecken</h2>
-              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu Ihrer Situation passt.</p>
+              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu Ihrer Situation passt.</p>
             </div>
             <div class="cta-side">
               <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>

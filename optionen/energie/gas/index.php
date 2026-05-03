@@ -55,7 +55,7 @@ orbita24_set_current_page('/optionen/energie/gas/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Einfach</span>
               <h2>Gas Tarif</h2>
-              <p>Solide Gastarife einfach vergleichen.<br />Ideal f&uuml;r den ersten Anbieterwechsel.</p>
+              <p>Solide Gastarife einfach ansehen.<br />Ideal f&uuml;r den ersten Anbieterwechsel.</p>
               <ul>
                 <li>&Uuml;bersichtliche Auswahl</li>
                 <li>Feste Konditionen</li>
@@ -67,7 +67,7 @@ orbita24_set_current_page('/optionen/energie/gas/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Flexibel</span>
               <h2>Flex Gas</h2>
-              <p>Flexible Gasangebote klar vergleichen.<br />Passend f&uuml;r Ihren Haushalt.</p>
+              <p>Flexible Gasangebote klar ansehen.<br />Passend f&uuml;r Ihren Haushalt.</p>
               <ul>
                 <li>Flexible Laufzeit</li>
                 <li>Anpassbare Optionen</li>
@@ -93,7 +93,7 @@ orbita24_set_current_page('/optionen/energie/gas/');
           <article class="card structure-final">
             <div>
               <h2>Weitere Optionen entdecken</h2>
-              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu Ihrer Situation passt.</p>
+              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu Ihrer Situation passt.</p>
             </div>
             <div class="cta-side">
               <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>

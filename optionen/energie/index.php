@@ -40,7 +40,7 @@ orbita24_set_current_page('/optionen/energie/');
                 <span class="structure-card-meta">Tarif</span>
               </span>
               <h3>Strom</h3>
-              <p>Stromtarife einfach vergleichen.<br />Passenden Tarif schnell online wechseln.</p>
+              <p>Stromtarife einfach ansehen.<br />Passenden Tarif schnell online wechseln.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/energie/gas/" class="card structure-card">
@@ -55,7 +55,7 @@ orbita24_set_current_page('/optionen/energie/');
                 <span class="structure-card-meta">Preis</span>
               </span>
               <h3>Gas</h3>
-              <p>Gasangebote klar vergleichen.<br />Passenden Tarif direkt und einfach w&auml;hlen.</p>
+              <p>Gasangebote klar ansehen.<br />Passenden Tarif direkt und einfach w&auml;hlen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/energie/solaranlage/" class="card structure-card">
@@ -97,7 +97,7 @@ orbita24_set_current_page('/optionen/energie/');
                 <span class="structure-card-meta">Effizienz</span>
               </span>
               <h3>W&auml;rmepumpe</h3>
-              <p>Moderne Heizl&ouml;sungen vergleichen.<br />Energie sparen und nachhaltig heizen.</p>
+              <p>Moderne Heizl&ouml;sungen ansehen.<br />Energie sparen und nachhaltig heizen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/energie/oekostrom/" class="card structure-card">
@@ -113,7 +113,7 @@ orbita24_set_current_page('/optionen/energie/');
                 <span class="structure-card-meta">Gr&uuml;n</span>
               </span>
               <h3>&Ouml;kostrom</h3>
-              <p>Nachhaltige Stromtarife vergleichen.<br />Umweltfreundlich wechseln und sparen.</p>
+              <p>Nachhaltige Stromtarife ansehen.<br />Umweltfreundlich wechseln und sparen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/energie/energieberatung/" class="card structure-card">

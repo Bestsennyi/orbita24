@@ -414,7 +414,7 @@ orbita24_set_current_page('/optionen/');
           <div class="page-header page-intro">
             <p class="eyebrow">OPTIONEN</p>
             <h1>Optionen im &Uuml;berblick</h1>
-            <p>&Uuml;bersichtlich und einfach vergleichbar.</p>
+            <p>&Uuml;bersichtlich und einfach &uuml;bersichtlich pr&uuml;fbar.</p>
           </div>
 
           <div class="optionen-grid">
@@ -430,7 +430,7 @@ orbita24_set_current_page('/optionen/');
                 </svg>
               </div>
               <h3>Finanzen</h3>
-              <p>Finanzl&ouml;sungen einfach verstehen und vergleichen.<br />Passende Optionen f&uuml;r Ihren Bedarf finden.</p>
+              <p>Finanzl&ouml;sungen einfach verstehen und passende Optionen finden.<br />Passende Optionen f&uuml;r Ihren Bedarf finden.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
 
@@ -445,7 +445,7 @@ orbita24_set_current_page('/optionen/');
                 </svg>
               </div>
               <h3>Versicherungen</h3>
-              <p>Versicherungen &uuml;bersichtlich vergleichen.<br />Zuverl&auml;ssigen Schutz in Ruhe ausw&auml;hlen.</p>
+              <p>Versicherungen &uuml;bersichtlich ansehen.<br />Zuverl&auml;ssigen Schutz in Ruhe ausw&auml;hlen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
 
@@ -476,7 +476,7 @@ orbita24_set_current_page('/optionen/');
                 </svg>
               </div>
               <h3>Internet</h3>
-              <p>Internet- und Mobilfunktarife vergleichen.<br />Passende Vertr&auml;ge schnell finden.</p>
+              <p>Internet- und Mobilfunktarife ansehen.<br />Passende Vertr&auml;ge schnell finden.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
 
@@ -491,7 +491,7 @@ orbita24_set_current_page('/optionen/');
                   </svg>
               </div>
               <h3>Immobilien</h3>
-              <p>Immobilienangebote gezielt vergleichen.<br />Finanzierung und Planung besser abstimmen.</p>
+              <p>Immobilienangebote gezielt ansehen.<br />Finanzierung und Planung besser abstimmen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
 
@@ -510,7 +510,7 @@ orbita24_set_current_page('/optionen/');
                   </svg>
               </div>
               <h3>Auto</h3>
-              <p>Autoangebote &uuml;bersichtlich pr&uuml;fen.<br />Finanzierung und Optionen klar vergleichen.</p>
+              <p>Autoangebote &uuml;bersichtlich pr&uuml;fen.<br />Finanzierung und Optionen klar ansehen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
           </div>

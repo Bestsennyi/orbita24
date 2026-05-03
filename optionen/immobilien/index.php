@@ -43,7 +43,7 @@ orbita24_set_current_page('/optionen/immobilien/');
                 <span class="structure-card-meta">Kredit</span>
               </span>
               <h3>Baufinanzierung</h3>
-              <p class="structure-card-description"><span>Baufinanzierung einfach vergleichen.</span><span>Passende L&ouml;sung f&uuml;r Ihr Projekt finden.</span></p>
+              <p class="structure-card-description"><span>Baufinanzierung einfach ansehen.</span><span>Passende L&ouml;sung f&uuml;r Ihr Projekt finden.</span></p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/immobilien/anschlussfinanzierung/" class="card structure-card">

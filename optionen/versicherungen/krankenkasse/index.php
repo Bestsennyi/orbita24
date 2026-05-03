@@ -171,7 +171,7 @@ orbita24_set_current_page('/optionen/versicherungen/krankenkasse/');
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Einstieg</span>
               <h2>Krankenkasse f&uuml;r den Alltag</h2>
-              <p>Passende Leistungen vergleichen und optimale Absicherung f&uuml;r Ihre Gesundheit finden.</p>
+              <p>Passende Leistungen ansehen und optimale Absicherung f&uuml;r Ihre Gesundheit finden.</p>
               <ul>
                 <li>&Uuml;bersichtlicher Ablauf</li>
                 <li>Klare Struktur</li>
@@ -212,7 +212,7 @@ orbita24_set_current_page('/optionen/versicherungen/krankenkasse/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

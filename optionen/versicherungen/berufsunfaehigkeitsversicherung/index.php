@@ -171,7 +171,7 @@ orbita24_set_current_page('/optionen/versicherungen/berufsunfaehigkeitsversicher
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Einstieg</span>
               <h2>Berufsunf&auml;higkeit absichern</h2>
-              <p>Schutz f&uuml;r Ihr Einkommen bei l&auml;ngerer Arbeitsunf&auml;higkeit verstehen und vergleichen.</p>
+              <p>Schutz f&uuml;r Ihr Einkommen bei l&auml;ngerer Arbeitsunf&auml;higkeit verstehen und ansehen.</p>
               <ul>
                 <li>Monatliche Absicherung pr&uuml;fen</li>
                 <li>Einstieg einfach erkl&auml;rt</li>
@@ -184,7 +184,7 @@ orbita24_set_current_page('/optionen/versicherungen/berufsunfaehigkeitsversicher
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Flexibel</span>
               <h2>Flexible BU-Option</h2>
-              <p>Tarife mit anpassbaren Leistungen und Beitr&auml;gen vergleichen.</p>
+              <p>Tarife mit anpassbaren Leistungen und Beitr&auml;gen ansehen.</p>
               <ul>
                 <li>Anpassbare Beitr&auml;ge</li>
                 <li>Flexible Laufzeiten</li>
@@ -197,7 +197,7 @@ orbita24_set_current_page('/optionen/versicherungen/berufsunfaehigkeitsversicher
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Schnell</span>
               <h2>BU schnell online pr&uuml;fen</h2>
-              <p>Angebote vergleichen und passende Absicherung direkt ausw&auml;hlen.</p>
+              <p>Angebote ansehen und passende Absicherung direkt ausw&auml;hlen.</p>
               <ul>
                 <li>Schnelle Anfrage</li>
                 <li>&Uuml;bersichtliche Angebote</li>
@@ -212,7 +212,7 @@ orbita24_set_current_page('/optionen/versicherungen/berufsunfaehigkeitsversicher
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

@@ -171,11 +171,11 @@ orbita24_set_current_page('/optionen/versicherungen/kfz-versicherung/');
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Einstieg</span>
               <h2>KFZ-Versicherung f&uuml;r jeden Tag</h2>
-              <p>Vergleichen Sie Schutz, Leistungen und Preise f&uuml;r Ihr Auto einfach und schnell.</p>
+              <p>Sehen Sie Schutz, Leistungen und Preise f&uuml;r Ihr Auto einfach und schnell an.</p>
               <ul>
                 <li>Haftpflicht im Blick</li>
                 <li>Teil- und Vollkasko pr&uuml;fen</li>
-                <li>Beitrag einfach vergleichen</li>
+                <li>Beitrag einfach ansehen</li>
               </ul>
               <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
             </article>
@@ -197,10 +197,10 @@ orbita24_set_current_page('/optionen/versicherungen/kfz-versicherung/');
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Schnell</span>
               <h2>Schnell</h2>
-              <p>Schnell online vergleichen, abschlie&szlig;en und direkt mit dem passenden Schutz starten.</p>
+              <p>Schnell online ansehen, abschlie&szlig;en und direkt mit dem passenden Schutz starten.</p>
               <ul>
                 <li>Kurze Angaben</li>
-                <li>Schneller Vergleich</li>
+                <li>Schnelle Orientierung</li>
                 <li>Direkt online abschlie&szlig;en</li>
               </ul>
               <a href="/kontakt.php" class="btn offer-cta" data-offer="true">Zum Angebot</a>
@@ -212,7 +212,7 @@ orbita24_set_current_page('/optionen/versicherungen/kfz-versicherung/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

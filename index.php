@@ -52,12 +52,14 @@ orbita24_set_current_page('/');
         position: sticky;
         top: 0;
         z-index: 50;
+        min-height: var(--header-height);
         background: #111827;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .nav {
         width: min(100% - 32px, 1210px);
+        height: var(--header-height);
         min-height: var(--header-height);
         display: flex;
         align-items: center;
@@ -307,7 +309,7 @@ orbita24_set_current_page('/');
         }
 
         .hero {
-          min-height: clamp(560px, 90dvh, 680px);
+          min-height: clamp(560px, 90svh, 680px);
           display: flex;
           align-items: center;
           padding-top: 44px;
@@ -579,7 +581,7 @@ orbita24_set_current_page('/');
 
               <p class="hero-text">
                 Wir zeigen Ihnen ausgew&auml;hlte Angebote &uuml;bersichtlich
-                und verst&auml;ndlich. Vergleichen Sie Optionen einfach und
+                und verst&auml;ndlich. Sehen Sie passende Optionen einfach an und
                 treffen Sie die passende Entscheidung. Klar, unabh&auml;ngig und
                 verst&auml;ndlich erkl&auml;rt.
               </p>
@@ -665,7 +667,7 @@ orbita24_set_current_page('/');
             <p>
               Wir bereiten Inhalte verst&auml;ndlich auf, damit Sie sich schnell
               orientieren und
-              <a href="/optionen/">Optionen</a> leichter vergleichen
+              <a href="/optionen/">Optionen</a> leichter ansehen
               k&ouml;nnen.
             </p>
           </div>
@@ -719,7 +721,7 @@ orbita24_set_current_page('/');
               <h3>Ausgew&auml;hlte Angebote</h3>
               <p>
                 Angebote aus verschiedenen Bereichen werden &uuml;bersichtlich
-                dargestellt und lassen sich leichter vergleichen.
+                dargestellt und lassen sich leichter ansehen.
               </p>
             </article>
 

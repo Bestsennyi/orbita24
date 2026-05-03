@@ -67,9 +67,9 @@ orbita24_set_current_page('/optionen/energie/waermepumpe/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Effizienz</span>
               <h2>Effizienz Paket</h2>
-              <p>Effiziente W&auml;rmepumpen klar vergleichen.<br />Passend f&uuml;r Ihr Zuhause.</p>
+              <p>Effiziente W&auml;rmepumpen klar ansehen.<br />Passend f&uuml;r Ihr Zuhause.</p>
               <ul>
-                <li>Effizienz vergleichen</li>
+                <li>Effizienz ansehen</li>
                 <li>Anpassbare Optionen</li>
                 <li>Gute &Uuml;bersicht</li>
               </ul>
@@ -93,7 +93,7 @@ orbita24_set_current_page('/optionen/energie/waermepumpe/');
           <article class="card structure-final">
             <div>
               <h2>Weitere Optionen entdecken</h2>
-              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu Ihrer Situation passt.</p>
+              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu Ihrer Situation passt.</p>
             </div>
             <div class="cta-side">
               <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>

@@ -42,7 +42,7 @@ orbita24_set_current_page('/optionen/finanzen/');
                 <span class="structure-card-meta">&Uuml;berblick</span>
               </span>
               <h3>Kredit</h3>
-              <p>Kreditangebote einfach vergleichen.<br />Passende Finanzierung f&uuml;r Ihre Situation finden.</p>
+              <p>Kreditangebote einfach ansehen.<br />Passende Finanzierung f&uuml;r Ihre Situation finden.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/finanzen/girokonto/" class="card structure-card">
@@ -62,7 +62,7 @@ orbita24_set_current_page('/optionen/finanzen/');
                 <span class="structure-card-meta">Alltag</span>
               </span>
               <h3>Girokonto</h3>
-              <p>Girokonten &uuml;bersichtlich vergleichen.<br />Passendes Konto f&uuml;r den Alltag w&auml;hlen.</p>
+              <p>Girokonten &uuml;bersichtlich ansehen.<br />Passendes Konto f&uuml;r den Alltag w&auml;hlen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/finanzen/kreditkarte/" class="card structure-card">
@@ -78,7 +78,7 @@ orbita24_set_current_page('/optionen/finanzen/');
                 <span class="structure-card-meta">Karten</span>
               </span>
               <h3>Kreditkarte</h3>
-              <p>Kreditkarten einfach vergleichen.<br />Passende Karte f&uuml;r Alltag und Reisen finden.</p>
+              <p>Kreditkarten einfach ansehen.<br />Passende Karte f&uuml;r Alltag und Reisen finden.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/finanzen/tagesgeld/" class="card structure-card">
@@ -94,7 +94,7 @@ orbita24_set_current_page('/optionen/finanzen/');
                 <span class="structure-card-meta">Sparen</span>
               </span>
               <h3>Tagesgeld</h3>
-              <p>Tagesgeld Zinsen einfach vergleichen.<br />Flexibel und sicher Geld anlegen.</p>
+              <p>Tagesgeld Zinsen einfach ansehen.<br />Flexibel und sicher Geld anlegen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/finanzen/festgeld/" class="card structure-card">
@@ -110,7 +110,7 @@ orbita24_set_current_page('/optionen/finanzen/');
                 <span class="structure-card-meta">Stabil</span>
               </span>
               <h3>Festgeld</h3>
-              <p>Festgeld Angebote gezielt vergleichen.<br />Kapital sicher mit festen Zinsen anlegen.</p>
+              <p>Festgeld Angebote gezielt ansehen.<br />Kapital sicher mit festen Zinsen anlegen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/finanzen/kredit-trotz-schufa/" class="card structure-card">

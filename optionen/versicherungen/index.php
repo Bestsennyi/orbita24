@@ -48,7 +48,7 @@ orbita24_set_current_page('/optionen/versicherungen/');
                 <span class="structure-card-meta">Auto</span>
               </span>
               <h3>KFZ-Versicherung</h3>
-              <p>KFZ-Versicherungen einfach vergleichen.<br />Passenden Schutz f&uuml;r Ihr Auto finden.</p>
+              <p>KFZ-Versicherungen einfach ansehen.<br />Passenden Schutz f&uuml;r Ihr Auto finden.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/versicherungen/haftpflichtversicherung/" class="card structure-card">
@@ -68,7 +68,7 @@ orbita24_set_current_page('/optionen/versicherungen/');
                 <span class="structure-card-meta">Schutz</span>
               </span>
               <h3>Haftpflichtversicherung</h3>
-              <p>Haftpflichtversicherungen &uuml;bersichtlich vergleichen.<br />Zuverl&auml;ssigen Schutz im Alltag w&auml;hlen.</p>
+              <p>Haftpflichtversicherungen &uuml;bersichtlich ansehen.<br />Zuverl&auml;ssigen Schutz im Alltag w&auml;hlen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/versicherungen/hausratversicherung/" class="card structure-card">
@@ -88,7 +88,7 @@ orbita24_set_current_page('/optionen/versicherungen/');
                 <span class="structure-card-meta">Zuhause</span>
               </span>
               <h3>Hausratversicherung</h3>
-              <p>Hausratversicherungen einfach vergleichen.<br />Pers&ouml;nliche Dinge zuverl&auml;ssig sch&uuml;tzen.</p>
+              <p>Hausratversicherungen einfach ansehen.<br />Pers&ouml;nliche Dinge zuverl&auml;ssig sch&uuml;tzen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/versicherungen/rechtsschutzversicherung/" class="card structure-card">
@@ -107,7 +107,7 @@ orbita24_set_current_page('/optionen/versicherungen/');
                 <span class="structure-card-meta">Recht</span>
               </span>
               <h3>Rechtsschutzversicherung</h3>
-              <p>Rechtsschutzversicherungen gezielt vergleichen.<br />Bei Streitf&auml;llen finanziell abgesichert sein.</p>
+              <p>Rechtsschutzversicherungen gezielt ansehen.<br />Bei Streitf&auml;llen finanziell abgesichert sein.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/versicherungen/krankenkasse/" class="card structure-card">
@@ -122,7 +122,7 @@ orbita24_set_current_page('/optionen/versicherungen/');
                 <span class="structure-card-meta">Gesund</span>
               </span>
               <h3>Krankenkasse</h3>
-              <p>Krankenkassen &uuml;bersichtlich vergleichen.<br />Passende Leistungen f&uuml;r Ihre Gesundheit finden.</p>
+              <p>Krankenkassen &uuml;bersichtlich ansehen.<br />Passende Leistungen f&uuml;r Ihre Gesundheit finden.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/versicherungen/berufsunfaehigkeitsversicherung/" class="card structure-card">
@@ -142,7 +142,7 @@ orbita24_set_current_page('/optionen/versicherungen/');
                 <span class="structure-card-meta">Einkommen</span>
               </span>
               <h3>Berufsunf&auml;higkeitsversicherung</h3>
-              <p>Berufsunf&auml;higkeit absichern und vergleichen.<br />Einkommen langfristig zuverl&auml;ssig sch&uuml;tzen.</p>
+              <p>Berufsunf&auml;higkeit absichern und passende Optionen finden.<br />Einkommen langfristig zuverl&auml;ssig sch&uuml;tzen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
           </div>

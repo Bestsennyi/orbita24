@@ -171,7 +171,7 @@ orbita24_set_current_page('/optionen/versicherungen/rechtsschutzversicherung/');
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Einstieg</span>
               <h2>Rechtsschutzversicherung f&uuml;r den Alltag</h2>
-              <p>Leistungen vergleichen und sich bei rechtlichen Problemen gezielt absichern.</p>
+              <p>Leistungen ansehen und sich bei rechtlichen Problemen gezielt absichern.</p>
               <ul>
                 <li>&Uuml;bersichtlicher Ablauf</li>
                 <li>Klare Struktur</li>
@@ -212,7 +212,7 @@ orbita24_set_current_page('/optionen/versicherungen/rechtsschutzversicherung/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

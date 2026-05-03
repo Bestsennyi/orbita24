@@ -197,7 +197,7 @@ orbita24_set_current_page('/optionen/versicherungen/hausratversicherung/');
               <div class="offer-logo" aria-hidden="true">Logo</div>
               <span class="structure-card-meta">Schnell</span>
               <h2>Schnell</h2>
-              <p>Schnell vergleichen, abschlie&szlig;en und Ihr Zuhause zuverl&auml;ssig absichern.</p>
+              <p>Schnell ansehen, abschlie&szlig;en und Ihr Zuhause zuverl&auml;ssig absichern.</p>
               <ul>
                 <li>Schneller Einstieg</li>
                 <li>Kurzer Ablauf</li>
@@ -212,7 +212,7 @@ orbita24_set_current_page('/optionen/versicherungen/hausratversicherung/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

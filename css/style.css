@@ -186,6 +186,7 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 50;
+  min-height: var(--header-height);
   color: var(--text);
   background: #111827;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -201,6 +202,7 @@ textarea {
 
 .nav {
   width: min(100% - 32px, calc(var(--container) * 1.1));
+  height: var(--header-height);
   min-height: var(--header-height);
   display: flex;
   align-items: center;
@@ -1337,6 +1339,7 @@ textarea {
 
   .hero {
     --hero-block-size: clamp(26.25rem, 58svh, 31.25rem);
+    min-height: clamp(560px, 90svh, 680px);
     padding: 0;
     --hero-eyebrow-gap: 12px;
     --hero-title-gap: 14px;
@@ -1924,7 +1927,7 @@ textarea {
   }
 
   .hero {
-    min-height: clamp(560px, 90dvh, 680px);
+    min-height: clamp(560px, 90svh, 680px);
     display: flex;
     align-items: center;
     text-align: center;
@@ -2251,6 +2254,7 @@ textarea {
   .cta-box,
   .hero-cta,
   .hero-cta-mobile,
+  .hero-trust li,
   .breadcrumb-back,
   .icon svg,
   .icon-list li,
@@ -2333,6 +2337,25 @@ textarea {
   .btn-primary:hover {
     background: var(--accent) !important;
     box-shadow: none !important;
+  }
+
+  .hero-trust li {
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    transition:
+      transform 120ms ease,
+      background-color 120ms ease,
+      border-color 120ms ease,
+      color 120ms ease;
+  }
+
+  .hero-trust li:active,
+  .hero-trust li.is-tapping {
+    color: var(--text-strong);
+    background: rgba(31, 41, 55, 0.96);
+    border-color: rgba(0, 255, 136, 0.35);
+    transform: translateY(-2px) scale(1.01);
   }
 
   .offer-card .btn:hover,

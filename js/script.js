@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (isCoarsePointer) {
     document.addEventListener('touchstart', () => {}, { passive: true });
 
-    const tapTargetSelector = 'a, button, .btn, .card, .cta-box, .structure-card, .structure-back, .icon-list li';
+    const tapTargetSelector = 'a, button, .btn, .card, .cta-box, .structure-card, .structure-back, .icon-list li, .hero-trust li';
     let activeTapTarget = null;
     let tapClearTimer = null;
 

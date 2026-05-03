@@ -172,7 +172,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit-trotz-schufa/');
               <span class="structure-card-meta">Bonit&auml;t</span>
               <h2>Kredit trotz Schufa pr&uuml;fen</h2>
               <p>
-                M&ouml;glichkeiten bei negativer Schufa einfach und verst&auml;ndlich vergleichen.
+                M&ouml;glichkeiten bei negativer Schufa einfach und verst&auml;ndlich ansehen.
               </p>
               <ul>
                 <li>Optionen trotz Schufa</li>
@@ -218,7 +218,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit-trotz-schufa/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

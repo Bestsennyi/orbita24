@@ -163,7 +163,7 @@ orbita24_set_current_page('/optionen/auto/gebrauchtwagen/');
 
           <div class="structure-header offer-intro">
             <h1>Gebrauchtwagen im &Uuml;berblick</h1>
-            <p>Passende Fahrzeuge einfach vergleichen.</p>
+            <p>Passende Fahrzeuge einfach ansehen.</p>
           </div>
 
           <div class="offer-grid" aria-label="Demo Angebote">
@@ -206,7 +206,7 @@ orbita24_set_current_page('/optionen/auto/gebrauchtwagen/');
           <article class="card structure-final">
             <div>
               <h2>Weitere Optionen entdecken</h2>
-              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu Ihrer Situation passt.</p>
+              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu Ihrer Situation passt.</p>
             </div>
             <div class="cta-side">
               <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>

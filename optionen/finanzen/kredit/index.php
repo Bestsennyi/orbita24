@@ -174,7 +174,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit/');
               <span class="structure-card-meta">Schnell</span>
               <h2>Sofortkredit</h2>
               <p>
-                Sofortkredite vergleichen und schnell Geld erhalten.
+                Sofortkredite ansehen und schnell Geld erhalten.
               </p>
               <ul>
                 <li>Schnelle Anfrage</li>
@@ -189,7 +189,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit/');
               <span class="structure-card-meta">Flexibel</span>
               <h2>Ratenkredit</h2>
               <p>
-                Ratenkredite vergleichen und monatliche Rate planen.
+                Ratenkredite ansehen und monatliche Rate planen.
               </p>
               <ul>
                 <li>Planbare Monatsrate</li>
@@ -220,7 +220,7 @@ orbita24_set_current_page('/optionen/finanzen/kredit/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

@@ -24,7 +24,7 @@ orbita24_set_current_page('/optionen/auto/');
             <?php orbita24_render_breadcrumbs(); ?>
           </div><div class="structure-header">
             <h1>Auto im &Uuml;berblick</h1>
-            <p>Finanzierung und Optionen rund ums Auto einfach vergleichen. Alle Bereiche finden Sie in unserer &Uuml;bersicht der <a href="/optionen/" class="structure-overview-link">Optionen</a>.</p>
+            <p>Passende Anbieter und Angebote rund ums Auto ansehen. Alle Bereiche finden Sie in unserer &Uuml;bersicht der <a href="/optionen/" class="structure-overview-link">Optionen</a>.</p>
           </div>
 
           <div class="structure-grid">
@@ -42,7 +42,7 @@ orbita24_set_current_page('/optionen/auto/');
                 <span class="structure-card-meta">Kredit</span>
               </span>
               <h3>Autokredit</h3>
-              <p class="structure-card-description"><span>Autokredit einfach vergleichen.</span><span>Fahrzeug flexibel finanzieren.</span></p>
+              <p class="structure-card-description"><span>Autokredit einfach ansehen.</span><span>Fahrzeug flexibel finanzieren.</span></p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/auto/leasing/" class="card structure-card">
@@ -58,7 +58,7 @@ orbita24_set_current_page('/optionen/auto/');
                 <span class="structure-card-meta">Leasing</span>
               </span>
               <h3>Leasing</h3>
-              <p class="structure-card-description"><span>Leasingangebote vergleichen.</span><span>Flexibel und planbar fahren.</span></p>
+              <p class="structure-card-description"><span>Leasingangebote ansehen.</span><span>Flexibel und planbar fahren.</span></p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/auto/zulassung/" class="card structure-card">
@@ -95,7 +95,7 @@ orbita24_set_current_page('/optionen/auto/');
                 <span class="structure-card-meta">Gebraucht</span>
               </span>
               <h3>Gebrauchtwagen</h3>
-              <p class="structure-card-description"><span>Gebrauchtwagen gezielt vergleichen.</span><span>Passendes Fahrzeug schnell finden.</span></p>
+              <p class="structure-card-description"><span>Gebrauchtwagen gezielt ansehen.</span><span>Passendes Fahrzeug schnell finden.</span></p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/auto/neuwagen/" class="card structure-card">
@@ -115,7 +115,7 @@ orbita24_set_current_page('/optionen/auto/');
                 <span class="structure-card-meta">Neu</span>
               </span>
               <h3>Neuwagen</h3>
-              <p class="structure-card-description"><span>Neuwagen einfach vergleichen.</span><span>Passendes Modell direkt finden.</span></p>
+              <p class="structure-card-description"><span>Neuwagen einfach ansehen.</span><span>Passendes Modell direkt finden.</span></p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/auto/elektroauto/" class="card structure-card">
@@ -134,7 +134,7 @@ orbita24_set_current_page('/optionen/auto/');
                 <span class="structure-card-meta">E-Auto</span>
               </span>
               <h3>Elektroauto</h3>
-              <p class="structure-card-description"><span>Elektroautos einfach vergleichen.</span><span>Vorteile und F&ouml;rderung nutzen.</span></p>
+              <p class="structure-card-description"><span>Elektroautos einfach ansehen.</span><span>Vorteile und F&ouml;rderung nutzen.</span></p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
           </div>

@@ -173,7 +173,7 @@ orbita24_set_current_page('/optionen/finanzen/kreditkarte/');
               <h2>Kreditkarte f&uuml;r den Alltag</h2>
               <p>
                 F&uuml;r Nutzer, die einen verst&auml;ndlichen Einstieg suchen und m&ouml;gliche
-                L&ouml;sungen ohne komplizierte Darstellung vergleichen m&ouml;chten.
+                L&ouml;sungen ohne komplizierte Darstellung ansehen m&ouml;chten.
               </p>
               <ul>
                 <li>&Uuml;bersichtlicher Ablauf</li>
@@ -221,7 +221,7 @@ orbita24_set_current_page('/optionen/finanzen/kreditkarte/');
             <div>
               <h2>Weitere Optionen entdecken</h2>
             <p>
-              Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu
+              Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu
               Ihrer Situation passt.
             </p>
             </div>

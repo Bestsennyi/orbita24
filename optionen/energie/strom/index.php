@@ -55,7 +55,7 @@ orbita24_set_current_page('/optionen/energie/strom/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Einfach</span>
               <h2>Basis Tarif</h2>
-              <p>Solide Stromversorgung einfach vergleichen.<br />Ideal f&uuml;r den ersten Tarifwechsel.</p>
+              <p>Solide Stromversorgung einfach ansehen.<br />Ideal f&uuml;r den ersten Tarifwechsel.</p>
               <ul>
                 <li>&Uuml;bersichtliche Auswahl</li>
                 <li>Feste Konditionen</li>
@@ -67,7 +67,7 @@ orbita24_set_current_page('/optionen/energie/strom/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Flexibel</span>
               <h2>Flex Tarif</h2>
-              <p>Anpassbare Stromtarife klar vergleichen.<br />Passend f&uuml;r individuelle Bed&uuml;rfnisse.</p>
+              <p>Anpassbare Stromtarife klar ansehen.<br />Passend f&uuml;r individuelle Bed&uuml;rfnisse.</p>
               <ul>
                 <li>Flexible Laufzeit</li>
                 <li>Anpassbare Optionen</li>
@@ -93,7 +93,7 @@ orbita24_set_current_page('/optionen/energie/strom/');
           <article class="card structure-final">
             <div>
               <h2>Weitere Optionen entdecken</h2>
-              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu Ihrer Situation passt.</p>
+              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu Ihrer Situation passt.</p>
             </div>
             <div class="cta-side">
               <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>

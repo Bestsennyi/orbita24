@@ -45,7 +45,7 @@ orbita24_set_current_page('/optionen/internet/');
                 <span class="structure-card-meta">DSL</span>
               </span>
               <h3>DSL</h3>
-              <p>DSL-Tarife einfach vergleichen.<br />Passenden Anschluss schnell finden.</p>
+              <p>DSL-Tarife einfach ansehen.<br />Passenden Anschluss schnell finden.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/internet/glasfaser/" class="card structure-card">
@@ -76,7 +76,7 @@ orbita24_set_current_page('/optionen/internet/');
                 <span class="structure-card-meta">Mobil</span>
               </span>
               <h3>Mobilfunk</h3>
-              <p>Mobilfunktarife &uuml;bersichtlich vergleichen.<br />Passenden Vertrag flexibel w&auml;hlen.</p>
+              <p>Mobilfunktarife &uuml;bersichtlich ansehen.<br />Passenden Vertrag flexibel w&auml;hlen.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/internet/sim/" class="card structure-card">
@@ -98,7 +98,7 @@ orbita24_set_current_page('/optionen/internet/');
                 <span class="structure-card-meta">Flex</span>
               </span>
               <h3>SIM</h3>
-              <p>SIM-Tarife gezielt vergleichen.<br />Flexibel und g&uuml;nstig mobil bleiben.</p>
+              <p>SIM-Tarife gezielt ansehen.<br />Flexibel und g&uuml;nstig mobil bleiben.</p>
               <span class="btn btn-secondary">Optionen ansehen</span>
             </a>
             <a href="/optionen/internet/festnetz/" class="card structure-card">

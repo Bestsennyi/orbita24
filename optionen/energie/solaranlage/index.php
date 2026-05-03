@@ -67,7 +67,7 @@ orbita24_set_current_page('/optionen/energie/solaranlage/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Komplett</span>
               <h2>Komplett Solar</h2>
-              <p>Passende Solarl&ouml;sungen klar vergleichen.<br />Gut geplant f&uuml;r Ihr Zuhause.</p>
+              <p>Passende Solarl&ouml;sungen klar ansehen.<br />Gut geplant f&uuml;r Ihr Zuhause.</p>
               <ul>
                 <li>Passende Planung</li>
                 <li>Anpassbare Optionen</li>
@@ -93,7 +93,7 @@ orbita24_set_current_page('/optionen/energie/solaranlage/');
           <article class="card structure-final">
             <div>
               <h2>Weitere Optionen entdecken</h2>
-              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu Ihrer Situation passt.</p>
+              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu Ihrer Situation passt.</p>
             </div>
             <div class="cta-side">
               <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>

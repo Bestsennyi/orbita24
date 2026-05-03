@@ -55,7 +55,7 @@ orbita24_set_current_page('/optionen/energie/oekostrom/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Gr&uuml;n</span>
               <h2>Gr&uuml;n Basis</h2>
-              <p>Nachhaltigen Strom einfach vergleichen.<br />Ideal f&uuml;r den gr&uuml;nen Wechsel.</p>
+              <p>Nachhaltigen Strom einfach ansehen.<br />Ideal f&uuml;r den gr&uuml;nen Wechsel.</p>
               <ul>
                 <li>&Uuml;bersichtliche Auswahl</li>
                 <li>Feste Konditionen</li>
@@ -67,7 +67,7 @@ orbita24_set_current_page('/optionen/energie/oekostrom/');
               <div class="offer-logo" aria-hidden="true">Demo</div>
               <span class="structure-card-meta">Natur</span>
               <h2>Natur Tarif</h2>
-              <p>Umweltfreundliche Tarife klar vergleichen.<br />Passend f&uuml;r Ihren Alltag.</p>
+              <p>Umweltfreundliche Tarife klar ansehen.<br />Passend f&uuml;r Ihren Alltag.</p>
               <ul>
                 <li>Nachhaltige Auswahl</li>
                 <li>Anpassbare Optionen</li>
@@ -93,7 +93,7 @@ orbita24_set_current_page('/optionen/energie/oekostrom/');
           <article class="card structure-final">
             <div>
               <h2>Weitere Optionen entdecken</h2>
-              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und vergleichen Sie in Ruhe, was zu Ihrer Situation passt.</p>
+              <p>Sehen Sie sich weitere M&ouml;glichkeiten an und finden Sie in Ruhe, was zu Ihrer Situation passt.</p>
             </div>
             <div class="cta-side">
               <a href="/kontakt.php" class="btn btn-primary">Kontakt aufnehmen</a>
